@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agencia De Marketing Digital Andrey</title>
+  <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+  <link href="css/normalize.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <style>
+
+:root {
+  --color-azul: #2b32b2;
+  --color-morado: #8e2de2;
+  --color-blanco: #ffffff;
+  --color-negro: #0c0c0c;
+  --color-sombra: rgba(0, 0, 0, 0.1);
+}
+
+.header-elegante {
+  position: relative;
+  height: 180px;
+  overflow: hidden;
+  text-align: center;
+  color: var(--color-blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-negro);
+}
+
+.contenedor-header {
+  position: relative;
+  z-index: 2;
+}
+.titulo-onda {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(
+    90deg,
+    #00fff7,
+    #7fff00,
+    #ff00ff,
+    #00ffff,
+    #ffea00,
+    #00fff7
+  );
+  background-size: 600% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: neonFlow 8s linear infinite;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Animación degradado en movimiento */
+@keyframes neonFlow {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+/* Animación del texto */
+@keyframes waveGlow {
+  0% {
+    background-position: 300% center;
+  }
+  50% {
+    background-position: -300% center;
+  }
+  100% {
+    background-position: 300% center;
+  }
+}
+
+/* Lienzo del universo animado */
+#espacio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+
+
+
+  
+ body {
+      font-family: 'Krub', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://cronuts.digital/wp-content/uploads/2023/12/0Fd4XuQCy1Nbwml843D.png') no-repeat center center;
+  background-size: cover;
+  opacity: 0.4; /* Ajusta la visibilidad de la imagen */
+  z-index: -1; /* Mantener la imagen detrás del contenido */
+  pointer-events: none; /* No bloquear clics ni scroll */
+}
+
+    .contenedor {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+
+.hero {
+  background-image: url('https://scontent.feoh2-1.fna.fbcdn.net/v/t39.30808-6/379376739_6236901193088336_7074761248112030461_n.png?_nc_cat=109&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFS8Bq4o5pSokAeEJY-4pSc1Q_umybhVm7VD-6bJuFWbsDCPLSNhmtdkawDIg8Goz88gAxhTgX6crOWTdVcjLKz&_nc_ohc=iyEM673KujYQ7kNvwFxf9y6&_nc_oc=AdmSPVWv7baQMiIBo2KXSm-Kg4yqbMCUkuWnvJBD8TYgfqcP_anATA-ys5yxAJI3Na4&_nc_zt=23&_nc_ht=scontent.feoh2-1.fna&_nc_gid=Iu70v7LzAjGsz-OlPh_PlQ&oh=00_AfNherwPsQKac3aS3llYYUj6lAUrSYcVq-iIwIvkd1R9pA&oe=685670B8');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* oscurece para mejorar legibilidad */
+  z-index: -1;
+}
+
+.contenido-hero {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+.ubicacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: #f2ffe5;
+}
+
+.boton {
+    background-color: #39a900;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.boton:hover {
+    background-color: #29690b;
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .contenido-hero h2 {
+        font-size: 2rem;
+    }
+
+    .ubicacion {
+        flex-direction: column;
+    }
+}
+body {
+  font-family: 'Krub', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  color: #000;
+}
+
+/* Header */
+header {
+  background-color: #39a900;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  border-bottom: 4px solid #29690b;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+/* Navegación */
+
+.nav-bg {
+  background-color: #0c0c0c; /* Negro sólido */
+  padding: 2px 0; /* Muy delgada */
+  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.05); /* Sombra suave clara */
+}
+
+.navegacion-principal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.7rem; /* Letra pequeña */
+  padding: 2px 0;
+}
+
+.navegacion-principal a {
+  text-decoration: none;
+  color: #ffffff; /* Blanco puro */
+  font-weight: 500;
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition: all 0.2s ease-in-out;
+}
+
+.navegacion-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.08); /* Efecto sutil */
+  transform: scale(1.02);
+  color: #e0e0e0; /* Gris claro al pasar el mouse */
+}
+
+
+
+
+
+/* Hero */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+              url('https://images.unsplash.com/photo-1606761568499-6c60dcf203b5?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 5rem 2rem;
+}
+
+.contenido-hero h2 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+.contenido-hero span {
+  color: #98fe58;
+  text-shadow: 1px 1px 5px #000;
+}
+
+.contenido-hero p {
+  font-size: 1.2rem;
+  margin: 1rem 0 2rem;
+  color: #f2ffe5;
+}
+
+/* Botón */
+.boton {
+  background-color: #39a900;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #29690b;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contenido-hero h2 {
+    font-size: 1.8rem;
+  }
+  .navegacion-principal {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.boton {
+  background-color: #39a900;
+  color: white;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.boton:hover {
+  background-color: #29690b;
+  transform: scale(1.05);
+}
+    .category {
+      margin-bottom: 4rem;
+    }
+
+    .category h2 {
+      color: #39a900;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .card {
+      flex: 1 1 calc(33.333% - 1rem);
+      background-color: #f2ffe5;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background-color: #98fe58;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+    .contenedor {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+  .category h2 {
+  color: #39a900;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.category h2:hover {
+  color: #29690b;
+}
+    .category h2 {
+      color: #39a900;
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5rem;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .card {
+      flex: 1 1 calc(33.333% - 1rem);
+      background-color: #f2ffe5;
+      border-radius: 10px;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background-color: #98fe58;
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    footer {
+      background: #04324d;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .card {
+        flex: 1 1 100%;
+      }
+    }
+
+    .wave-letter {
+  display: inline-block;
+  animation: wave 1.5s infinite ease-in-out;
+  color: #39a900; /* verde institucional */
+  font-weight: bold;
+  font-family: 'Work Sans', sans-serif;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+}
+
+#universo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #000;
+}
+
+.contenido-hero {
+  position: relative;
+  z-index: 1;
+}
+.mensaje-guia {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #ffffff;
+  background: linear-gradient(to right, rgba(46, 0, 78, 0.6), rgba(0, 14, 61, 0.6));
+  padding: 1.5rem 2rem;
+  margin: 2.5rem auto;
+  border-left: 5px solid var(--color-morado);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  max-width: 900px;
+  text-align: center;
+  line-height: 1.7;
+  backdrop-filter: blur(4px);
+}
+.titulo-hero {
+  font-size: 2rem;
+  font-weight: bold;
+  transition: transform 0.4s ease, color 0.4s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.titulo-hero:hover {
+  transform: scale(1.1);
+  color: #ffea00;
+}
+
+.ubicacion p {
+  margin: 8px 0 0;
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.ubicacion p:hover {
+  transform: scale(1.05);
+  color: #00fff7;
+}
+
+.boton {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 24px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #2b32b2;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.boton:hover {
+  transform: scale(1.08);
+  background-color: #8e2de2;
+}
+#universo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+
+  /* Fondo con imagen desde internet */
+  background: url('https://th.bing.com/th/id/OIP.dtNF3QGABvZDsjB3JqskwgHaE7?rs=1&pid=ImgDetMain') no-repeat center center;
+  background-size: cover;
+
+  /* Fondo base oscuro por si no carga */
+  background-color: #000;
+}
+
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<header class="header-elegante">
+  <canvas id="espacio"></canvas>
+  <div class="contenedor-header">
+    <h1 class="titulo-onda">Agencia de Marketing Digital <span>Andrey</span></h1>
+  </div>
+</header>
+
+<nav class="nav-bg">
+  <div class="navegacion-principal contenedor">
+    <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+    <a href="https://rtvu2i.mimo.run/index.html">Nuestros Servicios</a>
+    <a href="https://tmt44a.mimo.run/index.html">Contacto</a>
+  </div>
+</nav>
+
+
+
+<section class="hero">
+  <canvas id="universo"></canvas>
+
+  <div class="contenido-hero contenedor">
+    <h2 class="titulo-hero"><span>Bienvenido(a) MUNDO PUBLICIDAD</span></h2>
+
+    <div class="ubicacion">
+      <!-- icono SVG -->
+      <p>Popayán, Cauca</p>
+    </div>
+
+    <a class="boton" href="https://tmt44a.mimo.run/index.html">Contactar</a>
+  </div>
+
+
+</section>
+<section class="guia-usuario contenedor">
+  <p class="mensaje-guia">
+    ✨ En <strong>Agencia de Marketing Digital Andrey</strong>, no vendemos servicios…  
+    Creamos experiencias que enamoran, mensajes que se sienten y marcas que dejan huella.  
+    <br><br>
+    Diseñamos estrategias que hablan al corazón y persuaden a la mente,  
+    combinando creatividad, neurociencia y un toque de magia digital.  
+    <br><br>
+    Cada clic que generamos, cada color que elegimos y cada palabra que escribimos  
+    están pensados para conectar con lo más profundo de tu cliente ideal.  
+    <br><br>
+    Visualiza tu marca siendo recordada, compartida y deseada.  
+    <strong>Explora nuestros servicios</strong>, elige el que resuene con tu visión  
+    y comencemos a escribir tu historia de éxito. 🚀
+  </p>
+</section>
+<p><center><strong> Selecciona el servicio que deseas ampliar información.</strong></p></center>
+
+
+<main class="contenedor" id="servicios">
+
+  <!-- Categoría 1 -->
+  <section class="category">
+    <h2>🧠 1. Soluciones Inteligentes</h2>
+    <div class="card-container">
+      <div class="card" onclick="location.href='https://5aquwx.mimo.run/index.html'">
+        <h3>💬A. Chatbot Profesional</h3>
+        <p>Automatiza tu atención al cliente.</p>
+      </div>
+      <div class="card" onclick="location.href='https://iagkfj.mimo.run/index.html'">
+        <h3>💻B. Análisis y Desarrollo de Software</h3>
+        <p>Soluciones a la medida de tus necesidades.</p>
+      </div>
+      <div class="card" onclick="location.href='https://ake2k7.mimo.run/index.html'">
+        <h3>💻C. Desarrollo de Software</h3>
+        <p>Desde apps web hasta sistemas de gestión.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categoría 2 -->
+  <section class="category">
+    <h2>🌐 2. Diseño y Presencia Digital</h2>
+    <div class="card-container">
+      <div class="card" onclick="location.href='https://bxzip2.mimo.run/index.html'">
+        <h3>🌐 A. Diseño de Páginas Web</h3>
+        <p>Sitios modernos y personalizados.</p>
+      </div>
+      <div class="card" onclick="location.href='https://m7xk17.mimo.run/index.html'">
+        <h3>💾 B. Desarrollo de Base de Datos</h3>
+        <p>Estructuras MySQL bien optimizadas.</p>
+      </div>
+      <div class="card" onclick="location.href='https://2q6qk2.mimo.run/index.html'">
+        <h3>🎨C. Diseño Gráfico</h3>
+        <p>Creatividad para tu marca.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categoría 3 -->
+  <section class="category">
+    <h2>📱 3. Redes Sociales y Marketing</h2>
+    <div class="card-container">
+      <div class="card" onclick="location.href='https://g4w20q.mimo.run/index.html'">
+        <h3>📱A.  Publicidad en Redes</h3>
+        <p>Potencia tu alcance online.</p>
+      </div>
+      <div class="card" onclick="location.href='https://kgbf8c.mimo.run/index.html'">
+        <h3>🎨B.  Fan Page en Facebook</h3>
+        <p>Diseño optimizado + asesoría.</p>
+      </div>
+      <div class="card" onclick="location.href='https://veaock.mimo.run/index.html'">
+        <h3>📈C.  Pauta en Marketplace</h3>
+        <p>Visibilidad en e-commerce.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categoría 4 -->
+  <section class="category">
+    <h2>🎧 4. Producción Multimedia</h2>
+    <div class="card-container">
+      <div class="card" onclick="location.href='https://1v4t8l.mimo.run/index.html'">
+        <h3>🎥A.  Producción de Videos</h3>
+        <p>Material audiovisual profesional.</p>
+      </div>
+      <div class="card" onclick="location.href='https://yq7rab.mimo.run/index.html'">
+        <h3>🎧B.  Producción de Audio</h3>
+        <p>Audio envolvente de alta calidad.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categoría 5 -->
+  <section class="category">
+    <h2>🚀 5. Publicidad en Movimiento</h2>
+    <div class="card-container">
+      <div class="card" onclick="location.href='https://c5vk5g.mimo.run/index.html'">
+        <h3>🚗A.  Perifoneo Móvil</h3>
+        <p>Tu mensaje en movimiento.</p>
+      </div>
+      <div class="card" onclick="location.href='https://b58h26.mimo.run/index.html'">
+        <h3>🎯B.  Activación de Marca</h3>
+        <p>Estrategias efectivas para tu marca.</p>
+      </div>
+      <div class="card" onclick="location.href='https://zyjxdr.mimo.run/index.html'">
+        <h3>📝C.  Registro en Google Ads</h3>
+        <p>Optimización de campañas publicitarias.</p>
+      </div>
+    </div>
+  </section>
+     <p>¡Déjanos saber cuál servicio te interesa y con gusto te brindaremos toda la información que necesites! 😃✨ ¡Te ayudamos!</p>
+        </section>
+
+<br>
+<br>
+        <center>
+<a href="https://65a8sh.mimo.run/index.html" style="background-color: #4CAF50; color: white; padding: 15px 32px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; border-radius: 4px; border: none; cursor: pointer;"> PANEL DE VIDEO JUEGOS</a>
+   
+   </center>
+        
+</main>
+
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+
+</body>
+</html>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const categorias = document.querySelectorAll(".category");
+
+    categorias.forEach(categoria => {
+      const titulo = categoria.querySelector("h2");
+      const cards = categoria.querySelector(".card-container");
+
+      // Oculta todas las subcategorías al inicio
+      cards.style.display = "none";
+      cards.style.opacity = 0;
+      cards.style.transition = "opacity 0.4s ease";
+
+      // Cuando se hace clic en el título, se despliega
+      titulo.style.cursor = "pointer";
+      titulo.addEventListener("click", () => {
+        if (cards.style.display === "none") {
+          cards.style.display = "flex";
+          setTimeout(() => {
+            cards.style.opacity = 1;
+          }, 50);
+        } else {
+          cards.style.opacity = 0;
+          setTimeout(() => {
+            cards.style.display = "none";
+          }, 400);
+        }
+      });
+    });
+  });
+</script>
+
+<script>
+const canvas = document.getElementById('espacio');
+const ctx = canvas.getContext('2d');
+let stars = [];
+
+function redimensionar() {
+  canvas.width = window.innerWidth;
+  canvas.height = document.querySelector('.header-elegante').offsetHeight;
+}
+
+window.addEventListener('resize', redimensionar);
+redimensionar();
+
+function crearEstrellas(cantidad) {
+  stars = [];
+  for (let i = 0; i < cantidad; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5,
+      d: Math.random() * 0.5 + 0.2
+    });
+  }
+}
+
+function animarEstrellas() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = 'white';
+  ctx.shadowBlur = 4;
+  ctx.shadowColor = '#ffffff';
+  for (let star of stars) {
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    ctx.fill();
+    star.y += star.d;
+    if (star.y > canvas.height) {
+      star.y = 0;
+      star.x = Math.random() * canvas.width;
+    }
+  }
+  requestAnimationFrame(animarEstrellas);
+}
+
+crearEstrellas(100);
+animarEstrellas();
+</script>
+
+<script>
+const canvas = document.getElementById('universo');
+const ctx = canvas.getContext('2d');
+let stars = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = document.querySelector('.hero').offsetHeight;
+}
+window.addEventListener('resize', resizeCanvas);
+resizeCanvas();
+
+for (let i = 0; i < 150; i++) {
+  stars.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 1.2,
+    speed: Math.random() * 0.5 + 0.2
+  });
+}
+
+function animateStars() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.fillStyle = '#ffffff';
+  stars.forEach(star => {
+    star.y += star.speed;
+    if (star.y > canvas.height) {
+      star.y = 0;
+      star.x = Math.random() * canvas.width;
+    }
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animateStars);
+}
+animateStars();
+</script>
+
+
+<script>
+  // Mensajes que se mostrarán secuencialmente
+  const mensajes = [
+    "✨ En <strong>Agencia de Marketing Digital Andrey</strong>, no vendemos servicios…",
+    "Creamos experiencias que enamoran, mensajes que se sienten y marcas que dejan huella.",
+    "Diseñamos estrategias que hablan al corazón y persuaden a la mente,",
+    "combinando creatividad, neurociencia y un toque de magia digital.",
+    "Cada clic que generamos, cada color que elegimos y cada palabra que escribimos",
+    "están pensados para conectar con lo más profundo de tu cliente ideal.",
+    "Visualiza tu marca siendo recordada, compartida y deseada.",
+    "<strong>Explora nuestros servicios</strong>, elige el que resuene con tu visión y comencemos a escribir tu historia de éxito. 🚀"
+  ];
+
+  const contenedor = document.querySelector(".mensaje-guia");
+  let index = 0;
+
+  function mostrarMensaje() {
+    contenedor.innerHTML = mensajes[index];
+    index = (index + 1) % mensajes.length; // vuelve al inicio automáticamente
+  }
+
+  // Mostrar el primer mensaje inmediatamente
+  mostrarMensaje();
+
+  // Cambiar mensaje cada 10 segundos (10000 milisegundos)
+  setInterval(mostrarMensaje, 10000);
+</script>

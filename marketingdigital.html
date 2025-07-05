@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketing Digital Andrey- Freelancer Jesus Andrés Salazar</title>
+    <link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./css6/normalize.css">
+    <link rel="stylesheet" href="./css6/estilos.css">
+    
+
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+    :root {
+        --padding-container: 100px 0;
+        --color-title: #001A49;
+    }
+    
+  body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  color: var(--primary-text);
+  line-height: 1.6;
+  background: url('https://png.pngtree.com/thumb_back/fw800/background/20220218/pngtree-circular-column-advertising-background-image_954761.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  z-index: 0;
+}
+    body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #e6ffe6, #ffffff);
+  opacity: 0.5; /* Ajusta según contraste deseado */
+  z-index: -1;
+}
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: var(--padding-container);
+    }
+    
+    .hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    color: #fff;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Imagen de fondo en forma de flecha */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+        url('https://th.bing.com/th/id/OIP.F4JgOXN4xUeQcKGfB7Q62wHaEK?w=680&h=383&rs=1&pid=ImgDetMain');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.85) blur(1px);
+    opacity: 0.65;
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Contenido encima del fondo */
+.hero nav,
+.hero .hero__container {
+    position: relative;
+    z-index: 2;
+}
+    
+    
+    /* Nav */
+    
+    .nav {
+        --padding-container: 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav__title {auto;
+        padding: 0;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        gap: 2em;
+    }
+    .nav__items {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 1s ease, transform 1s ease;
+    display: none;
+}
+    .nav__items.active {
+    display: list-item;
+    opacity: 1;
+    transform: scale(1);
+}
+    .nav__links {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .nav__menu {
+        margin-left: auto;
+        cursor: pointer;
+        display: none;
+    }
+    
+    .nav__img {
+        display: block;
+        width: 30px;
+    }
+    
+.nav__close {
+    width: 40px; /* O ajusta el tamaño según prefieras */
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff; /* Opcional: borde blanco o institucional */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.nav__close:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+     border-radius: 50%;
+}
+    /* Hero container */
+    
+    .hero__container {
+        max-width: 800px;
+        --padding-container: 0;
+        display: grid;
+        grid-auto-rows: max-content;
+        align-content: center;
+        gap: 1em;
+        padding-bottom: 100px;
+        text-align: center;
+    }
+    
+    .hero__title {
+        font-size: 3rem;
+    }
+    
+    .hero__paragraph {
+        margin-bottom: 20px;
+    }
+    
+    .cta {
+        display: inline-block;
+        background-color: #2091F9;
+        justify-self: center;
+        color: #fff;
+        text-decoration: none;
+        padding: 13px 30px;
+        border-radius: 32px;
+    }
+ .servicios {
+  width: 100%;
+  padding: 4rem 2rem;
+  background-color: #f2ffe5;
+  text-align: center;
+}
+
+.slider__title {
+  font-size: 2.5rem;
+  color: var(--primary-text, #222);
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.about__slider {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.about__main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about__icons {
+  display: none;
+  max-width: 700px;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  transform: scale(0.9);
+  transition: all 0.8s ease-in-out;
+}
+
+.about__icons.active {
+  display: block;
+  transform: scale(1.03);
+}
+
+.about__icon {
+  width: 560px;
+  height: 290px;
+  margin-bottom: 1rem;
+}
+
+.about__title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--alternate, #29690b);
+}
+
+.about__paragrah {
+  font-size: 1rem;
+  color: var(--secondary-text, #555);
+}
+
+ .about-me {
+  padding: 4rem 2rem;
+  background: #ffffff;
+  color: #333333;
+}
+
+.about-me__container {
+  max-width: 800px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.about-me__container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-me__subtitle {
+  font-size: 2rem;
+  color: #29690b;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.about-me__ready {
+  font-size: 1.5rem;
+  color: #222222;
+  margin: 2rem 0 1rem;
+}
+
+.about-me__text {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}   
+
+.barradenavegacioninicial {
+    background-color: #000; /* fondo negro */
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+    padding: 15px 0;
+}
+
+.barradenavegacioninicial a {
+    color: #ccc; /* gris claro para texto */
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.barradenavegacioninicial a:hover {
+    color: #e0e0e0; /* gris aún más claro al pasar el mouse */
+    transform: scale(1.05); /* pequeño zoom suave */
+}
+
+    /* Knowledge */
+    
+    .knowledge {
+        background-color: #e5e5f7;
+        background-image: radial-gradient(#444cf7 0.5px, transparent 0.5px), radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+        background-size: 20px 20px;
+        background-position: 0 0, 10px 10px;
+        overflow: hidden;
+    }
+    
+    .knowledge__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+        align-items: center;
+    }
+    
+    .knowledge__picture {
+        max-width: 500px;
+    }
+    
+    .knowledge__paragraph {
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+    
+    .knowledge__img {
+        width: 100%;
+        display: block;
+    }
+    
+    /* Price */
+    
+    .price {
+        text-align: center;
+    }
+    
+    .price__table {
+        padding-top: 60px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5em;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    
+    .price__element {
+        background-color: #e5e5f7;
+        text-align: center;
+        border-radius: 10px;
+        width: 330px;
+        padding: 40px;
+        --color-plan: #696871;
+        --color-price: #1D293F;
+        --bg-cta: #fff;
+        --color-cta: #5454D4;
+        --color-items: #696871;
+    }
+    
+    .price__element--best {
+        width: 370px;
+        padding: 60px 40px;
+        background-color: #FF7143;
+        --color-plan: rgb(255 255 255 / 75%);
+        --color-price: #fff;
+        --bg-cta: #9F3919;
+        --color-cta: #FFF;
+        --color-items: #fff;
+    }
+    
+    .price__name {
+        color: var(--color-plan);
+        margin-bottom: 15px;
+        font-weight: 300;
+    }
+    
+    .price__price {
+        font-size: 2.5rem;
+        color: var(--color-price);
+    }
+    
+    .price__items {
+        margin-top: 35px;
+        display: grid;
+        gap: 1em;
+        font-weight: 300;
+        font-size: 1.2rem;
+        margin-bottom: 50px;
+        color: var(--color-items);
+    }
+    
+    .price__cta {
+        display: block;
+        padding: 20px 0;
+        border-radius: 10px;
+        text-decoration: none;
+        background-color: var(--bg-cta);
+        font-weight: 600;
+        color: var(--color-cta);
+        box-shadow: 0 0 1px rgba(0, 0, 0, .5);
+    }
+    
+    /* Testimony */
+    
+    .testimony {
+        background-color: #e5e5f7;
+    }
+    
+    .testimony__container {
+        display: grid;
+        grid-template-columns: 50px 1fr 50px;
+        gap: 1em;
+        align-items: center;
+    }
+    
+    .testimony__body {
+        display: grid;
+        grid-template-columns: 1fr max-content;
+        justify-content: space-between;
+        align-items: center;
+        gap: 2em;
+        grid-column: 2/3;
+        grid-row: 1/2;
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    .testimony__body--show {
+        pointer-events: unset;
+        opacity: 1;
+        transition: opacity 1.5s ease-in-out;
+    }
+    
+    .testimony__img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: 50% 30%;
+    }
+    
+    .testimony__texts {
+        max-width: 700px;
+    }
+    
+    .testimony__course {
+        background-color: royalblue;
+        color: #fff;
+        display: inline-block;
+        padding: 5px;
+    }
+    
+    .testimony__arrow {
+        width: 90%;
+        cursor: pointer;
+    }
+    
+    /* Questions */
+    
+    .questions {
+        text-align: center;
+    }
+    
+    .questions__container {
+        display: grid;
+        gap: 2em;
+        padding-top: 50px;
+        padding-bottom: 100px;
+    }
+    
+    .questions__padding {
+          display: none;
+        padding: 0;
+        transition: padding .3s;
+        border: 1px solid #5454D4;
+        border-radius: 6px;
+    }
+    
+    .questions__padding--add {
+        padding-bottom: 30px;
+    }
+    
+    .questions__answer {
+        padding: 0 30px 0;
+        overflow: hidden;
+    }
+    
+    .questions__title {
+        text-align: left;
+        display: flex;
+        font-size: 20px;
+        padding: 30px 0 30px;
+        cursor: pointer;
+        color: var(--color-title);
+        justify-content: space-between;
+    }
+    
+    .questions__arrow {
+        border-radius: 50%;
+        background-color: var(--color-title);
+        width: 25px;
+        height: 125px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: flex-end;
+        margin-left: 10px;
+        transition:  transform .3s;
+    }
+    
+    .questions__arrow--rotate {
+        transform: rotate(180deg);
+    }
+    
+ .questions__show {
+    text-align: left;
+    padding: 0 0 20px 0;
+    height: auto; /* 👈 Para que el contenido se muestre */
+    max-height: 1000px; /* animación opcional */
+    transition: max-height 0.5s ease;
+    line-height: 1.6; /* Mejora la legibilidad */
+    font-size: 16px;
+    color: #333;
+}
+    .questions__img {
+    display: block;
+    border-radius: 50%; /* Esto hace que sea completamente redonda */
+    width: 150px;         /* Puedes ajustar el tamaño */
+    height: 150px;
+    object-fit: cover;   /* Para que no se deforme */
+}
+    
+    .questions__copy {
+        width: 60%;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    
+.boton {
+  position: center;
+  bottom: 20px;
+  right: 20px;
+  display: inline-block;
+  background: #39a900;       /* Verde institucional llamativo */
+  color: #ffffff;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.about-me:hover .boton {
+  opacity: 1;
+  transform: scale(1.2);
+  pointer-events: auto;
+}
+
+    
+    /* Footer */
+    
+    .footer {
+        background-color: #1D293F;
+    }
+    
+    .footer__title {
+        font-weight: 300;
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+    
+    .footer__title,
+    .footer__newsletter {
+        color: #fff;
+    }
+    
+    .footer__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #fff;
+        padding-bottom: 60px;
+    }
+    
+    .nav--footer {
+        padding-bottom: 20px;
+        display: grid;
+        gap: 1em;
+        grid-auto-flow: row;
+        height: 100%;
+    }
+    
+    .nav__link--footer {
+        display: flex;
+        margin: 0;
+        margin-right: 20px;
+        flex-wrap: wrap;
+    }
+    
+    .footer__inputs {
+        margin-top: 10px;
+        display: flex;
+        overflow: hidden;
+    }
+    
+    .footer__input {
+        background-color: #fff;
+        height: 50px;
+        display: block;
+        padding-left: 10px;
+        border-radius: 6px;
+        font-size: 1rem;
+        outline: none;
+        border: none;
+        margin-right: 16px;
+    }
+    
+    .footer__submit {
+        margin-left: auto;
+        display: inline-block;
+        height: 50px;
+        padding: 0 20px;
+        background-color: #2091F9;
+        border: none;
+        font-size: 1rem;
+        color: #fff;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+    
+    .footer__copy {
+        --padding-container: 30px 0;
+        text-align: center;
+        color: #fff;
+    }
+    
+    .footer__copyright {
+        font-weight: 300;
+    }
+    
+    .footer__icons {
+        margin-bottom: 10px;
+    }
+    
+    .footer__img {
+        width: 30px;
+    }
+    
+
+    
+    /* Media queries */
+    
+    @media (max-width:800px) {
+        .nav__menu {
+            display: block;
+        }
+    
+        .nav__link--menu {
+            position: fixed;
+            background-color: #000;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: .7s opacity;
+        }
+    
+        .nav__link--show {
+            --show: block;
+            opacity: 1;
+            pointer-events: unset;
+        }
+    
+        .nav__close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 30px;
+            cursor: pointer;
+        }
+    
+        .hero__title {
+            font-size: 2.5rem;
+        }
+    
+        .about__main {
+            gap: 2em;
+        }
+    
+        .about__icons:last-of-type {
+            grid-column: 1/-1;
+        }
+    
+        .knowledge__container {
+            grid-template-columns: 1fr;
+            grid-template-rows: max-content 1fr;
+            gap: 3em;
+            text-align: center;
+        }
+    
+        .knowledge__picture {
+            grid-row: 1/2;
+            justify-self: center;
+        }
+    
+        .testimony__container {
+            grid-template-columns: 30px 1fr 30px;
+        }
+    
+        .testimony__body {
+            grid-template-columns: 1fr;
+            grid-template-rows: max-content max-content;
+            gap: 3em;
+            justify-items: center;
+        }
+    
+        .testimony__img {
+            width: 200px;
+            height: 200px;
+        }
+    
+        .questions__copy {
+            width: 100%;
+        }
+    
+        .footer__container {
+            flex-wrap: wrap;
+        }
+    
+        .nav--footer {
+            width: 100%;
+            justify-items: center;
+        }
+    
+        .nav__link--footer {
+            width: 100%;
+            justify-content: space-evenly;
+            margin: 0;
+        }
+    
+        .footer__form {
+            width: 100%;
+            justify-content: space-evenly;
+        }
+    
+        .footer__input {
+            flex: 1;
+        }
+    }
+    
+    @media (max-width:600px) {
+        .hero__title {
+            font-size: 2rem;
+        }
+    
+        .hero__paragraph {
+            font-size: 1rem;
+        }
+    
+        .subtitle {
+            font-size: 1.8rem;
+        }
+    
+        .price__element {
+            width: 90%;
+        }
+    
+        .price__element--best {
+            width: 90%;
+            /* padding: 40px; */
+        }
+    
+        .price__price {
+            font-size: 2rem;
+        }
+    
+        .testimony {
+            --padding-container: 60px 0;
+        }
+    
+        .testimony__container {
+            grid-template-columns: 28px 1fr 28px;
+            gap: .9em;
+        }
+    
+        .testimony__arrow {
+            width: 100%;
+        }
+    
+        .testimony__course {
+            margin-top: 15px;
+        }
+    
+        .questions__title {
+            font-size: 1rem;
+        }
+
+    }
+    :root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+</style>
+
+
+
+
+
+    <meta name="theme-color" content="#2091F9">
+    <meta name="title" content="Aprende CSS desde cero">
+    <meta name="description"
+        content="Hola, soy una descripción que verás cuando busques algo de mi temática en Google.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alexcgdesign.github.io">
+    <meta property="og:title" content="Aprende CSS desde cero">
+    <meta property="og:description"
+        content="Hola, soy una descripción que verás cuando busques algo de mi temática en Google.">
+    <meta property="og:image" content="https://alexcgdesign.github.io/images/css.jpg">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.jordanalex.com/">
+    <meta property="twitter:title" content="Aprende CSS desde cero">
+    <meta property="twitter:description"
+        content="Hola, soy una descripción que verás cuando busques algo de mi temática en Google.">
+    <meta property="twitter:image" content="https://alexcgdesign.github.io/images/css.jpg">
+</head>
+
+<body>
+     <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+</body>
+<body>
+
+<header class="hero">
+    <!-- Fondo traslúcido -->
+    <div class="hero__background"></div>
+
+    <nav class="nav container">
+        <div class="nav__logo">
+            <h2 class="nav__title">Agencia De Marketing Digital Andrey.</h2>
+        </div>
+
+        <ul class="nav__link nav__link--menu" id="menuList">
+    <li class="nav__items"><a href="index.html" class="nav__links">Inicio</a></li>
+    <li class="nav__items"><a href="sobremi.html" class="nav__links">Acerca de</a></li>
+    <li class="nav__items"><a href="https://tmt44a.mimo.run/index.html" class="nav__links">¡Contáctame Ahora!</a></li>
+    <li class="nav__items"><a href="https://www.youtube.com/@JesusAndresSalazar" class="nav__links">YouTube</a></li>
+    <li class="nav__items"><a href="https://www.facebook.com/jesusandres.salazar2" class="nav__links">Facebook</a></li>
+    <li class="nav__items"><a href="https://www.linkedin.com/in/jesus-andres-salazar-anacona-75502a291/" class="nav__links">LinkedIn</a></li>
+
+    <img src="https://scontent.feoh2-1.fna.fbcdn.net/v/t39.30808-6/480310262_8841365909308505_1693253365614805550_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFq8fPQM09wQI6dNihwmXLT76MgUFwsDFLvoyBQXCwMUnt3dMQwTbDijLvG_F_HJjQAhZOqQUaw_4s99fDouF6h&_nc_ohc=f9J9BhAez8EQ7kNvwFNSp0z&_nc_oc=AdlhkyUHwUYZ7CcGbhSxsmOpvz9CFplekCFm3OP9YacK9tA9cyRb_Sc1-BornV9UmR0&_nc_zt=23&_nc_ht=scontent.feoh2-1.fna&_nc_gid=oUEhGlGH_8F8zViLhlW7HA&oh=00_AfNX3KFRxJKdozDGqDnalj7r8PrbaWhN0BecOyO4TVlbvA&oe=685238B3" class="nav__close">
+</ul>
+
+
+        <div class="nav__menu">
+            <img src="https://scontent.feoh2-1.fna.fbcdn.net/v/t39.30808-6/480310262_8841365909308505_1693253365614805550_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeFq8fPQM09wQI6dNihwmXLT76MgUFwsDFLvoyBQXCwMUnt3dMQwTbDijLvG_F_HJjQAhZOqQUaw_4s99fDouF6h&_nc_ohc=f9J9BhAez8EQ7kNvwFNSp0z&_nc_oc=AdlhkyUHwUYZ7CcGbhSxsmOpvz9CFplekCFm3OP9YacK9tA9cyRb_Sc1-BornV9UmR0&_nc_zt=23&_nc_ht=scontent.feoh2-1.fna&_nc_gid=oUEhGlGH_8F8zViLhlW7HA&oh=00_AfNX3KFRxJKdozDGqDnalj7r8PrbaWhN0BecOyO4TVlbvA&oe=685238B3" class="nav__img">
+        </div>
+    </nav>
+
+    <section class="hero__container container">
+        <h1 class="hero__title">Jesus Andres Salazar.</h1>
+        <p class="hero__paragraph">Experto en Marketing Digital: SEO, redes sociales, publicidad en línea, marketing de contenidos y análisis de datos.</p>
+        <a href="https://www.youtube.com/channel/UCj2BJhs4YHr4eEJ3dCDfsxQ" class="cta">Suscríbete</a>
+    </section>
+</header>
+
+
+    <main>
+        <section class="container about">
+
+
+
+
+
+<section class="about-me" id="aboutMe">
+  <div class="about-me__container">
+    <h2 class="about-me__subtitle">Impulsa tu Crecimiento con Estrategias Digitales Innovadoras</h2>
+    <p class="about-me__text">
+      ¡Hola! Soy Jesús Andrés Salazar, tu aliado en el marketing digital. Mi misión es potenciar tu negocio en línea a través de estrategias efectivas que abarcan desde SEO hasta la gestión de redes sociales. ¡Permíteme ayudarte a destacar en el mundo digital!
+    </p>
+
+    <h3 class="about-me__ready">¿Listo para Crecer?</h3>
+    <p class="about-me__text">
+      Si deseas transformar tu presencia en línea, estoy aquí para ti. Contáctame y descubre cómo nuestras soluciones pueden generar resultados reales para tu negocio. Juntos, forjaremos el camino hacia tu éxito digital.
+    </p>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="about-me" style="position: relative; height: 100px;">
+  <!-- Tu contenido aquí -->
+  
+  <a class="boton" href="https://tmt44a.mimo.run/index.html">¡Contáctame Ahora!</a>
+</div>
+   
+<br>
+<br><br>
+
+<section class="servicios">
+  <h2 class="slider__title">Servicios Destacados:</h2><br>
+
+  <div class="about__slider">
+    <div class="about__main">
+      <article class="about__icons">
+        <img src="https://th.bing.com/th/id/OIP.y-XwTn5O_TtH53qxVL_ZmQHaEM?rs=1&pid=ImgDetMain" class="about__icon">
+        <h3 class="about__title">1. Optimización de Motores de Búsqueda (SEO):</h3>
+        <p class="about__paragrah">
+          ¡Haz que tu negocio destaque en línea! Con técnicas avanzadas de SEO, coloco tu sitio en los primeros resultados de búsqueda, atrayendo más tráfico y potenciales clientes.
+        </p>
+      </article>
+
+      <article class="about__icons">
+        <img src="https://www.damos.co/fotosnoticias/mac_estrategia_y_gestion_de_redes_sociales_1529200939.jpg" class="about__icon">
+        <h3 class="about__title">2. Gestión de Redes Sociales:</h3>
+        <p class="about__paragrah">
+          Desarrollo estrategias de contenido que no solo capturan la atención, sino que también fomentan la lealtad. ¡Hagamos que tu voz se escuche en el mundo digital!
+        </p>
+      </article>
+
+      <article class="about__icons">
+        <img src="https://www.comunicare.es/wp-content/uploads/2021/02/tipos-de-publicidad-online-1-1000x667-1.jpg" class="about__icon">
+        <h3 class="about__title">3. Publicidad en Línea:</h3>
+        <p class="about__paragrah">
+          Convierte clics en clientes. Diseñamos campañas publicitarias irresistibles que capturan la atención y maximizan tu retorno de inversión.
+        </p>
+      </article>
+
+      <article class="about__icons">
+        <img src="https://th.bing.com/th/id/R.242c50a774b0808fad0de0bff7cc9f41?rik=TbS3JDKHXkHmgA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-6UwGUXOaTjU%2fUguQOGOpfTI%2fAAAAAAAAD_o%2fkLeZAHBHKzk%2fs1600%2fMarketing-de-Contenidos%2b(1).jpg&ehk=SuN6t3tnccLeMsrNKgDhriM%2fdEeBoalpMFElkE%2bP8Jw%3d&risl=&pid=ImgRaw&r=0" class="about__icon">
+        <h3 class="about__title">4. Marketing de Contenidos:</h3>
+        <p class="about__paragrah">
+          Creo material valioso—blogs, videos y guías—que atrae, retiene y conecta con tu audiencia, posicionando tu marca como referente.
+        </p>
+      </article>
+
+      <article class="about__icons">
+        <img src="https://th.bing.com/th/id/OIP.o9DaHPvUPU6PdAwTDTYT1wHaE7?rs=1&pid=ImgDetMain" class="about__icon">
+        <h3 class="about__title">5. Análisis de Datos:</h3>
+        <p class="about__paragrah">
+          Utilizo herramientas avanzadas para evaluar y optimizar estrategias basadas en métricas, alineando cada paso con tus objetivos reales.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="knowledge">
+            <div class="knowledge__container container">
+                <div class="knowledege__texts">
+                    <h2 class="subtitle">Desarrollo de chatbots personalizados</h2>
+                   
+                    <p class="knowledge__paragraph">Nuestra propuesta se centra en desarrollar una innovadora plataforma de chatbots diseñada para automatizar la atención al cliente en empresas de diversos sectores. Nuestro objetivo es ayudar a las organizaciones a reducir costos operativos, mejorar la eficiencia en la atención y, sobre todo, elevar la satisfacción del cliente, brindando respuestas rápidas y precisas a sus necesidades.</p>
+
+                   
+                   
+                    <a href="https://5aquwx.mimo.run/index.html" class="cta">Entrar </a>
+                </div>
+
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="price container">
+            <h2 class="subtitle">Obten el plan perfecto para tu compañia</h2>
+
+            <div class="price__table">
+                <div class="price__element">
+                    <p class="price__name">adobe ilustrator, Pothosop, Corel Draw</p>
+                    <h3 class="price__price">Diseño Grafico</h3>
+
+                    <div class="price__items">
+                        <p class="price__features">Tarjetas Personales</p>
+                        <p class="price__features">Banners</p>
+                        <p class="price__features">Catalogos</p>
+                        <p class="price__features">Logos</p>
+                        <p class="price__features">Flyer</p>
+
+                    </div>
+
+                    <a href="https://2q6qk2.mimo.run/index.html" class="price__cta">Empieza ahora</a>
+                </div>
+
+
+                <div class="price__element price__element--best">
+                    <p class="price__name">Vehiculos Con Sonido Para</p>
+                    <h3 class="price__price">Perifoneo Movil</h3>
+
+                    <div class="price__items">
+                        <p class="price__features">Contratalo por </p>
+                        <p class="price__features">H0RAS</p>
+               
+                    </div>
+
+                    <a href="https://c5vk5g.mimo.run/index.html" class="price__cta">Empieza ahora</a>
+                </div>
+
+
+                <div class="price__element">
+                    <p class="price__name">Sonido Profesional, Modulador,Locutores, Ambientacion Dj</p>
+                    <h3 class="price__price">Actiacion De Marca</h3>
+
+                    <div class="price__items">
+                        <p class="price__features">Locutores</p>
+                        <p class="price__features">Animadores</p>
+                        <p class="price__features">Vendedores Con Capacidad De Persuacion</p>
+                          <p class="price__features">Amplia Experiencia en Ventas Y Mercadeo</p>
+                            <p class="price__features">CONTRATALO POR HORAS</p>
+                    </div>
+
+                    <a href="https://b58h26.mimo.run/index.html" class="price__cta">Empieza ahora</a>
+                </div>
+
+
+
+                <div class="price__element price__element--best">
+                    <p class="price__name">Somos Los Mejores En:</p>
+                    <h3 class="price__price">Producion De Audio</h3>
+
+                    <div class="price__items">
+                        <p class="price__features">Spot Radiales</p>
+                        <p class="price__features">Jingles Comerciales </p>
+                        <p class="price__features">Voice Over </p>                        <p class="price__features">Spot Radiales</p>
+                        <p class="price__features">Narracciones </p>                        <p class="price__features">Spot Radiales</p>
+                        <p class="price__features">Grabaciones USB </p>                        <p class="price__features">Spot Radiales</p>
+                        <p class="price__features">Identificador Radial </p>                        <p class="price__features">Spot Radiales</p>
+                        <p class="price__features">Opening Para Eventofa-stack </p>                        <p class="price__features">Spot Radiales</p>
+                        <p class="price__features">Grabacion Para Perifoneo Movil </p>
+                    </div>
+
+                    <a href="https://yq7rab.mimo.run/index.html" class="price__cta">Empieza ahora</a>
+                </div>
+
+         <div class="price__element">
+                  
+                    <h3 class="price__price">Produccion De Video</h3>
+
+                    <div class="price__items">
+                        <p class="price__features">Institucionales.</p>
+                        <p class="price__features">Comerciales.</p>
+                        <p class="price__features">Musicales.</p>
+                        <p class="price__features">Lirys.</p>
+                        <p class="price__features">Tiktoker.</p>
+                          <p class="price__features">YouTube.</p>
+                            <p class="price__features">Infoprodutores.</p>
+
+                    </div>
+                    <a href="https://1v4t8l.mimo.run/index.html" class="price__cta">Empieza ahora</a>
+                </div>
+
+
+
+                <div class="price__element">
+                    <p class="price__name">Sonido Profesional, Modulador,Locutores, Ambientacion Dj</p>
+                    <h3 class="price__price">Personal Para:</h3>
+
+                    <div class="price__items">
+                        <p class="price__features">Impulsar Marcas De Productos.</p>
+                        <p class="price__features">Entrega De Volantes.</p>
+                        <p class="price__features">sostener Pasacalles.</p>
+                          <p class="price__features">Eventos IMportantes Y Mercadeo</p>
+                            <p class="price__features">CONTRATALO POR HORAS</p>
+                    </div>
+
+                    <a href="https://b58h26.mimo.run/index.html" class="price__cta">Empieza ahora</a>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="testimony">
+            <div class="testimony__container container">
+                <img src="https://faag.com.br/wp-content/uploads/2022/07/TempoRS.jpg" class="testimony__arrow" id="before">
+        
+                <section class="testimony__body testimony__body--show" data-id="1">
+                    <div class="testimony__texts">
+                        <h2 class="subtitle">GESTOR DE REDES SOCIALES
+                            <span class="testimony__course">Plan de Marketing:</span>
+                        </h2>
+                        <p class="testimony__review">
+                            Nuestra estrategia se centra en construir relaciones sólidas y demostrar el valor de nuestros servicios. Utilizaremos:
+                        </p>
+                        <ul>
+                            <li><strong>Página Web:</strong> Informativa y centrada en casos de éxito.</li>
+                            <li><strong>Colaboración:</strong> Diseñamos según los objetivos del cliente.</li>
+                            <li><strong>Equipo Experto:</strong> Creación de una web atractiva y funcional.</li>
+                            <li><strong>Comunicación:</strong> Transparente para alinear con la marca.</li>
+                            <li><strong>Escalabilidad:</strong> Fácil actualización para futuras necesidades.</li>
+                        </ul>
+                        <h3>Redes Sociales y Publicidad</h3>
+                        <p>Usaremos redes sociales para construir una presencia sólida y publicidad segmentada para aumentar tráfico y ventas.</p>
+                    </div>
+
+
+                    <figure class="testimony__picture">
+                        <img src="https://maktagg.com/wp-content/uploads/2024/04/gestor-redes-sociales.jpg" class="testimony__img" alt="Gestor de Redes Sociales">
+                    </figure>
+                </section>
+        
+                <section class="testimony__body" data-id="2">
+                    <div class="testimony__texts">
+                        <h2 class="subtitle">ANÁLITICA DE MÉTRICAS COMERCIALES
+                            <span class="testimony__course">Estudiante de CSS.</span>
+                        </h2>
+                        <p class="testimony__review">
+                            Ofrecemos servicios de analítica para ayudar a las empresas a medir el éxito de sus estrategias. Entre nuestros servicios se incluyen:
+                        </p>
+                        <ul>
+                            <li><strong>Análisis de Datos:</strong> Herramientas avanzadas para recopilar y analizar métricas clave.</li>
+                            <li><strong>Generación de Informes:</strong> Informes claros para decisiones informadas.</li>
+                            <li><strong>Identificación de Tendencias:</strong> Adaptación de estrategias según patrones de datos.</li>
+                            <li><strong>Optimización de Campañas:</strong> Mejora de campañas digitales y de marketing.</li>
+                            <li><strong>Asesoramiento Personalizado:</strong> Desarrollo de estrategias efectivas basadas en datos.</li>
+                        </ul>
+                        <p>Nuestro objetivo es mejorar el rendimiento comercial mediante un análisis profundo de métricas.</p>
+                    </div>
+                    <figure class="testimony__picture">
+                        <img src="./images/face2.jpg" class="testimony__img" alt="Análisis de Métricas Comerciales">
+                    </figure>
+                </section>
+        
+                <section class="testimony__body" data-id="3">
+                    <div class="testimony__texts">
+                        <h2 class="subtitle">DESARROLLO DE SOFTWARE
+                            <span class="testimony__course">Integrando análisis en desarrollo de software con marketing digital.</span>
+                        </h2>
+                        <p class="testimony__review">
+                            Ofrecemos desarrollo de software personalizado, colaborando con expertos en marketing digital. Nuestros servicios incluyen:
+                        </p>
+                        <ul>
+                            <li><strong>Aplicaciones Personalizadas:</strong> Mejoramos la experiencia del usuario y eficiencia.</li>
+                            <li><strong>Integración de Sistemas:</strong> Facilitamos la gestión y análisis de datos.</li>
+                            <li><strong>Chatbots:</strong> Mejora de atención al cliente y automatización de procesos.</li>
+                            <li><strong>Software de Análisis:</strong> Evaluación del éxito de estrategias implementadas.</li>
+                        </ul>
+                        <p>Nos adaptamos a las necesidades específicas de cada cliente, asegurando integración con estrategias de marketing digital.</p>
+                    </div>
+                    <figure class="testimony__picture">
+                        <img src="./images/face3.jpg" class="testimony__img" alt="Desarrollo de Software">
+                    </figure>
+                </section>
+        
+                <img src="./images/rightarrow.svg" class="testimony__arrow" id="next">
+            </div>
+        </section>
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <section class="questions container">
+            <h2 class="subtitle">NUESTROS SERVICIOS</h2>
+            <p class="questions__paragraph">creamos campañas de email marketing efectivas que ayudan a nuestros clientes a generar más ventas y fidelizar a sus clientes actuales</p>
+
+<section class="questions__container">
+    <article class="questions__padding">
+        <div class="questions__answer">
+            <h3 class="questions__title">
+                Creación y gestión de redes sociales:
+                <span class="questions__arrow">
+                    <img src="https://th.bing.com/th/id/OIP.fU5S23_pCAHlaNUs-hCp_QHaEK?rs=1&pid=ImgDetMain" class="questions__img" alt="Flecha decorativa">
+                </span>
+            </h3>
+            <p class="questions__show">
+                Nos encargamos de la creación y gestión de perfiles de redes sociales de nuestros clientes, incluyendo Facebook, Twitter, Instagram, LinkedIn, YouTube y otras plataformas relevantes. Nos aseguramos de que los perfiles estén optimizados para el público objetivo de nuestros clientes y que se mantengan actualizados con contenido relevante y de alta calidad.
+            </p>
+        </div>
+    </article>
+</section>
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Estrategia de redes sociales:
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nos encargamos de desarrollar una estrategia de redes sociales personalizada para cada cliente, teniendo en cuenta sus objetivos de negocio y su público objetivo. Esto incluye la identificación de temas y tendencias relevantes, el desarrollo de un calendario de publicaciones y la realización de análisis y seguimiento de métricas de rendimiento. </div>
+                </article>
+
+
+
+
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Gestión de contenidos:
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nos encargamos de crear y publicar contenido de alta calidad para las redes sociales de nuestros clientes, incluyendo textos, imágenes y videos. Nos aseguramos de que el contenido sea relevante para el público objetivo de nuestros clientes y que esté en línea con su estrategia de redes sociales.</div>
+                </article>
+
+
+
+
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Gestión de campañas publicitarias:
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nos encargamos de la planificación, creación y ejecución de campañas publicitarias en redes sociales, utilizando herramientas como Facebook Ads e Instagram Ads. Nos aseguramos de que las campañas sean relevantes y efectivas para el público objetivo de nuestros clientes, y que generen un retorno de inversión positivo.</div>
+                </article>
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Monitorización y gestión de reputación en línea:
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nos encargamos de monitorizar la presencia en línea de nuestros clientes y de gestionar cualquier comentario o crítica negativa que puedan recibir en las redes sociales. Nos aseguramos de que la reputación en línea de nuestros clientes se mantenga positiva y se proteja de cualquier posible impacto negativo.</div>
+                </article>
+
+
+
+
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Informes y análisis:
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nos encargamos de realizar informes periódicos sobre el rendimiento de las redes sociales de nuestros clientes, proporcionando análisis detallados sobre las métricas de rendimiento y sugiriendo posibles mejoras y oportunidades de crecimiento. </div>
+                </article>
+
+
+
+
+   <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Capacitación y asesoramiento sobre el uso de herramientas de comercio electrónico
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">
+                        Nos aseguramos de que nuestros clientes estén equipados con las herramientas necesarias para aprovechar al máximo el comercio electrónico, incluyendo plataformas de comercio electrónico, procesadores de pago y herramientas de marketing por correo electrónico.<br>
+
+                        </div>
+                </article>
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Análisis de mercado:
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nos encargamos de realizar
+                        investigaciones de mercado para ayudar a las empresas a comprender las tendencias del mercado y las necesidades de los clientes.<br>
+<br><br> para ayudar a las empresas a obtener información valiosa sobre las tendencias del mercado y las necesidades de los clientes. Esto implica recopilar y analizar datos relevantes sobre el mercado y los competidores para obtener información sobre lo que está funcionando y lo que no lo está.<br><br>
+Con esta información, se pueden identificar oportunidades para mejorar la oferta de productos y servicios de la empresa, así como para desarrollar estrategias de marketing efectivas.
+<br><br>
+ Por ejemplo:<br><br>
+  utilizar técnicas de análisis de datos para identificar patrones de comportamiento de los clientes, como qué productos compran con más frecuencia y cuáles son sus preferencias de pago.
+ </div>
+                </article>
+
+
+
+
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Análisis de REequisitos:
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nos encargamos 
+                       antes de comenzar a diseñar un sitio web, es importante realizar una evaluación exhaustiva de los requisitos del negocio y las necesidades del cliente. La consultora puede trabajar con la empresa para entender su modelo de negocio, público objetivo, productos/servicios ofrecidos, competidores, entre otros aspectos.</div>
+                </article>
+
+
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Diseño y desarrollo de sitios web:
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nos encargamos 
+                       Una vez que se ha realizado el análisis de requisitos, se puede proceder con el diseño y desarrollo del sitio web. La consultora puede trabajar con la empresa para diseñar un sitio web atractivo, fácil de usar y que refleje la marca y los valores de la empresa. También se pueden incluir soluciones de comercio electrónico como tiendas en línea, carritos de compra y sistemas de pago seguro para realizar transacciones en línea.
+</article>
+
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Mantenimiento y soporte: 
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nos encargamos 
+                       Una vez que se ha lanzado el sitio web, es importante mantenerlo actualizado y optimizado. La consultora puede ofrecer servicios de mantenimiento y soporte para garantizar que el sitio web siga funcionando correctamente y cumpla con las expectativas de la empresa.
+</article>
+
+
+
+
+
+
+
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Optimización de la experiencia del usuario:
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nos encargamos 
+                       Una vez que se ha realizado el análisis de requisitos, se puede proceder con el diseño y desarrollo del sitio web. La consultora puede trabajar con la empresa para diseñar un sitio web atractivo, fácil de usar y que refleje la marca y los valores de la empresa. También se pueden incluir soluciones de comercio electrónico como tiendas en línea, carritos de compra y sistemas de pago seguro para realizar transacciones en línea.
+</article>
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Consultoria En Comercio Electronico:
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">
+                         Proporcionar asesoramiento y formación a las empresas para ayudarles a mejorar su presencia en línea y sus resultados en el comercio electrónico.
+<br><br>Optimización de motores de búsqueda (SEO): Nuestro equipo de expertos en SEO se encarga de optimizar el contenido y la estructura del sitio web de nuestros clientes para mejorar su posicionamiento en los motores de búsqueda y atraer más tráfico orgánico.<br><br>
+
+Análisis de datos y seguimiento de métricas: Nos aseguramos de que nuestros clientes estén informados sobre el rendimiento de su sitio web y otras plataformas en línea a través del seguimiento y análisis de métricas relevantes. De esta manera, pueden tomar decisiones informadas sobre sus estrategias de marketing en línea.<br><br>
+
+
+
+
+                        
+                        </div>
+                </article>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Creación y gestión de cuentas en las principales redes sociales: Facebook, Twitter, Instagram, LinkedIn, etc.
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Creación de contenido original y de alta calidad, adaptado a las necesidades y objetivos de la empresa. El contenido incluirá publicaciones regulares, publicaciones promocionales, y publicaciones de temporada.
+Para llevar a cabo este servicio, nuestra agencia trabajará en estrecha colaboración con la empresa para entender su voz y su público objetivo. Se realizará una investigación previa para identificar los temas relevantes y las tendencias de la industria, y se desarrollará un calendario editorial para asegurar que el contenido se publique de manera regular y oportuna.
+
+El contenido se creará en diferentes formatos, incluyendo imágenes, videos, infografías y texto, para asegurar que la audiencia reciba una experiencia atractiva y atractiva. Además, se prestará especial atención a la optimización del contenido para los motores de búsqueda y se utilizarán técnicas de copywriting para aumentar el compromiso y la conversión.
+
+Por último, se realizará un seguimiento y análisis de las métricas de rendimiento para evaluar la eficacia del contenido y hacer ajustes necesarios para mejorar continuamente la estrategia de contenido.
+</div>
+                </article>
+
+
+
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+            <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Ofrecer un servicio de gestión de redes sociales completo y efectivo puede mejorar significativamente la visibilidad y el alcance de una empresa en las redes sociales.
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Al crear contenido original y de alta calidad, realizar campañas publicitarias con inteligencia artificial y diseño gráfico, y monitorear y analizar los resultados, es posible aumentar el número de seguidores, el tráfico web y, en última instancia, las ventas. Al lograr una mayor visibilidad y alcance en las redes sociales, la empresa también puede mejorar su imagen de marca y establecer una relación más sólida y duradera con su público objetivo.</div>
+                </article>
+
+
+    <section class="questions__container">
+                <article class="questions__padding">
+                    <div class="questions__answer">
+                        <h3 class="questions__title">Un enfoque personalizado y adaptado a las necesidades y objetivos de la empresa.
+                            <span class="questions__arrow">
+                                <img src="./images/arrow.svg" class="questions__img">
+                            </span>
+                        </h3>
+
+                        <p class="questions__show">Nuestro servicio de enfoque personalizado se basa en un análisis exhaustivo de las necesidades y objetivos específicos de cada empresa. En primer lugar, nos reunimos con el equipo de la empresa para comprender su modelo de negocio, sus productos o servicios y su público objetivo. A partir de ahí, desarrollamos una estrategia única y personalizada que aborda las necesidades específicas de la empresa y su objetivo final.
+                        <br>Durante todo el proceso, trabajamos en estrecha colaboración con el equipo de la empresa, brindando actualizaciones regulares y recibiendo comentarios para garantizar que estamos en línea con sus necesidades y objetivos. Además, nos aseguramos de que nuestro servicio sea escalable y adaptable a medida que la empresa crece y evoluciona.
+
+Este enfoque personalizado garantiza que nuestro servicio se adapte a las necesidades específicas de cada empresa, lo que permite un mayor éxito y una mayor rentabilidad a largo plazo. Además, nuestro enfoque personalizado nos permite ofrecer soluciones creativas e innovadoras que pueden ayudar a la empresa a destacar en un mercado cada vez más competitivo.
+Un equipo de expertos dedicados y experimentados en la gestión de redes sociales, con un enfoque en la calidad y el rendimiento.
+
+                        
+                         </div>
+                </article>
+   </div>
+
+
+            </section>
+   </div>
+    </main>
+
+
+   </div>
+
+
+
+
+
+
+
+
+
+
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+    <script src="./js/slider.js"></script>
+    <script src="./js/questions.js"></script>
+    <script src="./js/menu.js"></script>
+</body>
+
+</html>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll(".nav__items");
+    let current = 0;
+
+    function mostrarUnoPorUno() {
+        items.forEach((item, index) => {
+            item.classList.remove("active");
+            item.style.display = "none";
+        });
+
+        const item = items[current];
+        item.style.display = "list-item";
+
+        // Fuerza reflow para reiniciar transición
+        void item.offsetWidth;
+
+        item.classList.add("active");
+
+        current = (current + 1) % items.length;
+    }
+
+    // Mostrar el primero al cargar
+    mostrarUnoPorUno();
+
+    // Repetir cada 15 segundos
+    setInterval(mostrarUnoPorUno, 15000);
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const services = document.querySelectorAll(".about__icons");
+  let currentIndex = 0;
+
+  function showService(index) {
+    services.forEach((service, i) => {
+      service.classList.toggle("active", i === index);
+    });
+  }
+
+  showService(currentIndex);
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % services.length;
+    showService(currentIndex);
+  }, 10000); // cada 10 segundos
+});
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById('aboutMe').querySelector('.about-me__container');
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.9 });
+
+    observer.observe(container);
+  });
+</script>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const questions = document.querySelectorAll(".questions__padding");
+    let currentIndex = 0;
+
+    function showOnlyOne(index) {
+      questions.forEach((question, i) => {
+        if (i === index) {
+          question.style.display = "block";
+          question.classList.add("questions__padding--add");
+        } else {
+          question.style.display = "none";
+          question.classList.remove("questions__padding--add");
+        }
+      });
+    }
+
+    // Mostrar el primero al cargar
+    showOnlyOne(currentIndex);
+
+    // Cambiar cada 10 segundos (10000 milisegundos)
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % questions.length;
+      showOnlyOne(currentIndex);
+    }, 10000);
+  });
+</script>
+

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <style>
+        :root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            height: 100vh;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .card {
+            width: 80px;
+            height: 80px;
+            background-color: #95a5a6; /* Color de fondo cuando están ocultas */
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            /* Inicialmente no se muestra el texto (fruta) */
+        }
+
+        .card.show {
+            background-color: #3498db; /* Color de fondo cuando se revelan */
+        }
+
+        #timer {
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="timer">Timer: 00:00</div>
+    <div id="container"></div>
+    
+    
+    
+    
+    
+    <script>
+        // Variables iniciales
+        const container = document.getElementById('container');
+        const timerElement = document.getElementById('timer');
+        let timer;
+        let seconds = 0;
+
+        // Generar cartas con frutas (solo texto sin mostrar emojis al principio)
+        const items = ['🍎', '🍌', '🍒', '🍇', '🍉', '🍍', '🍑', '🍓'];
+        const cards = [...items, ...items].sort(() => Math.random() - 0.5);
+        let openedCards = [];
+        let matchedPairs = 0;
+
+        // Crear el temporizador
+        function startTimer() {
+            timer = setInterval(() => {
+                seconds++;
+                const minutes = Math.floor(seconds / 60);
+                const secs = seconds % 60;
+                timerElement.textContent = `Timer: ${minutes < 10 ? '0' : ''}${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+            }, 1000);
+        }
+
+        // Detener el temporizador
+        function stopTimer() {
+            clearInterval(timer);
+        }
+
+        // Mostrar las cartas (revelar el contenido de la carta)
+        function showCard(card, item) {
+            card.classList.add('show'); // Revelar la carta
+            card.textContent = item; // Mostrar el contenido (fruta)
+        }
+
+        // Ocultar las cartas (volver a esconder después de un corto periodo)
+        function hideCard(card) {
+            setTimeout(() => card.classList.remove('show'), 1000); // Volver a ocultar
+            setTimeout(() => card.textContent = '', 1000); // Limpiar el contenido
+        }
+
+        // Manejar la selección de cartas
+        function handleCardClick(e) {
+            const card = e.target;
+            if (!card.classList.contains('show') && openedCards.length < 2) {
+                const cardIndex = card.dataset.index;  // Obtener el índice de la carta
+                showCard(card, cards[cardIndex]); // Revelar la carta con el contenido correspondiente
+                openedCards.push(card);
+
+                if (openedCards.length === 2) {
+                    const [card1, card2] = openedCards;
+                    if (card1.textContent === card2.textContent) {
+                        matchedPairs++;
+                        openedCards = [];
+                        if (matchedPairs === items.length) {
+                            stopTimer();
+                            alert('¡Felicidades! Has completado el juego.');
+                        }
+                    } else {
+                        hideCard(card1);
+                        hideCard(card2);
+                        openedCards = [];
+                    }
+                }
+            }
+        }
+
+        // Inicializar el juego
+        function initGame() {
+            container.innerHTML = '';
+            cards.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.classList.add('card'); // Las cartas estarán ocultas inicialmente
+                card.textContent = ''; // No mostrar contenido al principio
+                card.dataset.index = index;  // Asignar un índice para cada carta
+                card.addEventListener('click', handleCardClick);
+                container.appendChild(card);
+            });
+            seconds = 0;
+            matchedPairs = 0;
+            startTimer();
+        }
+
+        // Iniciar el juego al cargar la página
+        initGame();
+    </script>
+    
+    <br>
+        <br>
+        
+        <div class="nav-bg">
+         <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+           
+        </div>
+<br>
+<br>
+    </div>
+    
+    
+</body>
+</html>

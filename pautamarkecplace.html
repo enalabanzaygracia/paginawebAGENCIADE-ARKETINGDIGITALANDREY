@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pauta de Productos en Marketplace</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  <style>
+    @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+    }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  /* Imagen de fondo base */
+  background: url('https://findbestsolution.tech/wp-content/uploads/2024/03/AI-based-E-commerce-Customization.jpg') no-repeat center center fixed;
+  background-size: cover;
+  z-index: 0;
+}
+
+/* Gradiente animado como capa encima de la imagen */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(270deg, #e0f7fa, #fffde7);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  opacity: 0.5; /* Ajusta para más o menos intensidad */
+  z-index: -1;
+}
+
+/* Animación del gradiente */
+@keyframes gradientBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    header {
+      background-color: #39a900;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 1.5rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    .service-details h3 {
+      margin-top: 1.5rem;
+      color: #39a900;
+    }
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
+      height: 200px;
+      position: relative;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 750px;
+      padding: 2rem;
+      background: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      font-size: 1.1rem;
+      color: #333;
+      text-align: left;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.8s ease-in-out;
+      position: absolute;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .price {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-top: 1rem;
+      color: #e67e22;
+    }
+
+    button#whatsappButton {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: #25D366;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button#whatsappButton:hover {
+      background-color: #1ebe5b;
+    }
+
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 4rem 0;
+      background: linear-gradient(135deg, #39a900, #b0ff8d);
+      color: #fff;
+    }
+
+    .hero__background {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.15;
+      background: url('https://www.transparenttextures.com/patterns/green-fibers.png');
+      z-index: 0;
+    }
+
+    .nav.container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .nav__logo h2 {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+
+  .nav__link {
+  list-style: none;
+  display: flex;
+  flex-direction: row;      /* Asegura que sea horizontal */
+  justify-content: center;  /* Centra horizontalmente */
+  align-items: center;
+  gap: 1.5rem;               /* Espaciado entre ítems */
+  padding: 0;
+  margin: 0;
+}
+
+.nav__items {
+  margin: 0;
+  padding: 0;
+}
+
+.nav__links {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.85rem;       /* Letra más pequeña */
+  transition: color 0.3s ease-in-out;
+}
+
+.nav__links:hover {
+  color: #caffc0;            /* Efecto al pasar el mouse */
+}
+
+    .nav__img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .hero__container {
+      z-index: 2;
+      position: relative;
+      text-align: center;
+      padding-top: 3rem;
+    }
+
+    .hero__title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero__paragraph {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.8rem 2rem;
+      background: #fff;
+      color: #39a900;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .cta:hover {
+      background: #f2ffe5;
+    }
+:root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+
+  <header class="hero">
+    <div class="hero__background"></div>
+
+    <nav class="nav container">
+      <div class="nav__logo">
+        <h2 class="nav__title">Agencia de Marketing Digital Andrey</h2>
+      </div>
+
+      <ul class="nav__link" id="menuList">
+        <li class="nav__items"><a href="https://t0hq25.mimo.run/index.html" class="nav__links">Inicio</a></li>
+     
+        <li class="nav__items"><a href="https://tmt44a.mimo.run/index.html" class="nav__links">¡Contáctame Ahora!</a></li>
+        <li class="nav__items"><a href="https://www.youtube.com/@JesusAndresSalazar" class="nav__links">YouTube</a></li>
+        <li class="nav__items"><a href="https://www.facebook.com/jesusandres.salazar2" class="nav__links">Facebook</a></li>
+        <li class="nav__items"><a href="https://www.linkedin.com/in/jesus-andres-salazar-anacona-75502a291/" class="nav__links">LinkedIn</a></li>
+      </ul>
+
+      <div class="nav__menu">
+        <img src="https://scontent.feoh2-1.fna.fbcdn.net/v/t39.30808-6/480310262_8841365909308505_1693253365614805550_n.jpg" class="nav__img" alt="Perfil">
+      </div>
+    </nav>
+
+    <section class="hero__container container">
+      <h1 class="hero__title">Pauta de Productos en Marketplace 🎨</h1>
+      <p class="hero__paragraph">
+        Servicios creativos para crecer tu marca en el mundo digital: marketing estratégico, diseño impactante, y presencia imparable.
+      </p>
+     
+    </section>
+  </header>
+
+  <main>
+    <div class="service-details" data-aos="fade-up">
+      <p>¿Quieres aumentar la visibilidad de tus productos y atraer más clientes en marketplaces? 🚀</p>
+      <h3>⚠️ Descubre nuestro servicio de Pauta de Productos en Marketplace:</h3>
+
+      <div class="card-container">
+        <div id="service-card" class="card"></div>
+      </div>
+
+      <h3>📈 ¡Haz que tus productos se destaquen y lleguen a más clientes!</h3>
+      <p>🚀 Contáctanos para una estrategia efectiva y comienza a ver resultados.</p>
+      <button id="whatsappButton">Enviar Mensaje por WhatsApp</button>
+    </div>
+  </main>
+
+
+  <footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    document.getElementById("whatsappButton").addEventListener("click", function () {
+      window.open("https://wa.me/573227190210?text=Estoy%20interesado%20en%20la%20pauta%20en%20marketplace", "_blank");
+    });
+  </script>
+</body>
+</html>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const serviceCard = document.getElementById("service-card");
+const services = [
+  `<strong>📜 1. Creación de Descripciones Atractivas:</strong> Redactamos textos convincentes que despiertan el interés del comprador. <br><img src="https://cdn-icons-png.flaticon.com/512/2920/2920062.png" width="70"> <strong>Desde: $25,000</strong>`,
+
+  `<strong>🔍 2. Optimización SEO para Productos:</strong> Posiciona tus productos en los primeros resultados. <br><img src="https://cdn-icons-png.flaticon.com/512/3983/3983623.png" width="70"> <strong>Desde: $35,000</strong>`,
+
+  `<strong>🎯 3. Segmentación de Público Objetivo:</strong> Dirigimos tu mensaje exactamente a quien lo necesita. <br><img src="https://cdn-icons-png.flaticon.com/512/3652/3652191.png" width="70"> <strong>Desde: $50,000</strong>`,
+
+  `<strong>🖼️ 4. Diseño de Imágenes para Productos:</strong> Imágenes profesionales y atractivas. <br><img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" width="70"> <strong>Desde: $40,000</strong>`,
+
+  `<strong>📣 5. Publicación en Grupos Locales:</strong> Aumenta tu visibilidad en grupos de venta. <br><img src="https://cdn-icons-png.flaticon.com/512/8831/8831555.png" width="70"> <strong>Desde: $30,000</strong>`,
+
+  `<strong>💰 6. Campañas de Publicidad Pagada:</strong> Llega a miles con Facebook Ads y Marketplace. <br><img src="https://cdn-icons-png.flaticon.com/512/9290/9290205.png" width="70"> <strong>Desde: $90,000</strong>`,
+
+  `<strong>🛒 7. Creación de Tienda Virtual:</strong> Montamos tu tienda en Marketplace o Facebook. <br><img src="https://cdn-icons-png.flaticon.com/512/1170/1170678.png" width="70"> <strong>Desde: $120,000</strong>`,
+
+  `<strong>🎬 8. Diseño de Videos Promocionales:</strong> Video corto con música, textos y animaciones. <br><img src="https://cdn-icons-png.flaticon.com/512/1055/1055666.png" width="70"> <strong>Desde: $80,000</strong>`,
+
+  `<strong>📷 9. Fotografía Profesional de Productos:</strong> Fotografías de alta calidad para tus catálogos. <br><img src="https://cdn-icons-png.flaticon.com/512/3794/3794482.png" width="70"> <strong>Desde: $150,000</strong>`,
+
+  `<strong>💬 10. Atención al Cliente por Chat:</strong> Gestionamos pedidos y dudas en tiempo real. <br><img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png" width="70"> <strong>Desde: $180,000/semana</strong>`,
+
+  `<strong>🤖 11. Automatización de Respuestas:</strong> Respuestas automáticas 24/7. <br><img src="https://cdn-icons-png.flaticon.com/512/4727/4727490.png" width="70"> <strong>Desde: $60,000</strong>`,
+
+  `<strong>📑 12. Políticas de Venta y FAQ:</strong> Protege tu negocio con textos claros. <br><img src="https://cdn-icons-png.flaticon.com/512/3126/3126594.png" width="70"> <strong>Desde: $25,000</strong>`,
+
+  `<strong>📊 13. Asesoría en Precios Competitivos:</strong> Estudio de mercado y estrategia de precios. <br><img src="https://cdn-icons-png.flaticon.com/512/3871/3871227.png" width="70"> <strong>Desde: $35,000</strong>`,
+
+  `<strong>🖌️ 14. Diseño de Portadas de Catálogo:</strong> Imágenes de portada impactantes. <br><img src="https://cdn-icons-png.flaticon.com/512/3106/3106773.png" width="70"> <strong>Desde: $40,000</strong>`,
+
+  `<strong>📈 15. Informe de Métricas:</strong> Detalles de rendimiento de tus campañas. <br><img src="https://cdn-icons-png.flaticon.com/512/2921/2921222.png" width="70"> <strong>Desde: $30,000/semana</strong>`,
+
+  `<strong>🎨 16. Optimización de Perfil del Vendedor:</strong> Crea una imagen de marca memorable. <br><img src="https://cdn-icons-png.flaticon.com/512/2933/2933188.png" width="70"> <strong>Desde: $45,000</strong>`,
+
+  `<strong>💳 17. Configuración de Pagos y Envíos:</strong> Métodos como Nequi, PSE, PayU y más. <br><img src="https://cdn-icons-png.flaticon.com/512/2769/2769339.png" width="70"> <strong>Desde: $55,000</strong>`,
+
+  `<strong>🌟 18. Generación de Comentarios:</strong> Valoraciones positivas que generan confianza. <br><img src="https://cdn-icons-png.flaticon.com/512/1077/1077035.png" width="70"> <strong>Desde: $60,000</strong>`,
+
+  `<strong>🧾 19. Mantenimiento de Inventario:</strong> Gestión semanal de productos y precios. <br><img src="https://cdn-icons-png.flaticon.com/512/2920/2920054.png" width="70"> <strong>Desde: $70,000/mes</strong>`,
+
+  `<strong>🧠 20. Capacitación Personalizada:</strong> Aprende a vender en Marketplace como un experto. <br><img src="https://cdn-icons-png.flaticon.com/512/3602/3602123.png" width="70"> <strong>Desde: $100,000 por sesión (1h)</strong>`
+];
+
+
+      let index = 0;
+
+      function showService() {
+        serviceCard.classList.remove("visible");
+        setTimeout(() => {
+          serviceCard.innerHTML = services[index];
+          serviceCard.classList.add("visible");
+          index = (index + 1) % services.length;
+        }, 500);
+      }
+
+      showService();
+      setInterval(showService, 5000);
+    });
+
+    document.getElementById("whatsappButton").addEventListener("click", function () {
+      const phoneNumber = '573227190210';
+      const message = 'Hola Jesús Andrés, estoy interesado en el servicio de pauta en marketplace. ¡Cuéntame más!';
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    });
+  </script>
+</body>
+</html>

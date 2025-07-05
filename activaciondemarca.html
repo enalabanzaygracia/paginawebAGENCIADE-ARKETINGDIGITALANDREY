@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive Design -->
+    <title>Servicio de Activación de Marca</title>
+    <link rel="stylesheet" href="style.css"> <!-- Vinculación del archivo CSS -->
+    <style>
+        /* Estilos generales */
+      body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4; /* Color de respaldo */
+  background-image: url('https://img.freepik.com/vetores-premium/render-3d-alto-falante-icone-de-aviso-de-cor-violeta-simbolo-de-anuncio-de-alto-fonte-de-megafone_1250153-10127.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+  z-index: 0;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* o usa rgba(0, 0, 0, 0.3) si prefieres más contraste */
+  z-index: -1;
+}
+
+        header {
+            background: linear-gradient(90deg, #007BFF, #6F42C1); /* Degradado azul a morado */
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .service-details {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .service-details h2 {
+            color: #333;
+        }
+
+        .service-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-details li {
+            margin: 10px 0;
+        }
+
+        .service-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            flex: 1 1 calc(30% - 20px);
+            text-align: center;
+        }
+
+        .service-card h3 {
+            color: #007BFF; /* Color azul */
+        }
+
+        .service-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .call-to-action {
+            text-align: center;
+            margin-top: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .call-to-action h3 {
+            color: #007BFF; /* Color azul */
+        }
+
+        .call-to-action .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #007BFF, #6F42C1); /* Degradado azul a morado */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .call-to-action .btn:hover {
+            background: #0056b3; /* Color más oscuro al pasar el ratón */
+        }
+        
+    .service-details {
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #007BFF;
+      margin-bottom: 10px;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+
+    .btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #007BFF, #6F42C1);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    #resultado-precio {
+      margin-top: 20px;
+      font-size: 18px;
+      padding: 12px;
+      background: #e6f0ff;
+      border-left: 5px solid #007BFF;
+      border-radius: 4px;
+    }
+:root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+      
+
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+        
+    .servicios {
+      max-width: 600px;
+      margin: auto;
+      background-color: #ffffff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 20px;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      position: absolute;
+    }
+
+    li.mostrar {
+      opacity: 1;
+      position: static;
+    }
+       .contenedor-servicios {
+      background-color: white;
+      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #39a900;
+    }
+
+    ul.lista-dinamica {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: relative;
+      height: 100px;
+    }
+
+    .lista-dinamica li {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 1s ease, transform 1s ease;
+      font-size: 20px;
+      font-weight: 500;
+      padding: 15px;
+      border-radius: 10px;
+      box-sizing: border-box;
+    }
+
+    .lista-dinamica li.mostrar {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    /* Colores dinámicos */
+    .color1 {
+      background-color: #e1fbe9;
+      color: #29690b;
+    }
+
+    .color2 {
+      background-color: #fff4e6;
+      color: #b56d00;
+    }
+
+    .color3 {
+      background-color: #e8f0fe;
+      color: #0a3a8a;
+    }
+    </style>
+</head>
+<body>
+   <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+    <header>
+        <h1>¡Hola, BIENVENIDOS! 🤗</h1>
+    </header>
+
+    <main>
+        <section class="service-details">
+            <h2>¿Quieres dar un impulso a tu marca y conectar de manera efectiva con tu audiencia? 🚀</h2>
+            <h3>⚠️ Descubre nuestro servicio de Activación de Marca:</h3>
+            <ul>
+                <li><strong>💥 Activación de Marca en Vivo:</strong> Crea un impacto memorable y fortalece el reconocimiento de tu marca con actividades diseñadas para atraer y cautivar a tus clientes potenciales.</li>
+
+  </section><section class="seccion-incluye">
+  <h2 class="titulo-incluye">✅ Incluye:</h2>
+
+  <section class="contenedor-servicios">
+    <h3 class="subtitulo-servicios">🚀 Servicios Estratégicos</h3>
+    <ul class="lista-dinamica" id="servicios-lista">
+      <li class="color1 mostrar">Engagement Estratégico: Interacción directa con tu público objetivo mediante dinámicas personalizadas.</li>
+      <li class="color2">Dinámicas Personalizadas: Actividades alineadas con los valores y mensajes clave de tu marca.</li>
+      <li class="color3">Cobertura y Alcance: Eventos en ubicaciones de alto tráfico para maximizar visibilidad.</li>
+    </ul>
+  </section>
+</section>
+
+                </li>
+                <li>💥 Duración: 3 horas</li>
+                <li>💥 Costo Desde: $250,000</li>
+            </ul>
+            <h3>🚀 ¡No pierdas la oportunidad de destacar tu marca y crear conexiones valiosas con tus consumidores!</h3>
+        </section>
+
+        <section class="service-cards">
+            <h2>Nuestros Servicios de Activación de Marca 🛠️</h2>
+            <div class="service-card">
+                <img src="https://scontent.fclo1-4.fna.fbcdn.net/v/t39.30808-6/465174038_526846313595173_4889887927208866292_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHQq_5bJK7yuZSfzO6rUTH0GfmWoB4T0NgZ-ZagHhPQ2BfKhDk98kfRcyBIbAYvCa983P7tMpOnoz52yCFKxMv3&_nc_ohc=WjYsoKDU8sIQ7kNvgEOGgWK&_nc_zt=23&_nc_ht=scontent.fclo1-4.fna&_nc_gid=AvQ0VqZwmKhUrJcU0jGAeva&oh=00_AYCXNgaKLDzovjF4aXXcB1B43iuB6ay1UFOSZDKm5VI7FA&oe=6729F82D" alt="Activación de Marca en Vivo">
+                <h3>Activación de Marca en Vivo</h3>
+                <p>🎉 Crea un impacto inolvidable en tu audiencia con experiencias memorables que fortalecen el reconocimiento de tu marca.</p>
+                <a href="https://tmt44a.mimo.run/index.html" class="btn">Más Información</a>
+            </div>
+            <div class="service-card">
+                <img src="https://scontent.fclo1-4.fna.fbcdn.net/v/t39.30808-6/465060535_526846056928532_1541399198669893906_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeHZut4RnN3wrDNRJ5goeM9b7aSQoWmcV5ftpJChaZxXl2prEAVObhbqcvru9tVp3sltpGNdoXVZ171CDFtn9OlP&_nc_ohc=xUC7nK6nc8kQ7kNvgE6SOJv&_nc_zt=23&_nc_ht=scontent.fclo1-4.fna&_nc_gid=ApsFxjSiRAXrdmKw9JYZcR2&oh=00_AYCp8t4OIflgLqRsmPg7oiWIK2D9yALmCZK0_HuYPomLJQ&oe=672A0705" alt="Engagement Estratégico">
+                <h3>Engagement Estratégico</h3>
+                <p>🤝 Genera conexiones auténticas a través de dinámicas personalizadas, interactuando directamente con tu público objetivo.</p>
+                <a href="https://tmt44a.mimo.run/index.html" class="btn">Más Información</a>
+            </div>
+            <div class="service-card">
+                <img src="https://scontent.fclo1-4.fna.fbcdn.net/v/t39.30808-6/465146058_526846286928509_475827145289405232_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGvoZT9H4OcepdIGyLdL1LWml_gf24Sp3uaX-B_bhKne6Y5gO-pR0OaoD984Uuxal01B3dTkpS3VVIeKJsI9aEK&_nc_ohc=zMqCX1Vh1TsQ7kNvgEaQ0LO&_nc_zt=23&_nc_ht=scontent.fclo1-4.fna&_nc_gid=ADfUNVK0aY8GS19yyfE1OwD&oh=00_AYD3ai7K6oE1f2-bSVp2x-gz8Frxwa3uOXKKqImf3fp9ew&oe=672A2BF2" alt="Dinámicas Personalizadas">
+                <h3>Dinámicas Personalizadas</h3>
+                <p>🔍 Actividades alineadas con los valores de tu marca, asegurando que tu mensaje resuene en la mente de tus consumidores.</p>
+                <a href="https://tmt44a.mimo.run/index.html" class="btn">Más Información</a>
+            </div>
+            <div class="service-card">
+                <img src="https://scontent.fclo1-4.fna.fbcdn.net/v/t39.30808-6/465271920_526846196928518_821112092299689381_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGh-Bj3LDj5vHCsmsPcBASDGQE1MB-NIv8ZATUwH40i_0b9zFhyDTnkjHDOYtED8nQiBP8EHkMxkLrRm03AqA6V&_nc_ohc=I8Ldcua6LocQ7kNvgEJ5eKr&_nc_zt=23&_nc_ht=scontent.fclo1-4.fna&_nc_gid=AsqJE3mX2fq0AHjmNKWLhuv&oh=00_AYDotGQQNTGCTLgjwSOqV8gPkzbJTInnuux5oJ8-4H8YQg&oe=672A2145" alt="Cobertura y Alcance">
+                <h3>Cobertura y Alcance</h3>
+                <p>🌍 Organizamos eventos en ubicaciones de alto tráfico para maximizar la visibilidad de tu marca.</p>
+                <a href="https://tmt44a.mimo.run/index.html" class="btn">Más Información</a>
+            </div>
+        </section>
+
+
+<section class="service-details">
+    <h2>💰 Calculadora de Precio Estimado</h2>
+    <p>Selecciona los servicios que deseas incluir y calcula el total estimado:</p>
+    <form id="form-precio">
+      <label><input type="checkbox" name="servicio" value="250000"> Activación de Marca en Vivo - $250.000</label>
+      <label><input type="checkbox" name="servicio" value="180000"> Engagement Estratégico - $180.000</label>
+      <label><input type="checkbox" name="servicio" value="150000"> Dinámicas Personalizadas - $150.000</label>
+      <label><input type="checkbox" name="servicio" value="100000"> Cobertura y Alcance - $100.000</label>
+      <button type="button" class="btn" onclick="calcularTotal()">Calcular Total</button>
+    </form>
+    <div id="resultado-precio"></div>
+  </section>
+
+
+
+
+        <section class="call-to-action">
+            <h3>No pierdas más oportunidades</h3>
+            <p>Te invito a revisar mi portafolio digital mediante el siguiente enlace:</p>
+            <h3>SI TÚ PUEDES SOÑARLO, YO PUEDO CREARLO.</h3>
+            <p>
+                <a href="https://vjb7fw.mimo.run/index.html" class="btn">Descubre nuestro servicio de Activación de Marca</a>
+            </p>
+        </section>
+    </main>
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+
+    <script>
+        // Función de ejemplo para mostrar un servicio
+        function showService(serviceName) {
+            alert("Has seleccionado el servicio: " + serviceName);
+        }
+    </script>
+</body>
+</html>
+<script>
+    function calcularTotal() {
+      const checkboxes = document.querySelectorAll('input[name="servicio"]:checked');
+      let total = 0;
+      checkboxes.forEach(cb => {
+        total += parseInt(cb.value);
+      });
+
+      const resultado = document.getElementById("resultado-precio");
+      if (total > 0) {
+        resultado.innerText = `🧮 Total estimado: $${total.toLocaleString('es-CO')}`;
+      } else {
+        resultado.innerText = "⚠️ Selecciona al menos un servicio.";
+      }
+    }
+  </script>
+
+   <script>
+    const items = document.querySelectorAll('#servicios-lista li');
+    let index = 0;
+
+    setInterval(() => {
+      items[index].classList.remove('mostrar');
+
+      index = (index + 1) % items.length;
+
+      items[index].classList.add('mostrar');
+    }, 8000);
+  </script>

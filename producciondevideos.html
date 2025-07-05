@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Producción y Edición de Video Profesional</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #39a900;
+      --secondary: #98fe58;
+      --tertiary: #f2ffe5;
+      --alternate: #29690b;
+      --primary-text: #000000;
+      --secondary-text: #5d5d5d;
+      --background: #f9f9f9;
+      --footer-bg: #04324d;
+      --footer-text: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Work Sans', sans-serif;
+    }
+
+   body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  color: var(--primary-text);
+  line-height: 1.6;
+  background: url('https://www.iparprint.com/images/blog/Produccin_de_videos_corporativos_video_marketing_productora__audiovisual__para__empresas.jpg') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  min-height: 100vh;
+  z-index: 0;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom right, #e6ffe6, #ffffff);
+  opacity: 0.5; /* Ajusta según contraste deseado */
+  z-index: -1;
+}
+:root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      color: var(--alternate);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      color: var(--primary);
+      margin-top: 1.5rem;
+    }
+
+    p, li {
+      margin-bottom: 0.8rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    .contact-button {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .contact-button:hover {
+      background-color: var(--alternate);
+    }
+
+    footer {
+      background-color: var(--footer-bg);
+      color: var(--footer-text);
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      border-top: 5px solid var(--primary);
+    }
+
+    .footer__credits a {
+      color: var(--secondary);
+      text-decoration: none;
+    }
+
+    .footer__credits a:hover {
+      color: var(--tertiary);
+    }
+
+    .service-details, .script-writing, .call-to-action {
+      margin-bottom: 3rem;
+    }
+
+    /* Servicios como tarjetas animadas */
+    .services-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .service-card {
+      background: linear-gradient(145deg, #f2ffe5, #ffffff);
+      border-radius: 15px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      transform: perspective(800px) rotateY(0deg);
+      transition: transform 0.6s ease, box-shadow 0.6s ease, opacity 0.6s ease, transform 0.6s ease;
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .service-card:hover {
+      transform: perspective(800px) rotateY(5deg) scale(1.02);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .service-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .service-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      color: #29690b;
+    }
+
+    .service-card p {
+      font-size: 1.1rem;
+      color: #333;
+    }
+    .script-plan-selector {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.script-plan-selector label {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: var(--alternate);
+}
+
+.script-plan-selector select, .script-plan-selector button {
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-top: 0.4rem;
+}
+
+.script-plan-selector button {
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  flex: 1 1 100%;
+}
+
+.script-plan-selector button:hover {
+  background-color: var(--alternate);
+}
+
+.script-result {
+  margin-top: 2rem;
+  background: var(--tertiary);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+.script-result h3 {
+  color: var(--primary);
+}
+
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+    <div class="nav-bg">
+    <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+    </div>
+  <header>
+    <h1>🎮 ¡Transforma Tus Ideas en Realidad! 🎥✨</h1>
+    <p>¿Estás listo para crear un video impactante que cuente tu historia? 🚀</p>
+  </header>
+
+  <main>
+    <section class="service-details">
+      <h2>🌟 ¿Qué Ofrecemos?</h2>
+      <h3>1. Videos a Medida</h3>
+      <p>💡 Desde eventos especiales hasta anuncios comerciales, transformamos tus ideas en contenido visual de alta calidad.</p>
+      <h3>2. Incluye:</h3>
+
+      <div class="services-wrapper">
+<div class="service-card">
+  <h3>📹 Producción Personalizada a Nivel Cinematográfico</h3>
+  <p><strong>Capturamos más que imágenes, contamos historias con intención.</strong></p>
+  <p>🎬 Producción de video a medida, con calidad profesional, encuadres creativos y atención al más mínimo detalle.</p>
+  <p>📍 Nos adaptamos a tu visión, estilo y propósito: ya sea corporativo, emocional o promocional, tu idea toma vida con impacto visual.</p>
+</div>
+<div class="service-card">
+  <h3>✂️ Edición Creativa de Alto Impacto</h3>
+  <p><strong>Transformamos tus clips en historias que enamoran.</strong></p>
+  <p>🎶 Música envolvente, transiciones fluidas y efectos visuales que capturan la atención en segundos.</p>
+  <p>🎨 Estilo profesional para redes sociales, campañas y branding audiovisual.</p>
+</div>
+
+       <div class="service-card">
+  <h3>🎮 Versatilidad Sin Límites</h3>
+  <p><strong>Emoción, impacto y conexión real.</strong></p>
+  <p>Desde <em>momentos íntimos que te erizan la piel</em> hasta <em>campañas comerciales vibrantes</em> que venden sin esfuerzo.</p>
+  <p>📱 Formato vertical para redes | 🖥️ Formato horizontal para corporativos</p>
+</div>
+      </div>
+
+      <div class="delivery-cost">
+        <h3>⏳ Tiempo de Entrega:</h3>
+        <p>💨 5 a 7 días hábiles.</p>
+        <h3>💰 Costo:</h3>
+        <p>💵 Desde $100,000 (dependiendo del proyecto y duración, desde 30 segundos en adelante).</p>
+      </div>
+    </section>
+
+   <section class="script-writing">
+  <h2>✍️ Servicios de Creación de Guiones</h2>
+  <p>Elige el plan que más se ajuste a tu necesidad. Creamos videos profesionales con y sin guion previo, en formato vertical u horizontal.</p>
+  
+  <div class="script-plan-selector">
+    <label>¿Tienes un guion?
+      <select id="hasScript">
+        <option value="yes">Sí</option>
+        <option value="no">No</option>
+      </select>
+    </label>
+    <label>Formato del video:
+      <select id="videoFormat">
+        <option value="horizontal">Horizontal</option>
+        <option value="vertical">Vertical</option>
+      </select>
+    </label>
+    <label>¿Deseas voz en off?
+      <select id="voiceOver">
+        <option value="no">No</option>
+        <option value="yes">Sí</option>
+      </select>
+    </label>
+    <button onclick="mostrarPlan()">🎬 Ver Plan Sugerido</button>
+  </div>
+
+  <div class="script-result" id="resultPlan">
+    <h3>🧾 Plan Sugerido:</h3>
+    <p id="planInfo">Selecciona las opciones para ver tu plan ideal.</p>
+  </div>
+</section>
+
+
+    <section class="call-to-action">
+      <h2>🎥 ¡No pierdas la oportunidad de impactar a tu audiencia!</h2>
+      <p>✨ Contáctanos para más información y lleva tus proyectos al siguiente nivel.</p>
+      <a href="https://wa.me/573227190210" class="contact-button">📞 Contáctanos Ahora</a>
+    </section>
+  </main>
+
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+  <script>
+    const cards = document.querySelectorAll('.service-card');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const visibleCards = document.querySelectorAll('.service-card.show').length;
+          setTimeout(() => {
+            entry.target.classList.add('show');
+          }, visibleCards * 400); // Animación secuencial
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.3
+    });
+
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>
+<script>
+function mostrarPlan() {
+  const tieneGuion = document.getElementById("hasScript").value;
+  const formato = document.getElementById("videoFormat").value;
+  const voz = document.getElementById("voiceOver").value;
+  const planInfo = document.getElementById("planInfo");
+
+  let plan = "";
+  let costo = "";
+  let beneficios = "";
+
+  if (tieneGuion === "yes") {
+    if (voz === "no") {
+      plan = "🎬 Plan Esencial";
+      costo = "$100,000";
+      beneficios = "Incluye edición profesional, música libre de derechos, formato " + formato;
+    } else {
+      plan = "🎤 Plan Deluxe";
+      costo = "$150,000";
+      beneficios = "Incluye edición, música, y voz en off personalizada en formato " + formato;
+    }
+  } else {
+    if (voz === "yes") {
+      plan = "📽️ Plan Premium";
+      costo = "$200,000";
+      beneficios = "Incluye creación de guion, organización de contenido, edición, música y voz en off.";
+    } else {
+      plan = "✏️ Plan Intermedio";
+      costo = "$180,000";
+      beneficios = "Incluye guion, edición, música. Sin voz en off. Formato: " + formato;
+    }
+  }
+
+  planInfo.innerHTML = `<strong>${plan}</strong><br>
+  <strong>Precio:</strong> ${costo}<br>
+  <strong>Incluye:</strong> ${beneficios}`;
+}
+</script>
+

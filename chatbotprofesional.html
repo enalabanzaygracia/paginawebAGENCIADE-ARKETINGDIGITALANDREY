@@ -1,0 +1,947 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio de Chatbot Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        /* Estilos generales */
+       body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Color de respaldo si la imagen no carga */
+    background-image: url('https://img.freepik.com/premium-photo/robot-mascot_113255-71570.jpg');
+    background-size: cover;        /* Escala la imagen para cubrir todo el fondo */
+    background-position: center;   /* Centra la imagen */
+    background-repeat: no-repeat;  /* Evita que se repita */
+}
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Oscurece ligeramente para resaltar el texto */
+    z-index: -1; /* Se queda detrás del contenido del body */
+}
+        /* Encabezado */
+        header {
+            background: #5D3FD3; /* Color morado */
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        /* Título principal */
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        /* Secciones principales */
+        main {
+            padding: 20px;
+            display: flex;
+            flex-direction: column; /* Cambiado a columna */
+            align-items: center; /* Centrado horizontal */
+            gap: 20px; /* Espacio entre secciones */
+        }
+
+        /* Sección de detalles del servicio */
+        .service-details {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%; /* Ancho completo */
+            max-width: 600px; /* Ancho máximo de la sección de servicio */
+        }
+
+        /* Subtítulos */
+        h2 {
+            color: #5D3FD3; /* Color morado */
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #3A88D9; /* Color azul */
+        }
+
+        /* Estilos para las tarjetas */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que las tarjetas se acomoden en columnas */
+            gap: 20px; /* Espacio entre las tarjetas */
+            justify-content: center; /* Centrado horizontal */
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            flex: 1 1 calc(33% - 20px); /* Tres columnas con espacio entre ellas */
+            min-width: 200px; /* Ancho mínimo para las tarjetas */
+        }
+
+        .card h3 {
+            color: #5D3FD3; /* Color morado */
+        }
+
+        .card p {
+            color: #3A88D9; /* Color azul */
+        }
+
+        /* Enlaces */
+        a {
+            color: #5D3FD3; /* Color morado */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #3A88D9; /* Color azul */
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .contact-button:hover {
+            background-color: #2A6D9C; /* Color azul más oscuro al pasar el mouse */
+        }
+
+        /* Estilos para la sección de imagen */
+        .image-section {
+            text-align: center;
+            margin: 20px 0;
+            max-width: 600px; /* Ancho máximo de la imagen */
+            width: 100%; /* Ancho completo */
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* Estilos para la sección del video */
+        .video-section {
+            text-align: center;
+            margin: 20px 0;
+            max-width: 800px; /* Ancho máximo del video */
+            width: 100%; /* Ancho completo */
+        }
+
+        .video-section iframe {
+            width: 100%;
+            height: 315px; /* Altura del video */
+            border: none;
+            border-radius: 8px;
+        }
+
+        #servicios-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 120px; /* altura fija para evitar movimiento */
+  position: relative;
+  overflow: hidden;
+}
+
+.servicio-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: transparent;
+  color: #444;
+}
+
+.servicio-item.active {
+  opacity: 1;
+  background-color: #f2ffe5;
+  border-left: 6px solid #39a900;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #29690b;
+  border-radius: 10px;
+}
+.chatbot-promo {
+  text-align: center;
+  margin: 3rem auto;
+  padding: 2rem;
+  max-width: 900px;
+  background: linear-gradient(to right, #ffffff, #f2ffe5);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  animation: fadeInUp 1.2s ease-out;
+}
+
+.headline-animated {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #222;
+  animation: textPop 1.4s ease-in-out;
+}
+
+.subheadline-animated {
+  font-size: 1.3rem;
+  color: #444;
+  margin-top: 1.5rem;
+  animation: pulseText 2s infinite alternate;
+}
+
+.resaltado {
+  color: #39a900;
+  font-weight: 800;
+  transition: color 0.3s ease-in-out;
+}
+
+.resaltado:hover {
+  color: #29690b;
+  text-shadow: 0 0 5px rgba(57, 169, 0, 0.3);
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textPop {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulseText {
+  from {
+    color: #29690b;
+  }
+  to {
+    color: #39a900;
+  }
+}
+.paquetes-chatbot {
+  text-align: center;
+  padding: 2rem;
+  background: linear-gradient(to right, #f2ffe5, #ffffff);
+  border-radius: 20px;
+}
+
+.card-slider {
+  position: relative;
+  max-width: 900px;
+  margin: 2rem auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-container {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+  width: 100%;
+  position: relative;
+}
+
+.card {
+  flex: 0 0 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transform: perspective(1000px) rotateY(0deg);
+  transition: transform 0.5s, box-shadow 0.5s;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.card.active {
+  opacity: 1;
+  position: relative;
+  z-index: 10;
+}
+
+.card:hover {
+  transform: perspective(1000px) rotateY(2deg) scale(1.02);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  width: 500px;
+  margin-bottom: 1rem;
+}
+
+.precio {
+  color: #444;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.precio:hover {
+  font-size: 1.5rem;
+  color: #39a900;
+  text-shadow: 0 0 8px rgba(57, 169, 0, 0.3);
+}
+
+.nav-btn {
+  background-color: #39a900;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: #29690b;
+}
+.hero-header {
+  background: linear-gradient(to right, var(--tertiary, #f2ffe5), var(--primary-background, #ffffff));
+  padding: 3rem 1rem;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  margin-bottom: 2rem;
+  animation: fadeInDown 1s ease-in-out both;
+}
+
+.hero-header h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: var(--alternate, #29690b);
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.hero-header:hover h1 {
+  transform: scale(1.05);
+  color: var(--primary, #39a900);
+}
+
+/* Animación de entrada */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.contactanos-section {
+  padding: 3rem 2rem;
+  background: linear-gradient(to right, var(--tertiary, #f2ffe5), var(--primary-background, #ffffff));
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  animation: fadeInUp 1.2s ease-in-out both;
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  color: var(--alternate, #29690b);
+  margin-bottom: 0.5rem;
+}
+
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: var(--alternate-text, #5d5d5d);
+  margin-bottom: 2rem;
+}
+
+.contact-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.contact-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 280px;
+}
+
+.contact-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+}
+
+.contact-card i {
+  font-size: 2rem;
+  color: var(--primary, #39a900);
+  margin-bottom: 0.5rem;
+}
+
+.contact-card a {
+  text-decoration: none;
+  color: var(--alternate, #29690b);
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.contact-card a:hover {
+  color: var(--primary, #39a900);
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.paquetes-chatbot {
+  max-width: 700px;
+  margin: auto;
+  background-color: #f2ffe5;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+.paquetes-chatbot label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: bold;
+}
+.paquetes-chatbot select, .paquetes-chatbot input {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.25rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+.paquetes-chatbot button {
+  margin-top: 1.5rem;
+  background-color: #39a900;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.paquetes-chatbot .resultado {
+  margin-top: 2rem;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px #ddd;
+}
+:root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+    </style>
+</head>
+<body>
+  <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+
+
+    <header>
+        <h1>¡Bienvenidos al Servicio de Chatbot Profesional! 🌟</h1>
+    </header>
+
+    <main>
+        <section class="service-details">
+         <section class="chatbot-promo">
+  <h2 class="headline-animated">¿Eres dueño de un negocio y deseas un sistema digital que <span class="resaltado">capte clientes</span> potenciales de manera <span class="resaltado">automática</span>? 🚀</h2>
+  <h3 class="subheadline-animated">⚠️ Descubre lo que un <span class="resaltado">Chatbot Profesional</span> puede hacer por ti:</h3>
+</section>
+
+           
+
+
+
+
+<ul id="servicios-lista">
+  <li class="servicio-item active"><strong>✅ Flujo de Conversación Automatizado:</strong> Guía a tus clientes en su proceso de compra.</li>
+  <li class="servicio-item"><strong>📨 Enlaces Directos:</strong> Facilita el acceso a tu web o redes sociales.</li>
+  <li class="servicio-item"><strong>💬 Conversaciones Automatizadas:</strong> Aumenta tus ventas sin intervención manual.</li>
+</ul>
+           
+            <h3>⏳ ¡Deja de perder tiempo respondiendo las mismas preguntas! Deja que un chatbot lo haga por ti.</h3>
+
+
+
+<section class="paquetes-chatbot">
+  <h2>💥 Paquetes de Chatbot Disponibles:</h2>
+
+  <div class="card-slider">
+    <button class="nav-btn" id="prev">&#9664;</button>
+    <div class="card-container" id="cardContainer">
+      <div class="card active">
+        <img src="https://th.bing.com/th/id/OIP.OWvjdz2qoPlYYrKWxuSk1wHaEk?rs=1&pid=ImgDetMain" alt="Chatbot Básico">
+        <h3>Chatbot Básico</h3>
+        <p><span class="precio">💲200,000</span>, incluye 20 respuestas programadas.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://th.bing.com/th/id/OIP.qT-lVRbwHRXKvtPUFCQOLAHaEg?rs=1&pid=ImgDetMain" alt="Chatbot Menú">
+        <h3>Chatbot Menú</h3>
+        <p><span class="precio">💲200,000</span>, con 5 opciones de respuestas o servicios.</p>
+      </div>
+
+      <div class="card">
+        <img src="https://www.sacdigital.net/assets/img/automatiza-procesos.png" alt="Respuesta Adicional">
+        <h3>Respuesta Adicional</h3>
+        <p>Añade respuestas programadas por solo <span class="precio">💲10,000</span> cada una.</p>
+      </div>
+    </div>
+    <button class="nav-btn" id="next">&#9654;</button>
+  </div>
+
+  <h3 class="oferta">💥 Por solo <span class="precio">💲100,000</span>, obtén una consultoría en chatbot profesional. ¡Automatiza tus interacciones!</h3>
+</section>
+
+
+
+<section class="paquetes-chatbot">
+  <h2>💥 Paquetes de Chatbot Disponibles:</h2>
+
+  <form id="chatbotForm">
+    <label for="tipoChatbot">Selecciona el tipo de Chatbot:</label>
+    <select id="tipoChatbot" name="tipoChatbot">
+      <option value="basico">🤖 Chatbot Básico – $200,000</option>
+      <option value="menu">📋 Chatbot Menú – $200,000</option>
+    </select>
+
+    <label for="respuestasExtras">Respuestas adicionales (💲10,000 c/u):</label>
+    <input type="number" id="respuestasExtras" name="respuestasExtras" value="0" min="0" max="50">
+
+    <label for="consultoria">¿Deseas consultoría profesional? (+💲100,000)</label>
+    <select id="consultoria" name="consultoria">
+      <option value="no">No</option>
+      <option value="si">Sí</option>
+    </select>
+
+    <button type="button" onclick="calcularChatbot()">🧾 Calcular Total</button>
+  </form>
+
+  <div id="resultadoChatbot" class="resultado">
+    <h3>🧠 Resultado del Servicio</h3>
+    <p>Selecciona tus opciones y presiona "Calcular Total"</p>
+  </div>
+</section>
+
+
+
+
+        <!-- Sección de imagen -->
+        <section class="image-section">
+            <h2>Conoce Nuestro Servicio</h2>
+            <img src="https://scontent.fclo1-4.fna.fbcdn.net/v/t39.30808-6/297828091_4972605659517902_7765802665491730861_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeEHrKKnvJTijGdvk1zPY-7NoF6yfmQKNaSgXrJ-ZAo1pOQmMFeoCXGck8c50uojKkJFQvFs1pH2HCHN1lveZmyx&_nc_ohc=A4KPvJ4sMKMQ7kNvgH-2VAQ&_nc_zt=23&_nc_ht=scontent.fclo1-4.fna&_nc_gid=ATMSKEj6bBTM4iMWrvuO4Nu&oh=00_AYCAN1Xi8uVflcM-fSADCvX-1xl5bBGGYg22DpjUYUaxzA&oe=6729F71A" alt="Descripción de la imagen">
+        </section>
+
+        <!-- Sección de video -->
+        <section class="video-section">
+            <h2>Mira Nuestro Video Explicativo</h2>
+            <iframe src="https://www.youtube.com/embed/NH2TD9VhZ2A" allowfullscreen></iframe>
+        </section>
+    </main>
+
+<section class="contactanos-section" id="contacto">
+  <h2 class="contact-title">📞 ¡Contáctanos Hoy!</h2>
+  <p class="contact-subtitle">Estamos listos para ayudarte a llevar tu negocio al siguiente nivel 🚀</p>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <i class="fas fa-phone-alt"></i>
+      <h3>Teléfonos</h3>
+      <p>+57 322 7190210</p>
+      <p>+57 300 1234567</p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fas fa-envelope"></i>
+      <h3>Correo Electrónico</h3>
+      <p><a href="mailto:plataformaandrey@gmail.com">plataformaandrey@gmail.com</a></p>
+    </div>
+
+    <div class="contact-card">
+      <i class="fab fa-facebook-square"></i>
+      <h3>Redes Sociales</h3>
+      <p><a href="https://www.facebook.com/jesusandres.salazar2" target="_blank">Facebook</a></p>
+      <p><a href="https://www.youtube.com/@JesusAndresSalazar" target="_blank">YouTube</a></p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+
+    <script>
+        // Espera a que el documento esté completamente cargado
+        document.addEventListener('DOMContentLoaded', () => {
+            const header = document.querySelector('header');
+
+            header.addEventListener('click', () => {
+                alert("¡Bienvenido a nuestro servicio de Chatbot Profesional!");
+            });
+        });
+    </script>
+</body>
+</html>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.servicio-item');
+    let currentIndex = 0;
+
+    items[currentIndex].classList.add('active');
+
+    setInterval(() => {
+      items[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % items.length;
+      items[currentIndex].classList.add('active');
+    }, 8000);
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    let currentIndex = 0;
+
+    function showCard(index) {
+      cards.forEach((card, i) => {
+        card.classList.remove('active');
+        if (i === index) {
+          card.classList.add('active');
+        }
+      });
+    }
+
+    prevBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      showCard(currentIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      showCard(currentIndex);
+    });
+
+    // Cambio automático cada 8 segundos
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      showCard(currentIndex);
+    }, 8000);
+
+    showCard(currentIndex); // inicializar
+  });
+</script>
+<script>
+  function calcularChatbot() {
+    const tipo = document.getElementById('tipoChatbot').value;
+    const respuestasExtras = parseInt(document.getElementById('respuestasExtras').value);
+    const consultoria = document.getElementById('consultoria').value;
+
+    let total = 0;
+    let descripcion = "";
+
+    if (tipo === "basico") {
+      total += 200000;
+      descripcion += "🤖 Chatbot Básico ($200,000)<br>";
+    } else if (tipo === "menu") {
+      total += 200000;
+      descripcion += "📋 Chatbot Menú ($200,000)<br>";
+    }
+
+    if (respuestasExtras > 0) {
+      let extra = respuestasExtras * 10000;
+      total += extra;
+      descripcion += `➕ ${respuestasExtras} respuestas adicionales ($${extra.toLocaleString()})<br>`;
+    }
+
+    if (consultoria === "si") {
+      total += 100000;
+      descripcion += "🧠 Consultoría Profesional ($100,000)<br>";
+    }
+
+    descripcion += `<strong>💰 Total a pagar:</strong> $${total.toLocaleString()}`;
+    document.getElementById('resultadoChatbot').innerHTML = `<h3>🧾 Detalle de tu Servicio</h3><p>${descripcion}</p>`;
+  }
+</script>

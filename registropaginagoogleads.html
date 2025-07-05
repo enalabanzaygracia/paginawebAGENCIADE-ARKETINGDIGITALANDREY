@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive Design -->
+    <title>Servicios de Registro y Perfil de Negocio</title>
+    <link rel="stylesheet" href="style.css"> <!-- Vinculación del archivo CSS -->
+    <style>
+
+        body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Work Sans', sans-serif;
+  color: #ffffff;
+  background: url('https://th.bing.com/th/id/R.07cf34d533dad20d10f9bd13803f58bf?rik=UQnMjfz%2fAqnQAA&pid=ImgRaw&r=0') no-repeat center center fixed;
+  background-size: cover;
+  background-color: #1a1a1a; /* Color de respaldo oscuro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  position: relative;
+  z-index: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4); /* Oscurece ligeramente */
+  z-index: -1;
+}
+:root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.encabezado {
+  background-color: #34a853; /* Verde Google */
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.encabezado h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.servicio {
+  display: none;
+  opacity: 0;
+  transition: opacity 1s ease;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f0fdf0;
+  border-left: 5px solid #39a900;
+  border-radius: 8px;
+  color: #000; /* 🖤 Letras negras */
+}
+
+.servicio.active {
+  display: block;
+  opacity: 1;
+  animation: zoomIn 1s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.footer-google {
+  background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335);
+  background-size: 400% 400%;
+  animation: googleGradient 15s ease infinite;
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  margin-top: auto;
+  box-shadow: 0 -3px 15px rgba(0, 0, 0, 0.3);
+  border-top: 4px solid #ffffff22;
+}
+
+.footer-google p {
+  margin: 0;
+  letter-spacing: 0.7px;
+}
+
+.footer-google strong {
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+/* Animación de fondo dinámico estilo Google */
+@keyframes googleGradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+
+
+    </style>
+</head>
+<body>
+  <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+<header class="encabezado">
+  <h1>Servicios de Registro y Perfil de Negocio</h1>
+</header>
+
+<br><br><br><br><br><br>
+    <main>
+        <section class="registration-info">
+  <h2>🌟 Registro y Creación de tu Perfil de Negocio 🌟</h2>
+
+  <div class="servicio">💥 <strong>Registro de página o sitio web</strong> 💻 con dominio propio.  
+  <br><em>Desde $120.000 COP / único pago</em></div>
+
+  <div class="servicio">💥 <strong>Registro de cuenta en Google Ads y Google Maps</strong> 🗺 con configuración.
+  <br><em>Desde $80.000 COP</em></div>
+
+  <div class="servicio">💥 Proporcionamos <strong>palabras clave</strong> y mostramos tu anuncio en búsquedas.
+  <br><em>Incluido con el servicio anterior</em></div>
+
+  <div class="servicio">💥 El <strong>Perfil de Negocio</strong> 👤 conecta con clientes en Google y Maps.
+  <br><em>Desde $90.000 COP</em></div>
+
+  <div class="servicio">💥 Puedes <strong>publicar fotos y ofertas</strong> para destacar tu negocio.
+  <br><em>Desde $60.000 COP / mes</em></div>
+
+  <div class="servicio">💥 Tus clientes se conectan por <strong>llamadas, opiniones o mensajes</strong>.
+  <br><em>Gratis con tu perfil activo</em></div>
+
+  <div class="servicio">💥 <strong>Estadísticas de interacción</strong>: clics, llamadas, reservas, etc.
+  <br><em>Desde $50.000 COP / mes</em></div>
+
+
+</section>
+    </main>
+<footer class="footer-google">
+  <p>&copy; 2024 <strong>Agencia De Marketing Digital Andrey MUNDO PUBLICIDAD</strong>. Todos los derechos reservados.</p>
+</footer>
+
+    <script src="script.js"></script> <!-- Vinculación del archivo JavaScript -->
+</body>
+</html>
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const servicios = document.querySelectorAll('.servicio');
+  let index = 0;
+
+  function mostrarServicio(i) {
+    servicios.forEach((serv, idx) => {
+      serv.classList.remove('active');
+      if (idx === i) serv.classList.add('active');
+    });
+  }
+
+  mostrarServicio(index);
+
+  setInterval(() => {
+    index = (index + 1) % servicios.length;
+    mostrarServicio(index);
+  }, 4000); // Cambia cada 4 segundos
+});
+</script>

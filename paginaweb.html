@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio En Análisis Y Desarrollo De Software - Freelancer Jesús Andrés Salazar</title>
+    
+    <link rel="stylesheet" href="normalize.css">
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles_2.css">
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+      body {
+    font-family: 'Krub', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Respaldo si la imagen no carga */
+    background-image: url('https://img.freepik.com/fotos-premium/explosion-pinturas-colores-brillantes-ia-generativa-ia-generativa_170984-12321.jpg');
+    background-size: cover;       /* Para que cubra todo el fondo */
+    background-position: center;  /* Centrado */
+    background-repeat: no-repeat; /* Sin repeticiones */
+}
+       body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Capa oscura semitransparente */
+    z-index: -1;
+}
+
+       
+       
+       :root {
+  --color-primario: #6a0dad;        /* Púrpura fuerte */
+  --color-secundario: #caa8f5;      /* Mora en leche */
+  --color-hover: #e6d4f5;           /* Violeta claro atenuado */
+  --color-texto-hover: #1a1a1a;     /* Negro suave */
+  --color-borde: #4b0082;           /* Índigo */
+}
+
+/* Contenedor del menú con animación de ola */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 1rem 0;
+  gap: 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+/* Estilo base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  transition: 
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover con fondo suave, color negro, y tamaño ligeramente mayor */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12); /* Menos contraste */
+  color: var(--color-texto-hover); /* Negro suave */
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación tipo ola */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+       
+       
+       
+       
+       
+       
+        header {
+            background: url('https://scontent.fclo1-4.fna.fbcdn.net/v/t39.30808-6/465259651_526760566937081_3092451651002461360_n.jpg?_nc_cat=111&ccb=1-7') no-repeat;
+            background-size: cover; /* Cubre todo el área del header */
+            height: 400px; /* Ajusta la altura total del header */
+            position: relative; /* Permite posicionar elementos internos */
+            color: white; /* Color del texto */
+            text-align: center; /* Centra el texto */
+            display: flex; /* Utiliza flexbox para centrar el contenido */
+            justify-content: center; /* Centra horizontalmente */
+            align-items: center; /* Centra verticalmente */
+        }
+       
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+       
+        .textos {
+            text-align: center; /* Centra el texto, opcional */
+        }
+        
+        .titulo, .subtitulo {
+            transition: transform 0.3s ease; /* Transición suave para el efecto */
+        }
+        
+        .textos:hover .titulo {
+            transform: scale(1.2); /* Aumenta el tamaño del título al pasar el mouse */
+        }
+        
+        .textos:hover .subtitulo {
+            transform: scale(1.1); /* Aumenta el tamaño del subtítulo al pasar el mouse */
+        }
+       
+
+       
+       
+       
+
+        .boton {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .boton:hover {
+            background-color: #218838;
+        }
+
+        .acerca-de, .freelancer-section, .miembros, .fondo, .contact-info {
+            padding: 20px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            max-width: 800px;
+        }
+
+
+
+.servicios {
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 2rem;
+    position: relative;
+}
+
+.servicios__contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.servicios__carousel {
+    width: 80%;
+    min-height: 200px;
+    position: relative;
+}
+
+.servicio {
+    display: none;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.servicio.active {
+    display: block;
+}
+
+.flecha {
+    background: var(--primary, #39a900);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.flecha:hover {
+    background: #29690b;
+}
+
+.flecha--izquierda {
+    margin-right: 1rem;
+}
+
+.flecha--derecha {
+    margin-left: 1rem;
+}
+
+.indicadores {
+    margin-top: 1rem;
+}
+
+.indicadores span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.indicadores span.active {
+    background-color: var(--primary, #39a900);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+     
+     
+     
+     
+     
+     
+     
+     
+     
+        .galeria {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px auto;
+            padding: 10px;
+            max-width: 1200px; /* Ajusta el ancho máximo según necesites */
+        }
+        
+        .imagenes {
+            margin: 10px;
+            position: relative;
+            overflow: hidden; /* Esconde cualquier desbordamiento */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra de las imágenes */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+            height: 150px; /* Ajusta la altura deseada para las imágenes */
+            width: 150px; /* Ajusta el ancho deseado para las imágenes */
+        }
+        
+        .imagenes:hover {
+            transform: scale(1.05); /* Efecto de zoom al pasar el cursor */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada al pasar el cursor */
+        }
+        
+        .imagenes img {
+            max-width: 100%; /* Hace que la imagen sea responsiva */
+            max-height: 100%; /* Asegura que la imagen no exceda la altura del contenedor */
+            border-radius: 10px; /* Bordes redondeados de las imágenes */
+            display: block; /* Elimina espacios en blanco */
+            object-fit: cover; /* Mantiene la proporción de la imagen */
+        }
+        
+     
+     
+     
+     .contact-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    background-color: #29690b; /* Verde oscuro institucional */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+.contact-button:hover {
+    background-color: #39a900; /* Verde vibrante al pasar el mouse */
+    transform: scale(1.1); /* Agrandarse suavemente */
+    box-shadow: 0 8px 20px rgba(57, 169, 0, 0.4);
+}
+
+.contact-button::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border-radius: 50px;
+    background: transparent;
+    transition: transform 0.4s ease-in-out;
+    z-index: -1;
+}
+
+     
+     
+     
+     
+     
+     
+     
+     
+        .miembros {
+            text-align: center; /* Centrar el texto */
+            padding: 40px 20px; /* Espaciado interior */
+            background-color: #f9f9f9; /* Fondo claro */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra del contenedor */
+        }
+        
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px; /* Ajusta según sea necesario */
+            margin: 0 auto; /* Centrar la galería */
+        }
+        
+        .card {
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra de las tarjetas */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+            margin: 15px; /* Margen entre tarjetas */
+            padding: 20px; /* Espaciado interior */
+            width: 300px; /* Ancho fijo para las tarjetas */
+            text-align: left; /* Alinear texto a la izquierda */
+        }
+        
+        .card img {
+            width: 100%; /* Hacer que la imagen ocupe todo el ancho de la tarjeta */
+            border-radius: 10px; /* Bordes redondeados de la imagen */
+        }
+        
+        .card h4 {
+            margin: 10px 0; /* Espaciado entre el título y el párrafo */
+            font-size: 1.5rem; /* Tamaño de fuente mayor */
+            color: #333; /* Color del texto */
+        }
+        
+        .card p {
+            font-size: 1rem; /* Tamaño de fuente normal */
+            color: #666; /* Color gris para el texto */
+        }
+        
+        .card:hover {
+            transform: translateY(-5px); /* Efecto de elevación al pasar el cursor */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+        }
+        
+     
+     
+     
+     
+        .fondo {
+            background-color: #f4f4f4; /* Color de fondo claro */
+            padding: 40px 20px; /* Espaciado interior */
+            text-align: center; /* Centramos el texto */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra de la sección */
+        }
+        
+        .fondo h2, .fondo h3 {
+            color: #333; /* Color oscuro para títulos */
+        }
+        
+        .fondo p {
+            color: #666; /* Color gris para texto */
+            margin-bottom: 20px; /* Espaciado inferior */
+        }
+        
+        .planes {
+            display: flex;
+            justify-content: space-around; /* Espaciado entre planes */
+            flex-wrap: wrap; /* Permitir que los planes se envuelvan en pantallas más pequeñas */
+            max-width: 1200px; /* Ancho máximo */
+            margin: 0 auto; /* Centrar la sección */
+        }
+        
+        .plan {
+            background-color: white; /* Fondo blanco para las tarjetas */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra de las tarjetas */
+            padding: 20px; /* Espaciado interior */
+            margin: 15px; /* Margen entre tarjetas */
+            width: 250px; /* Ancho fijo para las tarjetas */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transiciones suaves */
+        }
+        
+        .plan h4 {
+            color: #28a745; /* Color verde para los títulos de los planes */
+            margin-bottom: 10px; /* Espaciado inferior */
+        }
+        
+        .plan p {
+            margin: 10px 0; /* Espaciado vertical entre párrafos */
+        }
+        
+        .plan .boton {
+            background-color: #28a745; /* Color del botón */
+            color: white; /* Color del texto del botón */
+            padding: 10px 15px; /* Espaciado del botón */
+            border-radius: 5px; /* Bordes redondeados */
+            text-decoration: none; /* Sin subrayado */
+            transition: background-color 0.3s; /* Transición suave */
+        }
+        
+        .plan .boton:hover {
+            background-color: #218838; /* Color del botón al pasar el cursor */
+        }
+        
+     
+     
+     
+
+
+        .contact-info {
+            background-color: #f4f4f4; /* Fondo claro */
+            padding: 40px 20px; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            text-align: center; /* Centrar el texto */
+        }
+        
+        .contact-info h2 {
+            color: #333; /* Color oscuro para el título */
+            margin-bottom: 20px; /* Espacio inferior */
+        }
+        
+        .contact-details {
+            display: flex; /* Usar flexbox para disposición */
+            justify-content: space-around; /* Espacio entre columnas */
+            max-width: 1200px; /* Ancho máximo */
+            margin: 0 auto; /* Centrar */
+            flex-wrap: wrap; /* Permitir que se envuelvan en pantallas pequeñas */
+        }
+        
+        .column {
+            width: 45%; /* Ancho de las columnas */
+            margin: 10px; /* Margen entre columnas */
+            background-color: white; /* Fondo blanco */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 20px; /* Espaciado interno */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra de las tarjetas */
+        }
+        
+        h4 {
+            color: #28a745; /* Color verde para subtítulos */
+            margin-bottom: 15px; /* Espacio inferior */
+        }
+        
+        .contact-item {
+            display: flex; /* Usar flexbox para icono y texto */
+            align-items: center; /* Centrar verticalmente */
+            margin-bottom: 10px; /* Espacio entre items */
+        }
+        
+        .contact-item i {
+            color: #28a745; /* Color del icono */
+            margin-right: 10px; /* Espacio entre icono y texto */
+        }
+        
+        .contact-item a {
+            color: #007bff; /* Color del enlace */
+            text-decoration: none; /* Sin subrayado */
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline; /* Subrayado al pasar el cursor */
+        }
+        
+     
+.titulo.animar {
+    animation: cambioColor 3s infinite alternate;
+}
+
+@keyframes cambioColor {
+    0% {
+        color: black;
+    }
+    100% {
+        color: white;
+    }
+}
+
+     /* Animación base para el cambio de color */
+@keyframes cambioColor {
+    0% {
+        color: black;
+    }
+    100% {
+        color: white;
+    }
+}
+
+/* h1: duración 3 segundos */
+h1.titulo.animar {
+    animation: cambioColor 3s infinite alternate;
+}
+
+/* h3: duración 5 segundos, empieza con retraso */
+h3.titulo.animar {
+    animation: cambioColor 5s infinite alternate;
+    animation-delay: 1.5s; /* retardo para que empiece después */
+}
+     
+     .precio-enfasis {
+    font-size: 1rem;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.precio-enfasis:hover {
+    font-size: 1.4rem;
+    color: #39a900;
+    font-weight: bold;
+    transform: scale(1.05);
+    text-shadow: 0 0 5px rgba(57, 169, 0, 0.3);
+}
+
+     
+
+        .titulo-footer, .subtitulo-footer {
+            text-align: center;
+        }
+
+
+        .form-container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #218838;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .column {
+            width: 48%;
+        }
+
+        @media (max-width: 600px) {
+            .contact-info {
+                flex-direction: column;
+            }
+
+            .column {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        .servicio-destacado {
+  background: linear-gradient(135deg, #f2ffe5, #e6ffe6);
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.servicio-card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  max-width: 700px;
+  width: 100%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  animation: fadeInUp 1s ease-out forwards;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.titulo-servicio {
+  font-size: 2rem;
+  color: #29690b;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.detalles-servicio {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+.detalles-servicio ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
+}
+
+.precio-enfasis {
+  font-size: 1.2rem;
+  color: #444;
+  font-weight: bold;
+  margin-top: 1.2rem;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.precio-enfasis:hover {
+  color: #39a900;
+  font-size: 1.5rem;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(57, 169, 0, 0.2);
+}
+
+.frase-impacto {
+  margin: 2rem 0;
+  font-size: 1.3rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.contact-button {
+  display: block;
+  width: fit-content;
+  margin: 0 auto;
+  background-color: #29690b;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-button:hover {
+  background-color: #39a900;
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(57, 169, 0, 0.3);
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.contact-info {
+  background: linear-gradient(to right, #f2ffe5, #e6ffe6);
+  padding: 4rem 2rem;
+  border-radius: 20px;
+  margin: 3rem auto;
+  max-width: 900px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #29690b;
+  margin-bottom: 2rem;
+  font-weight: 700;
+}
+
+.contact-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.contact-column {
+  flex: 1;
+  min-width: 280px;
+}
+
+.contact-column h4 {
+  font-size: 1.2rem;
+  color: #39a900;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #39a900;
+  padding-bottom: 0.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 0.8rem;
+  font-size: 1rem;
+  color: #333;
+  transition: transform 0.3s ease-in-out;
+}
+
+.contact-item i {
+  color: #39a900;
+  font-size: 1.2rem;
+}
+
+.contact-item a {
+  text-decoration: none;
+  color: #29690b;
+  font-weight: 500;
+}
+
+.contact-item:hover {
+  transform: scale(1.05);
+  color: #39a900;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* Footer principal con fondo animado sutil */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+    </style>
+</head>
+
+<body>
+  <nav class="menu-principal">
+    
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+   
+    <header style="background: url('https://scontent.feoh2-1.fna.fbcdn.net/v/t51.75761-15/491452806_18060714728472706_2073028769345555608_n.webp?stp=dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeGwYNowbQ6iMBMR3Z9MNaS-fi5VcJDe_qN-LlVwkN7-o2GGJCEqlALeiRoEe7J7b1i0wbouPdTeM7DmSD_AkAlG&_nc_ohc=CRtsMTT0M8YQ7kNvwH5k25X&_nc_oc=AdnDGA8NSyH10NyWMMlAKuGbi5yTq61WiQRLUFjCcpN3FUQnR_UmeyQXSc50NRoJQNY&_nc_zt=23&_nc_ht=scontent.feoh2-1.fna&_nc_gid=JIFVAP1r5r__geGRfjIBtw&oh=00_AfMLYOedJC7hT8yBXIsv2rNfdUNgtsAXVI015yosAuDpdw&oe=68524EF9'); background-size: cover; padding: 50px; text-align: center;">
+        <div class="textos">
+            <h1 class="titulo animar">Jesús Andrés Salazar</h1>
+            <h3 class="titulo animar">Análisis Y Desarrollo De Software</h3>
+            <a href="https://www.youtube.com/channel/UC5LQHFipkARGPIyHS_msgfw" class="boton">Suscríbete</a>
+        </div>
+    </header>
+    
+   
+
+    <main>
+
+
+
+
+
+
+        <section class="freelancer-section">
+                            
+           
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+            <section class="acerca-de">
+                <h2>Sobre Nosotros</h2>
+                <h3>Si TU puedes Soñarlo, Yo puedo Crearlo.</h3>
+                <p>
+                    Somos un equipo dedicado a ofrecer soluciones integrales en el desarrollo de páginas web. Nuestro enfoque profesional combina habilidades en Marketing Digital y Desarrollo de Software, creando soluciones tecnológicas que responden a las necesidades del mercado.
+                </p>
+                <p>
+                    La calidad del software es una prioridad clave en nuestro enfoque. Realizamos pruebas exhaustivas para asegurar que todos los aspectos críticos del sistema funcionen a la perfección. Además, proporcionamos soporte técnico de alta calidad para garantizar una implementación exitosa.
+                </p>
+                <a href="https://tmt44a.mimo.run/index.html" class="boton">Contáctanos</a>
+            </section>
+            
+            <section class="freelancer-section">
+                <h2>Gestión Ágil de Proyectos</h2>
+                <p>
+                    Optimice sus proyectos de desarrollo web con nosotros. Nos especializamos en garantizar entregas puntuales, maximizando la satisfacción del cliente. Implementamos ciclos de desarrollo iterativos utilizando metodologías ágiles para asegurar resultados tangibles en cada etapa del proyecto.
+                </p>
+            </section>
+            
+         
+         
+         
+
+
+
+<section class="servicios">
+    <h2>Nuestros Servicios</h2>
+
+    <div class="servicios__contenedor">
+        <button class="flecha flecha--izquierda">&#10094;</button>
+
+        <div class="servicios__carousel">
+            <div class="servicio active">
+                <h3>🌐 Desarrollo de Páginas Web Interactivas</h3>
+                <p>Creamos sitios web responsivos y atractivos utilizando HTML5, CSS3 y JavaScript. ¡Garantizamos una experiencia de usuario excepcional!</p>
+            </div>
+            
+            <div class="servicio">
+                <h3>🔍 Optimización de SEO</h3>
+                <p>Mejoramos la visibilidad de tu sitio en los motores de búsqueda mediante técnicas efectivas de SEO, aumentando tu presencia en línea y atrayendo más clientes.</p>
+            </div>
+            
+            <div class="servicio">
+                <h3>🛠️ Desarrollo de Aplicaciones Web</h3>
+                <p>Desarrollamos aplicaciones web personalizadas que se adaptan a tus necesidades específicas, integrando funcionalidades avanzadas y una interfaz intuitiva.</p>
+            </div>
+            
+            <div class="servicio">
+                <h3>💼 Consultoría Técnica</h3>
+                <p>Brindamos asesoramiento experto sobre tecnologías web y mejores prácticas, ayudando a optimizar tus procesos y mejorar la eficiencia de tu negocio.</p>
+            </div>
+            
+            <div class="servicio">
+                <h3>🛡️ Soporte y Mantenimiento</h3>
+                <p>Ofrecemos soporte continuo y mantenimiento para asegurar que tus sistemas y aplicaciones web funcionen sin problemas, garantizando tu tranquilidad.</p>
+            </div>
+
+            <div class="servicio">
+                <h3>🎨 Diseño de Páginas Web Personalizadas</h3>
+                <p>¿Buscas una página web que realmente represente a tu negocio y atraiga a tus clientes? ¡Estamos aquí para ayudarte! 🚀</p>
+            </div>
+        </div>
+
+        <button class="flecha flecha--derecha">&#10095;</button>
+    </div>
+
+    <div class="indicadores">
+        <!-- Se generarán automáticamente -->
+    </div>
+</section>
+
+
+
+
+         
+         
+         
+         
+                                           
+           
+              
+                       <section class="servicio-destacado">
+  <div class="servicio-card">
+    <h2 class="titulo-servicio">🌐 Diseño Web Profesional a Tu Medida</h2>
+    <ul class="detalles-servicio">
+      <li><strong>Diseño Personalizado:</strong> Una presencia en línea profesional adaptada a tus necesidades y objetivos.</li>
+      <li><strong>Incluye:</strong>
+        <ul>
+          <li>🎨 Diseño a medida que refleja la identidad de tu marca.</li>
+          <li>💻 Uso de tecnologías modernas como HTML, CSS y Bootstrap 5.</li>
+          <li>🔧 Soporte y mantenimiento básico post-lanzamiento.</li>
+        </ul>
+      </li>
+      <li class="precio-enfasis">💰 Precio desde: $700,000</li>
+    </ul>
+    <p class="frase-impacto">🚀 ¡Haz que tu negocio destaque con una página web profesional y eficaz!</p>
+    <a href="https://uay2zl.mimo.run/index.html" class="contact-button">Más Información</a>
+  </div>
+</section>
+                
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+           
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+          
+          
+          
+          
+          
+          
+        
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+
+
+
+
+
+
+            
+                    
+                  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  <section class="miembros">
+                    <h2>Nuestro equipo</h2>
+                    <h3>Conoce a nuestro equipo de trabajo</h3>
+                    <div class="cards">
+                        <div class="card">
+                            <img src="https://media.licdn.com/dms/image/D4E03AQFbysCMq9IJ3w/profile-displayphoto-shrink_800_800/0/1671497289735?e=2147483647&v=beta&t=syP3Hr1EA_IiTXeLvulL4fFE6vK6Df3FqIYd_9q7NJE" alt="Stiven Meneses">
+                            <h4>Stiven Meneses</h4>
+                            <p>Analista y Desarrollor de Software.</p>
+                        </div>
+                        <div class="card">
+                            <img src="https://th.bing.com/th/id/R.bbb141538f1e883013abde159d9a7391?rik=naazsvSwwQjS3w&riu=http%3a%2f%2fwww.tuproyectodevida.pe%2fwp-content%2fuploads%2f2022%2f12%2ftrabajo-ingeniero-de-sistemas-1200x628.jpg&ehk=i7PTO8EzPcg%2fs939Sfg485g94rdGaPX16Axt89KpvXs%3d&risl=&pid=ImgRaw&r=0" alt="Camilo Flor">
+                            <h4>Camilo Flor</h4>
+                            <p>Analista y Desarrollor de Software.</p>
+                        </div>
+                        <div class="card">
+                            <img src="https://dominoprintingmexico.mx/blog/wp-content/uploads/2023/06/Personal25.jpg" alt="Diana Maritza">
+                            <h4>Diana Maritza</h4>
+                            <p>Ingeniera en Sistemas.</p>
+                        </div>
+                    </div>
+                </section>
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </section>
+
+        <section class="fondo">
+            <h2>Contrata Un Diseño</h2>
+            <h3>Conoce a algunos de nuestros planes</h3>
+            <p>
+                Desde $700.000 pesos en adelante, puedes tener una presencia en línea que te hará destacar. Nuestros portafolios digitales están diseñados para impresionar.
+            </p>
+            <div class="planes">
+                <div class="plan">
+                    <h4>Plan Básico</h4>
+                    <p>Ideal para pequeñas empresas y emprendedores.</p>
+                    <p><strong>Precio: $700.000</strong></p>
+                    <a href="https://uay2zl.mimo.run/index.html" class="boton">Más Información</a>
+                </div>
+                <div class="plan">
+                    <h4>Plan Avanzado</h4>
+                    <p>Perfecto para negocios en crecimiento.</p>
+                    <p><strong>Precio: $1.200.000</strong></p>
+                    <a href="https://uay2zl.mimo.run/index.html" class="boton">Más Información</a>
+                </div>
+                <div class="plan">
+                    <h4>Plan Premium</h4>
+                    <p>Todo lo que necesitas para destacar en línea.</p>
+                    <p><strong>Precio: $2.000.000</strong></p>
+                    <a href="https://uay2zl.mimo.run/index.html" class="boton">Más Información</a>
+                </div>
+            </div>
+        </section>
+        
+   
+   
+   
+   
+   
+   
+
+
+
+<section class="contact-info">
+  <h2 class="contact-title">📞 CONTÁCTENOS</h2>
+  <div class="contact-details">
+    <div class="contact-column">
+      <h4>📱 Teléfonos</h4>
+      <div class="contact-item">
+        <i class="fas fa-phone-alt"></i>
+        <span>+57 322 7190210</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-phone-alt"></i>
+        <span>+57 322 7190210</span>
+      </div>
+    </div>
+
+    <div class="contact-column">
+      <h4>✉️ Correo Electrónico</h4>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <a href="mailto:plataformaandrey@gmail.com">plataformaandrey@gmail.com</a>
+      </div>
+
+      <h4>🌐 Redes Sociales</h4>
+      <div class="contact-item">
+        <i class="fab fa-youtube"></i>
+        <a href="https://www.youtube.com/@JesusAndresSalazar" target="_blank">YouTube</a>
+      </div>
+      <div class="contact-item">
+        <i class="fab fa-facebook"></i>
+        <a href="https://www.facebook.com/jesusandres.salazar2" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+    </main>
+</body>
+
+</html>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const servicios = document.querySelectorAll('.servicio');
+    const flechaIzq = document.querySelector('.flecha--izquierda');
+    const flechaDer = document.querySelector('.flecha--derecha');
+    const indicadores = document.querySelector('.indicadores');
+    let index = 0;
+
+    function mostrarServicio(nuevoIndex) {
+        servicios[index].classList.remove('active');
+        indicadores.children[index].classList.remove('active');
+
+        index = (nuevoIndex + servicios.length) % servicios.length;
+
+        servicios[index].classList.add('active');
+        indicadores.children[index].classList.add('active');
+    }
+
+    // Crear los puntos indicadores
+    servicios.forEach((_, i) => {
+        const punto = document.createElement('span');
+        if (i === index) punto.classList.add('active');
+        punto.addEventListener('click', () => mostrarServicio(i));
+        indicadores.appendChild(punto);
+    });
+
+    flechaIzq.addEventListener('click', () => mostrarServicio(index - 1));
+    flechaDer.addEventListener('click', () => mostrarServicio(index + 1));
+
+    // Auto cambio cada 10s
+    setInterval(() => mostrarServicio(index + 1), 10000);
+});
+</script>
+<script>
+// Activar animación cuando el usuario baja a la sección
+document.addEventListener("DOMContentLoaded", () => {
+  const card = document.querySelector('.servicio-card');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        card.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.5 });
+
+  observer.observe(card);
+});
+</script>

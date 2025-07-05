@@ -1,0 +1,1343 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Currículum - Jesús Andrés Salazar</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --padding-container: 100px 0;
+        --color-title: #2b0a3d;
+        --color-primario: #4b0082;
+        --color-secundario: #8a2be2;
+        --color-fondo: #fef9ff;
+        --color-borde: #4b0082;
+        --color-decoracion: #8a2be2;
+        --color-claro: #f5f5f5;
+        --color-texto: #1a1a1a;
+        --color-dato-bg: #f0eaff;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        background: var(--color-fondo);
+        margin: 0;
+        padding: 0;
+      }
+      .pagina {
+        width: 21cm;
+        min-height: 29.7cm;
+        padding: 2.5cm 3cm;
+        box-sizing: border-box;
+        background: #fff;
+        color: var(--color-texto);
+        border-radius: 12px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: visible;
+      }
+      .decorativa-diagonal {
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          135deg,
+          var(--color-primario) 0%,
+          var(--color-secundario) 100%
+        );
+        transform: rotate(-10deg);
+        z-index: 0;
+        opacity: 0.06;
+      }
+      .decorativa-lateral {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 1.2cm;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          var(--color-secundario),
+          var(--color-primario)
+        );
+        z-index: 0;
+        opacity: 0.15;
+      }
+      h1 {
+        font-size: 26pt;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 1.5cm;
+        margin-bottom: 0.4cm;
+        text-transform: uppercase;
+        color: var(--color-title);
+        border-bottom: 4px solid var(--color-borde);
+        display: inline-block;
+        padding-bottom: 6px;
+        position: relative;
+        z-index: 1;
+      }
+      h2 {
+        font-size: 18pt;
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 1.5cm;
+        position: relative;
+        z-index: 1;
+      }
+      .foto {
+        width: 5.5cm;
+        height: 6.5cm;
+        border: 3px solid var(--color-borde);
+        border-radius: 12px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12pt;
+        font-weight: bold;
+        background: #fdf5ff;
+        color: #2d2d2d;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+        margin-bottom: 2cm;
+        position: relative;
+        z-index: 1;
+      }
+      .bloque {
+        font-size: 13pt;
+        line-height: 1.75;
+        background: var(--color-claro);
+        padding: 1.2cm;
+        border-radius: 10px;
+        border-left: 8px solid var(--color-borde);
+        margin-bottom: 1.2cm;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+        position: relative;
+        z-index: 1;
+      }
+      .titulo-seccion {
+        font-size: 15pt;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 0.5cm;
+        color: var(--color-title);
+        border-bottom: 2px dashed var(--color-secundario);
+        padding-bottom: 6px;
+      }
+      .dato {
+        margin-bottom: 0.3cm;
+        background-color: var(--color-dato-bg);
+        padding: 5px 10px;
+        border-radius: 6px;
+      }
+      .titulo-principal {
+        font-size: 24pt;
+        font-weight: 700;
+        text-align: center;
+        color: var(--color-title);
+        margin: 2cm 0 1cm 0;
+        border-bottom: 4px solid var(--color-borde);
+        display: inline-block;
+        padding-bottom: 6px;
+      }
+      .bloque:hover {
+        background: #f7f0ff;
+        transform: scale(1.01);
+        transition: all 0.3s ease;
+        border-left-color: var(--color-secundario);
+      }
+
+      .dato::before {
+        content: "⮞ ";
+        color: var(--color-primario);
+        font-weight: bold;
+        margin-right: 5px;
+      }
+      .bloque:hover {
+        background: #f7f0ff;
+        transform: scale(1.01);
+        transition: all 0.3s ease;
+        border-left-color: var(--color-secundario);
+      }
+      .dato::before {
+        content: "➤ ";
+        color: var(--color-secundario);
+        font-weight: bold;
+        margin-right: 5px;
+      }
+      .conocimiento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1rem;
+      }
+      .item-conocimiento {
+        background: var(--color-claro);
+        border-left: 5px solid var(--color-primario);
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .item-conocimiento:hover {
+        background: #f3eaff;
+        transform: translateY(-4px);
+        border-left-color: var(--color-secundario);
+      }
+
+      .item-conocimiento h3 {
+        font-size: 14pt;
+        color: var(--color-title);
+        margin-bottom: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .item-conocimiento p {
+        font-size: 12pt;
+        color: var(--color-texto);
+        margin: 6px 0;
+      } 
+       .pagina-especial {
+  display: none;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.pagina-especial.activa-especial {
+  display: block;
+  opacity: 1;
+}
+.pagina-educacion {
+  display: none;
+  opacity: 0;
+  transition: opacity 2s ease-in-out;
+}
+
+.pagina-educacion.activa-educacion {
+  display: block;
+  opacity: 1;
+}
+/* Nuevas clases personalizadas para tabla de conocimientos */
+
+.tabla-conocimientos {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.fila-conocimiento {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.celda-conocimiento {
+  flex: 1 1 30%;
+  background-color: var(--tertiary, #f9f9f9);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.celda-conocimiento:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(57, 169, 0, 0.2);
+}
+
+.celda-conocimiento h3 {
+  color: var(--primary, #39a900);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.celda-conocimiento p {
+  margin: 0.4rem 0;
+  color: var(--primary-text, #333);
+  font-size: 0.95rem;
+}
+#experiencia-profesional {
+  background-color: var(--color-fondo, #fef9ff);
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+#experiencia-profesional::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg,
+    var(--color-primario, #4b0082),
+    var(--color-secundario, #8a2be2)
+  );
+  opacity: 0.05;
+  transform: rotate(-10deg);
+  z-index: 0;
+}
+
+#experiencia-profesional h2 {
+  color: var(--color-title, #2b0a3d); /* tono más oscuro, morado profundo */
+  font-size: 2.2rem;
+  border-left: 6px solid var(--color-secundario, #8a2be2);
+  padding-left: 15px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#experiencia-profesional p {
+  font-size: 1.1rem;
+  color: var(--color-texto, #1a1a1a);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-claro, #f5f5f5);
+  padding: 1rem;
+  border-left: 5px solid var(--color-secundario, #8a2be2);
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+#experiencia-profesional p:hover {
+  transform: scale(1.01);
+  background-color: #f3eaff; /* tono más claro, suave y acorde con la paleta */
+}
+ 
+ #conocimientos-habilidades {
+  background-color: var(--color-fondo, #fef9ff);
+  padding: 60px 20px;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+#conocimientos-habilidades::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: -40%;
+  width: 180%;
+  height: 200%;
+  background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+  opacity: 0.05;
+  transform: rotate(-10deg);
+  z-index: 0;
+}
+
+#conocimientos-habilidades h2 {
+  color: var(--color-title, #2b0a3d);
+  font-size: 2rem;
+  border-left: 6px solid var(--color-secundario, #8a2be2);
+  padding-left: 15px;
+  margin-bottom: 30px;
+  position: relative;
+  z-index: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.grid-habilidades {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  z-index: 1;
+  position: relative;
+}
+
+.item-habilidad {
+  background: var(--color-claro, #f5f5f5);
+  border-left: 5px solid var(--color-primario);
+  padding: 1rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+}
+
+.item-habilidad:hover {
+  background: #f3eaff;
+  transform: translateY(-3px);
+  border-left-color: var(--color-secundario);
+}
+
+         nav a {
+            color: #fff; /* Color del texto */
+            text-decoration: none; /* Sin subrayado */
+            padding: 0.5em 1em; /* Espaciado alrededor del enlace */
+            transition: background-color 0.3s, color 0.3s; /* Transición suave para color y fondo */
+        }
+
+        nav a:hover {
+            background-color: #444; /* Color de fondo al pasar el mouse */
+            color: #f0f0f0; /* Color de texto en hover */
+        }
+    h1, h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #39a900;
+      padding-bottom: 5px;
+    }
+    .section {
+      margin-top: 20px;
+    }
+    .contacto {
+      font-size: 14px;
+    }
+    .titulo {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: #39a900;
+    }
+    .subtitulo {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li::before {
+      content: "\2022";
+      color: #39a900;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+    .etiqueta-dato {
+  color: var(--color-primario);
+  font-weight: 600;
+  margin-right: 4px;
+}
+ body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    nav {
+            display: flex;
+            align-items: center;
+            background-color: #333; /* Color de fondo */
+            padding: 1em; /* Espaciado interno */
+        }
+
+        nav a {
+            color: #fff; /* Color del texto */
+            text-decoration: none; /* Sin subrayado */
+            padding: 0.5em 1em; /* Espaciado alrededor del enlace */
+            transition: background-color 0.3s, color 0.3s; /* Transición suave para color y fondo */
+        }
+
+        nav a:hover {
+            background-color: #444; /* Color de fondo al pasar el mouse */
+            color: #f0f0f0; /* Color de texto en hover */
+        }
+    h1, h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #39a900;
+      padding-bottom: 5px;
+    }
+    .section {
+      margin-top: 20px;
+    }
+    .contacto {
+      font-size: 14px;
+    }
+    .titulo {
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      color: #39a900;
+    }
+    .subtitulo {
+      font-size: 16px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li::before {
+      content: "\2022";
+      color: #39a900;
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+   :root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.footer__social {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.footer__icons {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.footer__icons:hover {
+  transform: scale(1.2);
+}
+
+.footer__img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(1.1) drop-shadow(1px 1px 1px rgba(0,0,0,0.3));
+}
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+    </style>
+  </head>
+  
+  <CENTER>
+  <body>
+  <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+
+
+    <div class="pagina">
+      <div class="decorativa-diagonal"></div>
+      <div class="decorativa-lateral"></div>
+      <h1>ANALISTA EN DESARROLLO DEL SOFTWARE</h1>
+      <h2>Jesús Andrés Salazar Anacona</h2>
+
+     <div class="foto">
+  <img src="https://scontent.feoh2-1.fna.fbcdn.net/v/t51.75761-15/494545906_18060717383472706_139256558029619733_n.webp?stp=dst-jpg_tt6&_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeFIpdWIJDZnkx_lHYbEeI3NeR1L8ts6xMR5HUvy2zrExLVEXSoZORet_qkYWUMef80U-tNpURiUEAsHbsSqvATb&_nc_ohc=LiKoeOYdaQcQ7kNvwGuwbsH&_nc_oc=AdnY56d2SyBT_uE5C0U_Y4XLj2dm9Ko9ppdFR6QrDm-AdSr8Eo2MMz4mAW6sHoJv_e8&_nc_zt=23&_nc_ht=scontent.feoh2-1.fna&_nc_gid=OZ8FCxkHsxwkyVhAQsbXqg&oh=00_AfPgAZ0eALxyI_RqAPXowXqnI18z2Qre7soMjC6EoVc_Fw&oe=6869EF2F" 
+       alt="Foto de Jesús Andrés Salazar" 
+       style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" />
+</div>
+
+
+      <div class="bloque">
+        <div class="titulo-seccion">Cargo</div>
+        <div class="dato">ANALISTA EN DESARROLLO DEL SOFTWARE.</div>
+      </div>
+
+      <div class="bloque">
+      <section id="datos-personales">
+  <div class="bloque-datos">
+    <h2 class="titulo-seccion">🧾 Datos Personales</h2>
+
+    <div class="grid-datos">
+      <div class="item-dato"><strong>Nombres:</strong> JESÚS ANDRÉS</div>
+      <div class="item-dato"><strong>Apellidos:</strong> SALAZAR ANACONA</div>
+
+      <div class="item-dato"><strong>Lugar de Expedición:</strong> Cali</div>
+      <div class="item-dato"><strong>Sexo:</strong> M</div>
+      <div class="item-dato"><strong>Estado Civil:</strong> Soltero</div>
+      <div class="item-dato"><strong>Fecha de Nacimiento:</strong> 22 de octubre de 1988</div>
+      <div class="item-dato"><strong>Lugar de Nacimiento:</strong> Popayán, Cauca</div>
+     <div class="item-dato">
+  <strong>Dirección:</strong><br>
+  <span class="etiqueta-dato">Barrio:</span> Portal de la Colina<br>
+  <span class="etiqueta-dato">Manzana:</span> B<br>
+  <span class="etiqueta-dato">Casa:</span> 15<br>
+  <span class="etiqueta-dato">Ciudad:</span> Popayán, Cauca
+</div>
+
+      <div class="item-dato"><strong>Teléfonos:</strong> 📱 322 719 0210 / ☎️ 301 315 1238</div>
+      <div class="item-dato"><strong>Email:</strong> ✉️ plataformaandrey@gmail.com</div>
+    </div>
+  </div>
+</section>
+    
+      </div>
+
+
+        <div class="decorativa-diagonal"></div>
+        <div class="decorativa-lateral"></div>
+
+        <h1>PERFIL PROFESIONAL</h1>
+
+        <div class="bloque">
+          <div class="dato">
+            Jesús Andrés Salazar, un profesional con una amplia experiencia en
+            distintas áreas, incluyendo Análisis y Desarrollo De Software,
+            Diseño De Sistemas Mecánicos, Educación Básica Con Énfasis En
+            Ciencias Naturales Y Educación Ambiental, Marketing Digital. Me
+            concibo como un Autodidacta a lo largo de mi trayectoria, desempeñó
+            roles como Consultor de Comercio Electrónico y Vendedor Profesional
+            lo que me ha permitido adquirir habilidades especializadas en
+            diversas áreas.
+          </div>
+        </div>
+      </div>
+
+
+  
+      <div class="pagina pagina-especial">
+        <div class="decorativa-diagonal"></div>
+        <div class="decorativa-lateral"></div>
+
+        <h1 class="titulo-principal">ÁREAS DE ESPECIALIZACIÓN</h1>
+
+        <div class="bloque">
+          <div class="titulo-seccion">ANALISTA Y DESARROLLADOR DE SOFTWARE</div>
+          <div class="dato">
+            Capaz de comprender a fondo las necesidades de cada cliente para
+            diseñar arquitecturas de software intuitivas, escalables y
+            eficientes, aplicando buenas prácticas de desarrollo.
+          </div>
+          <div class="dato">
+            Domino múltiples lenguajes de programación como
+            <strong
+              >Python, Java, JavaScript, PHP, HTML, CSS, Kotlin y jQuery</strong
+            >, lo que me permite adaptarme a diversos entornos tecnológicos y
+            desafíos del mercado.
+          </div>
+          <div class="dato">
+            Construyo soluciones <strong>Front-End</strong> y
+            <strong>Back-End</strong>, integrando tecnologías modernas con
+            pensamiento lógico y visión orientada al usuario final.
+          </div>
+          <div class="dato">
+            Trabajo bajo metodologías ágiles (<em>Scrum</em>), garantizando
+            entregas oportunas, iterativas y de alto valor.
+          </div>
+          <div class="dato">
+            Mi compromiso incluye el acompañamiento técnico desde la
+            conceptualización hasta el soporte post-lanzamiento.
+          </div>
+        </div>
+        </div>
+
+     
+          <div class="pagina pagina-especial">
+          <div class="titulo-seccion">
+            CONSULTOR DE COMERCIO ELECTRÓNICO Y MARKETING DIGITAL
+          </div>
+          <div class="dato">
+            Cuento con un enfoque técnico especializado en el análisis, diseño y
+            desarrollo de herramientas digitales que optimizan la presencia y
+            posicionamiento de las marcas.
+          </div>
+          <div class="dato">
+            Experto en <strong>SEO</strong>, gestión de redes sociales y
+            marketing de contenidos, integrando soluciones digitales a medida
+            para automatizar procesos y facilitar la toma de decisiones.
+          </div>
+          <div class="dato">
+            Gracias a mi experiencia en
+            <strong>ventas y atención al cliente</strong>, comprendo
+            profundamente las dinámicas del mercado y aplico esa visión a
+            herramientas orientadas a resultados.
+          </div>
+          <div class="dato">
+            Me destaco por un enfoque centrado en el cliente, comunicación
+            empática y visión estratégica de negocios digitales.
+          </div>
+          <div class="dato">
+            Fusiono creatividad y tecnología para generar soluciones que
+            impulsen la visibilidad, el engagement y la conversión de las
+            marcas.
+          </div>
+        </div>
+      </div> </div>
+
+                  <div class="pagina pagina-especial">
+        <div class="decorativa-diagonal"></div>
+        <div class="decorativa-lateral"></div>
+
+        <h1 class="titulo-principal">OTRAS ÁREAS DE COMPETENCIA</h1>
+
+
+          <div class="titulo-seccion">EN EL DISEÑO DE SISTEMAS MECÁNICOS</div>
+          <div class="dato">
+            Poseo experiencia en el uso avanzado de herramientas de diseño
+            asistido por computadora (CAD), tales como
+            <strong>Autodesk AutoCAD, SolidWorks, Inventor</strong> y
+            <strong>PowerSHAPE</strong>, con las que elaboro modelos
+            tridimensionales detallados y realizo simulaciones mecánicas que
+            permiten evaluar el rendimiento estructural, térmico y cinemático de
+            los sistemas diseñados.
+          </div>
+          <div class="dato">
+            Integro criterios de selección de materiales y componentes para
+            lograr diseños funcionales, eficientes y viables desde el punto de
+            vista técnico y económico.
+          </div>
+          <div class="dato">
+            Elaboro documentación técnica profesional (planos, listas de
+            materiales, manuales), asegurando la implementación efectiva en
+            entornos reales de producción.
+          </div>
+          <div class="dato">
+            Mi enfoque está basado en la
+            <strong>precisión, innovación y rendimiento</strong>, desarrollando
+            soluciones mecánicas de alto valor.
+          </div>
+        </div>
+
+  
+               <div class="pagina pagina-especial">
+          <div class="titulo-seccion">EN EL CAMPO DE LA EDUCACIÓN</div>
+          <div class="dato">
+            Profesional con vocación formadora y enfoque integral en
+            <strong>Ciencias Naturales y Educación Ambiental</strong>,
+            promoviendo la sostenibilidad y el pensamiento crítico mediante
+            metodologías activas.
+          </div>
+          <div class="dato">
+            Diseño e imparto procesos formativos en áreas estratégicas como
+            <strong>Software, Diseño Mecánico, Marketing Digital</strong> y
+            <strong>Gestión de Ventas</strong>, adaptándolos a equipos técnicos,
+            comerciales y emprendedores.
+          </div>
+          <div class="dato">
+            Habilidades destacadas en
+            <strong>comunicación interpersonal, empatía y escucha activa</strong
+            >, adaptando metodologías a distintos públicos.
+          </div>
+          <div class="dato">
+            Mi compromiso es impulsar el conocimiento, la innovación y el
+            impacto positivo en personas, organizaciones y el entorno.
+          </div>
+        </div>
+  </div>
+        <div class="bloque">
+          <div class="pagina pagina-especial">
+          <div class="titulo-seccion">COMO ASESOR EN VENTAS</div>
+          <div class="dato">
+            Me destaco por construir relaciones de confianza duraderas, con un
+            enfoque empático y orientado a resultados.
+          </div>
+          <div class="dato">
+            Poseo habilidades sólidas en
+            <strong>negociación, gestión de objeciones</strong> y comunicación
+            clara, lo que me permite ofrecer soluciones personalizadas.
+          </div>
+          <div class="dato">
+            Organizado, meticuloso y estratégico en la gestión comercial,
+            garantizando el seguimiento de cada oportunidad de negocio.
+          </div>
+          <div class="dato">
+            Mi agilidad para adaptarme a distintos perfiles de clientes asegura
+            satisfacción, fidelización y crecimiento sostenido.
+          </div>
+          <div class="dato">
+            Comprometido con el <strong>posicionamiento de marca</strong> y la
+            generación de valor real para cada empresa con la que colaboro.
+          </div>
+     </div>
+
+<div class="pagina pagina-formacion">
+  <div class="decorativa-diagonal"></div>
+  <div class="decorativa-lateral"></div>
+
+  <h1 class="titulo-principal">FORMACIÓN ACADÉMICA</h1>
+
+  <!-- Página 1: Estudios Universitarios -->
+  <div class="pagina-educacion">
+    <div class="titulo-seccion">Estudios Universitarios</div>
+    <div class="dato">
+      <strong>Licenciatura en Educación Básica con Énfasis en Ciencias Naturales y Educación Ambiental</strong><br />
+      Universidad del Valle – 11° Semestre
+    </div>
+  </div>
+
+  <!-- Página 2: Estudios Tecnológicos -->
+  <div class="pagina-educacion">
+    <div class="titulo-seccion">Estudios Tecnológicos</div>
+    <div class="dato">
+      <strong>Tecnólogo en Análisis y Desarrollo de Software</strong><br />
+      SENA – Centro Agropecuario, Regional Cauca – <em>En curso, 2025</em>
+    </div>
+    <div class="dato">
+      <strong>Tecnólogo en Diseño de Sistemas Mecánicos</strong><br />
+      SENA – ASTIN, Regional Valle – <em>Finalizado en 2017</em>
+    </div>
+  </div>
+
+  <!-- Página 3: Educación Secundaria -->
+  <div class="pagina-educacion">
+    <div class="titulo-seccion">Educación Secundaria</div>
+    <div class="dato">
+      <strong>Bachiller Académico</strong><br />
+      Fundación Santa Isabel de Hungría<br />
+      Sede: Colegio Compartir<br />
+      Años cursados: 6
+    </div>
+  </div>
+
+  <!-- Página 4: Educación Primaria -->
+  <div class="pagina-educacion">
+    <div class="titulo-seccion">Educación Primaria</div>
+    <div class="dato">
+      <strong>Primaria Académica</strong><br />
+      Colegio Compartir De La Sallé<br />
+      Años cursados: 5
+    </div>
+  </div>
+
+  <!-- Flechas de navegación -->
+  <div class="navegacion-educacion">
+    <button id="btn-prev" class="btn-flecha">&#10094;</button>
+    <button id="btn-next" class="btn-flecha">&#10095;</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="pagina pagina-conocimiento">
+  <div class="decorativa-diagonal"></div>
+  <div class="decorativa-lateral"></div>
+
+  <h1 class="titulo-principal">ÁREA DE NUEVOS CONOCIMIENTOS</h1>
+
+  <div class="tabla-conocimientos">
+    <!-- Fila 1 -->
+    <div class="fila-conocimiento">
+      <div class="celda-conocimiento">
+        <h3>Desarrollo de Software</h3>
+        <p><strong>Herramientas:</strong> VS Code, Eclipse, NetBeans</p>
+        <p><strong>Tecnologías:</strong> Python, Java, PHP, JavaScript</p>
+        <p><strong>Enfoque:</strong> OOP, desarrollo full-stack</p>
+      </div>
+      <div class="celda-conocimiento">
+        <h3>Tecnologías Web</h3>
+        <p><strong>Frameworks:</strong> Laravel, Bootstrap, Tailwind</p>
+        <p><strong>Frontend:</strong> jQuery, HTML, CSS, AJAX</p>
+        <p><strong>Especialidad:</strong> Diseño responsivo, UI/UX, APIs</p>
+      </div>
+      <div class="celda-conocimiento">
+        <h3>Bases de Datos</h3>
+        <p><strong>SQL:</strong> MySQL, PostgreSQL, SQLite</p>
+        <p><strong>NoSQL:</strong> MongoDB</p>
+        <p><strong>Skills:</strong> Modelado, consultas, integración</p>
+      </div>
+    </div>
+
+    <!-- Fila 2 -->
+    <div class="fila-conocimiento">
+      <div class="celda-conocimiento">
+        <h3>Diseño Mecánico 3D</h3>
+        <p><strong>Software:</strong> AutoCAD, Inventor, SolidWorks, CAD</p>
+        <p><strong>Aplicación:</strong> Diseño técnico, ensamblaje 3D</p>
+      </div>
+      <div class="celda-conocimiento">
+        <h3>Simulación e Ingeniería</h3>
+        <p><strong>Herramientas:</strong> PowerSHAPE, PowerMill, Ansys</p>
+        <p><strong>Áreas:</strong> FEA, CAM, manufactura digital</p>
+      </div>
+      <div class="celda-conocimiento">
+        <h3>Ofimática y Datos</h3>
+        <p><strong>Software:</strong> Excel, Power BI, Word, PowerPivot</p>
+        <p><strong>Habilidades:</strong> Automatización, visualización</p>
+      </div>
+    </div>
+
+    <!-- Fila 3 -->
+    <div class="fila-conocimiento">
+      <div class="celda-conocimiento">
+        <h3>Sistemas Operativos</h3>
+        <p><strong>Entornos:</strong> Windows, Linux</p>
+        <p><strong>Herramientas:</strong> PowerShell, Bash, VirtualBox</p>
+        <p><strong>Enfoque:</strong> Administración, scripting</p>
+      </div>
+      <div class="celda-conocimiento">
+        <h3>Gestión de Proyectos</h3>
+        <p><strong>Herramientas:</strong> Trello, GanttProject</p>
+        <p><strong>Metodologías:</strong> Scrum, Agile, Kanban</p>
+        <p><strong>Foco:</strong> Organización, trabajo colaborativo</p>
+      </div>
+      <div class="celda-conocimiento">
+        <h3>Competencias Transversales</h3>
+        <p>Comunicación, pensamiento crítico, creatividad, liderazgo,<br> innovación educativa, adaptabilidad.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section id="experiencia-profesional" style="background-color: #f9f9f9; padding: 40px 20px; font-family: 'Poppins', sans-serif;">
+  <div style="max-width: 900px; margin: auto;">
+    <h2 style="color: #39a900; font-size: 2rem; margin-bottom: 20px; border-left: 5px solid #29690b; padding-left: 10px;">
+      Experiencia Profesional
+    </h2>
+    <p style="font-size: 1.1rem; color: #333; line-height: 1.8;">
+      Profesional en <strong>Análisis y Desarrollo de Software</strong> con sólida trayectoria en el desarrollo de soluciones tecnológicas. En el <strong>SENA Regional Cauca</strong>, diseñé e implementé un sistema de gestión de solicitudes para el área de bodega e insumos, optimizando procesos internos y mejorando la trazabilidad en tiempo real. Actualmente, me desempeño como <strong>Consultor en Marketing Digital y Comercio Electrónico</strong> en la <strong>Agencia Andrey</strong>, donde desarrollo aplicaciones web, plataformas de e-commerce y estrategias de automatización enfocadas en resultados medibles.
+    </p>
+    <p style="font-size: 1.1rem; color: #333; line-height: 1.8;">
+      Con experiencia en sectores industriales y comerciales, lideré equipos como <strong>Asesor de Herrajes en Madecentro</strong>, brindando acompañamiento técnico y estratégico para incrementar las ventas. En <strong>Cueros Vélez</strong>, trabajé como <strong>Diseñador 3D</strong>, especializándome en personalización de productos con impresión láser de alta precisión.
+    </p>
+    <p style="font-size: 1.1rem; color: #333; line-height: 1.8;">
+      He sobresalido en ventas consultivas en empresas como <strong>Previred</strong>, <strong>Diseñar Mobiliario</strong>, <strong>Epik Asociados</strong>, <strong>Acción del Cauca</strong> y <strong>Polindustriales</strong>, destacándome como líder en captación de clientes y cumplimiento de metas. También aporté valor como <strong>docente de Biología y Química</strong> en diversas instituciones educativas, aplicando metodologías activas para el aprendizaje significativo y liderando proyectos ambientales y científicos.
+    </p>
+    <p style="font-size: 1.1rem; color: #333; line-height: 1.8;">
+      Mi perfil se caracteriza por la <strong>adaptabilidad</strong>, <strong>visión estratégica</strong>, <strong>pasión por la tecnología</strong> y <strong>compromiso con el desarrollo integral</strong>, tanto en entornos corporativos como académicos.
+    </p>
+  </div>
+</section>
+<section id="conocimientos-habilidades">
+  <div style="max-width: 1000px; margin: auto;">
+    <h2>Conocimientos y Habilidades</h2>
+
+    <h3 style="color: var(--color-title); margin-bottom: 1rem;">Conocimientos Técnicos</h3>
+    <div class="grid-habilidades">
+      <div class="item-habilidad">Java</div>
+      <div class="item-habilidad">SQL Server</div>
+      <div class="item-habilidad">JavaScript</div>
+      <div class="item-habilidad">LibreOffice</div>
+      <div class="item-habilidad">Microsoft Access</div>
+      <div class="item-habilidad">Excel</div>
+      <div class="item-habilidad">Outlook</div>
+      <div class="item-habilidad">PowerPoint</div>
+      <div class="item-habilidad">Word</div>
+      <div class="item-habilidad">StarOffice</div>
+      <div class="item-habilidad">HTML</div>
+      <div class="item-habilidad">Python</div>
+      <div class="item-habilidad">Angular</div>
+      <div class="item-habilidad">PHP</div>
+      <div class="item-habilidad">Django</div>
+      <div class="item-habilidad">TypeScript</div>
+      <div class="item-habilidad">AutoCAD</div>
+      <div class="item-habilidad">SolidWorks</div>
+      <div class="item-habilidad">Autodesk</div>
+      <div class="item-habilidad">Linux</div>
+      <div class="item-habilidad">VS Code</div>
+      <div class="item-habilidad">Git</div>
+      <div class="item-habilidad">MySQL</div>
+      <div class="item-habilidad">SQL</div>
+    </div>
+
+    <h3 style="color: var(--color-title); margin: 2rem 0 1rem;">Otros</h3>
+    <div class="grid-habilidades">
+      <div class="item-habilidad">CSS6</div>
+      <div class="item-habilidad">CSS5</div>
+      <div class="item-habilidad">PowerSHAPE</div>
+      <div class="item-habilidad">Tello</div>
+    </div>
+
+    <h3 style="color: var(--color-title); margin: 2rem 0 1rem;">Desplazamiento y Movilidad</h3>
+    <div class="grid-habilidades">
+      <div class="item-habilidad">Disponibilidad para viajar</div>
+      <div class="item-habilidad">Disponibilidad para cambiar de residencia</div>
+      <div class="item-habilidad">No tengo vehículo propio</div>
+    </div>
+
+    <h3 style="color: var(--color-title); margin: 2rem 0 1rem;">Documentos Adjuntos</h3>
+    <div class="grid-habilidades">
+      <div class="item-habilidad">
+        📄 hojadevidaactualizadaenunahojadejesusandres2.pdf
+      </div>
+    </div>
+  </div>
+</section>
+
+<a id="descargarPDF">📄 Descargar Hoja de Vida</a>
+
+       <section class="solution">
+            <h3>¡Tenemos la solución perfecta para ti!</h3>
+            <p>Presentamos nuestros diseños en portafolios digitales y páginas web con animaciones elegantes, navegación intuitiva y un toque creativo que hacen que tu trabajo se destaque.</p>
+            <p>Desde <strong>$150 dólares</strong> en adelante, puedes tener una presencia en línea que te hará destacar.</p>
+        </section>
+
+        <section class="call-to-action">
+            <h3>No pierdas más oportunidades</h3>
+            <p>Te invito a revisar mi portafolio digital mediante el siguiente enlace:</p>
+            <p><strong>SI TÚ PUEDES SOÑARLO, YO PUEDO CREARLO.</strong></p>
+        </section>
+
+        <section class="links">
+            <h3>Enlaces</h3>
+            <ul>
+                <li><a href="https://linkedin.com/in/jesus-andres-salazar-anacona-75502a291" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+              
+              
+                <li><a href="http://portafoliojesusandressalazaranaconaanalisis.000webhostapp.com/5%20Maquetacion-Web1/sobremiPROPUESTA3.html" target="_blank" rel="noopener noreferrer">Portafolio</a></li>
+               
+               
+                <li><a href="https://t0hq25.mimo.run/index.html" target="_blank" rel="noopener noreferrer">Página Web</a></li>
+                <li>
+                
+                <li><a href="https://tmt44a.mimo.run/index.html" target="_blank" rel="noopener noreferrer">Contáctenos</a></li>
+                
+                <li>
+    <a href="https://wa.me/573227190210" target="_blank" rel="noopener noreferrer">Enviar un mensaje a Jesús Andrés Salazar por WhatsApp</a>
+</li>
+                
+                
+                <li><a href="https://facebook.com/jesusandres.salazar2" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            </ul>
+        </section>
+    </main>
+
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+  </body>  </CENTER>
+</html>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const paginasEspeciales = document.querySelectorAll('.pagina-especial');
+    let index = 0;
+
+    function mostrarEspecial() {
+      paginasEspeciales.forEach((pag, i) => {
+        pag.classList.remove('activa-especial');
+      });
+      paginasEspeciales[index].classList.add('activa-especial');
+    }
+
+    mostrarEspecial(); // Mostrar el primero
+
+    setInterval(() => {
+      index = (index + 1) % paginasEspeciales.length;
+      mostrarEspecial();
+    }, 15000); // Cada 15 segundos
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const paginasEducacion = document.querySelectorAll('.pagina-educacion');
+    let educacionIndex = 0;
+
+    function mostrarEducacion() {
+      paginasEducacion.forEach((pag, i) => {
+        pag.classList.remove('activa-educacion');
+      });
+      paginasEducacion[educacionIndex].classList.add('activa-educacion');
+    }
+
+    mostrarEducacion(); // Mostrar la primera vez
+
+    setInterval(() => {
+      educacionIndex = (educacionIndex + 1) % paginasEducacion.length;
+      mostrarEducacion();
+    }, 15000); // Cambia cada 15 segundos
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const filas = document.querySelectorAll('.fila-conocimiento');
+    let index = 0;
+
+    function mostrarFila() {
+      filas.forEach((fila, i) => {
+        fila.style.display = (i === index) ? 'flex' : 'none';
+      });
+      index = (index + 1) % filas.length;
+    }
+
+    mostrarFila(); // Mostrar la primera fila al cargar
+    setInterval(mostrarFila, 15000); // Cambiar cada 15 segundos
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const paginas = document.querySelectorAll('.pagina-formacion .pagina-educacion');
+    let index = 0;
+
+    function mostrarPagina(i) {
+      paginas.forEach((pagina, idx) => {
+        pagina.classList.remove('activa');
+        if (idx === i) pagina.classList.add('activa');
+      });
+    }
+
+    // Mostrar la primera al inicio
+    mostrarPagina(index);
+
+    // Botón siguiente
+    document.getElementById('btn-next').addEventListener('click', () => {
+      index = (index + 1) % paginas.length;
+      mostrarPagina(index);
+    });
+
+    // Botón anterior
+    document.getElementById('btn-prev').addEventListener('click', () => {
+      index = (index - 1 + paginas.length) % paginas.length;
+      mostrarPagina(index);
+    });
+  });
+</script>
+<script>
+  // Animación suave al hacer scroll (solo si quieres un toque dinámico)
+  const experienciaParrafos = document.querySelectorAll('#experiencia-profesional p');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  experienciaParrafos.forEach(p => {
+    p.style.opacity = 0;
+    p.style.transform = 'translateY(30px)';
+    p.style.transition = 'all 0.8s ease';
+    observer.observe(p);
+  });
+</script>

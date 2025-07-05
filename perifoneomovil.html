@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio de Perifoneo Móvil</title>
+    <style>
+        /* Reset de márgenes y paddings */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+       body {
+  background-image: url('https://img.freepik.com/vetores-premium/render-3d-alto-falante-icone-de-aviso-de-cor-violeta-simbolo-de-anuncio-de-alto-fonte-de-megafone_1250153-10127.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  background-color: #e0f7fa; /* Respaldo suave azul */
+  font-family: 'Work Sans', sans-serif;
+  color: #333;
+  text-align: center;
+  padding: 20px;
+  margin: 0;
+  position: relative;
+  min-height: 100vh;
+  z-index: 0;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4); /* Blanco suave encima */
+  z-index: -1;
+}
+:root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+        header {
+            background: linear-gradient(135deg, #00aaff, #6a0dad); /* Degradado de azul a morado */
+            color: white; /* Color del texto en blanco */
+            padding: 40px 20px; /* Espaciado interno */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+        }
+
+        h1 {
+            font-size: 2.5em; /* Tamaño de fuente para h1 */
+            margin: 10px 0; /* Margen para el título */
+        }
+
+        h2 {
+            font-size: 1.8em; /* Tamaño de fuente para h2 */
+            color: #7d3c98; /* Color lila */
+            margin: 15px 0; /* Margen para el subtítulo */
+        }
+
+        h3 {
+            font-size: 1.5em; /* Tamaño de fuente para h3 */
+            color: #4B9F35; /* Color verde SENA */
+            margin: 10px 0; /* Margen para el subtítulo */
+        }
+
+        ul {
+            list-style-type: none; /* Elimina viñetas de la lista */
+            padding: 0; /* Elimina el padding */
+        }
+
+        ul li {
+            font-size: 1.2em; /* Tamaño de fuente para los elementos de la lista */
+            margin: 10px 0; /* Espacio entre elementos de la lista */
+        }
+
+        .service-details {
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 20px; /* Espacio interno */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+            margin: 20px 0; /* Espacio entre secciones */
+        }
+
+        .contact-button {
+            display: inline-block; /* Hace que el enlace ocupe el espacio requerido */
+            background-color: #6a0dad; /* Color de fondo del enlace */
+            font-size: 1.2em; /* Tamaño de fuente del enlace */
+            border-radius: 10px; /* Redondea las esquinas del enlace */
+            padding: 10px; /* Espacio interno del enlace */
+            text-decoration: none; /* Sin subrayado en el enlace */
+            color: white; /* Color blanco del texto del enlace */
+            margin: 20px auto; /* Margen alrededor del enlace */
+            width: 220px; /* Ancho fijo para el enlace */
+            transition: background-color 0.3s, transform 0.3s; /* Transición para efectos visuales */
+        }
+
+        .contact-button:hover {
+            background-color: #4B9F35; /* Color verde al pasar el mouse */
+            transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
+        }
+
+        footer {
+            background-color: #00aaff; /* Color de fondo del footer */
+            color: white; /* Color del texto en el footer */
+            padding: 20px; /* Espacio interno del footer */
+            border-radius: 10px; /* Bordes redondeados */
+            margin-top: 20px; /* Espacio arriba del pie de página */
+        }
+
+        footer p {
+            font-size: 0.9em; /* Tamaño de fuente del pie de página */
+            color: rgba(255, 255, 255, 0.8); /* Color del texto del pie de página */
+        }
+
+        /* Estilos para la sección de fotos */
+        .photo-gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0; /* Espacio entre secciones */
+        }
+
+        .photo-gallery img {
+            width: 300px; /* Ancho de las imágenes */
+            height: auto; /* Mantiene la relación de aspecto */
+            margin: 10px; /* Margen entre imágenes */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para las imágenes */
+        }
+
+        /* Estilos para las tarjetas de servicios */
+        .service-card {
+            background: white; /* Fondo blanco para las tarjetas */
+            border-radius: 10px; /* Bordes redondeados */
+            padding: 20px; /* Espacio interno en tarjetas */
+            margin: 20px; /* Margen alrededor de las tarjetas */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para las tarjetas */
+            flex: 1 1 300px; /* Flexibilidad y tamaño mínimo */
+        }
+        
+        .service-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .perifoneo-destacado {
+    background-color: #f9fff5;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 128, 0, 0.15);
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .titulo-perifoneo {
+    font-size: 2rem;
+    color: #29690b;
+    margin-bottom: 16px;
+  }
+
+  .subtitulo-perifoneo {
+    font-size: 1.5rem;
+    color: #39a900;
+    margin-bottom: 24px;
+  }
+
+  .lista-principal {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .detalle {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .lista-dinamica li {
+    display: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    margin: 4px 0;
+    border-radius: 8px;
+    transition: background-color 0.4s ease;
+  }
+
+  .lista-dinamica li.mostrar {
+    display: block;
+  }
+
+  .color1 { background-color: #d7f5d2; color: #1c5e0f; }
+  .color2 { background-color: #f0ffe5; color: #2a7700; }
+  .color3 { background-color: #e5ffe8; color: #1d7c1d; }
+  .color4 { background-color: #e0fdd9; color: #216c1e; }
+  .color5 { background-color: #f6ffef; color: #3a8023; }
+
+  .llamado-accion {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: #29690b;
+  }
+
+  .boton-contacto {
+    display: inline-block;
+    margin-top: 16px;
+    background-color: #39a900;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+
+  .boton-contacto:hover {
+    background-color: #29690b;
+  }
+  .service-cards {
+  position: relative;
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-height: 500px; /* Aumenta el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-cards h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #29690b;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.service-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 1s ease-in-out;
+  width: 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 15px;
+  color: #333;
+  z-index: 1;
+  pointer-events: none;
+  min-height: 350px; /* Asegura buena altura para contenido extenso */
+  overflow-y: auto; /* Permite scroll si el contenido es demasiado largo */
+  line-height: 1.6;
+}
+
+.service-card.activo {
+  opacity: 1;
+  transform: scale(1.02);
+  z-index: 10;
+  pointer-events: auto;
+  border: 2px solid #39a900;
+  box-shadow: 0 0 25px rgba(57, 169, 0, 0.3);
+}
+
+.service-card h3 {
+  color: #39a900;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.service-card p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.service-card.atras {
+  z-index: 0;
+}
+
+
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+    </style>
+</head>
+<body>
+  <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+    <header>
+        <h1>¡BIENVENIDOS! 🤗</h1>
+    </header>
+<br>
+<br>
+<br>
+<br>
+    <main>
+    <section class="perifoneo-destacado">
+  <div class="contenedor-perifoneo">
+    <h2 class="titulo-perifoneo">🚀 Amplía tu Alcance con Perifoneo Móvil</h2>
+    <h3 class="subtitulo-perifoneo">⚠️ Descubre nuestro servicio estrella:</h3>
+    <ul class="lista-principal">
+      <li class="detalle">
+        <strong>💥 Publicidad en Movimiento:</strong>
+        Lleva tu mensaje a las zonas estratégicas de la ciudad con un vehículo equipado para perifoneo.
+      </li>
+      <li class="detalle">
+        <strong>✅ Incluye:</strong>
+        <ul class="lista-dinamica" id="lista-incluye">
+          <li class="color1 mostrar">Vehículo Equipado: Con el equipo necesario para una difusión clara y efectiva.</li>
+          <li class="color2">Conductor Profesional: Experto en posicionamiento estratégico.</li>
+          <li class="color3">Sistema de Sonido: Alta fidelidad para máxima claridad.</li>
+          <li class="color4">Combustible: Todo lo necesario para el recorrido.</li>
+          <li class="color5">Producción de Audio: Creamos tu mensaje si no lo tienes.</li>
+        </ul>
+      </li>
+      <li class="detalle">💥 Duración: 3 horas</li>
+      <li class="detalle">💥 Costo: $250,000</li>
+    </ul>
+    <h3 class="llamado-accion">🚀 ¡No pierdas la oportunidad de destacar tu negocio en las calles!</h3>
+    <a href="https://tmt44a.mimo.run/index.html" class="boton-contacto">Contáctanos</a>
+  </div>
+</section>
+
+<br>
+<br>
+<br>
+<br>
+      <section class="service-cards">
+  <h2>Nuestros Servicios 🛠️</h2>
+
+  <div class="service-card">
+    <h3>Publicidad en Movimiento</h3>
+    <p>📣 Lleva tu mensaje a las calles con nuestro servicio de <strong>Publicidad en Movimiento</strong>. Utilizamos vehículos especialmente equipados para maximizar la difusión de tu marca y hacer que tu voz se escuche donde más importa. Atrae la atención de tu público objetivo mientras recorremos las zonas estratégicas de la ciudad, asegurando que tu mensaje llegue a una amplia audiencia. Con esta estrategia dinámica y directa, logramos que tu marca sea vista y recordada en los puntos más concurridos, generando mayor impacto y reconocimiento.</p>
+  </div>
+
+  <div class="service-card">
+    <h3>Producción de Audio</h3>
+    <p>🎤 ¿No tienes contenido? No hay problema. Nuestro equipo de expertos en <strong>Producción de Audio</strong> se encargará de crear mensajes atractivos y memorables que conecten con tu público. Nos aseguramos de que cada palabra resuene con claridad y que tu mensaje sea irresistible, ayudándote a captar la atención y a generar interés. Desde la redacción del guion hasta la locución profesional, nos encargamos de todo el proceso para garantizar que tu comunicación sea de alta calidad y con un estilo que represente fielmente tu identidad de marca.</p>
+  </div>
+
+  <div class="service-card">
+    <h3>Conductor Profesional</h3>
+    <p>🚗 Nuestros vehículos son conducidos por <strong>profesionales experimentados</strong> que conocen a la perfección las mejores rutas y horarios para optimizar la visibilidad de tu mensaje. Con un conductor a cargo, puedes estar tranquilo sabiendo que tu campaña de perifoneo se ejecutará de manera eficiente y efectiva, asegurando que tu mensaje llegue en el momento y lugar adecuados. Su conocimiento del tráfico local y de los puntos clave de alta afluencia garantiza que cada recorrido tenga el mayor alcance posible, maximizando tu inversión publicitaria.</p>
+  </div>
+
+</section>
+
+      
+
+        <!-- Sección de fotos -->
+        <section class="photo-gallery">
+            <h2>Galería de Fotos 📸</h2>
+            <img src="https://i.ytimg.com/vi/QANUeMppMLo/hqdefault.jpg" alt="Publicidad en movimiento">
+            <img src="https://topmarket.com.mx/wp-content/uploads/2018/10/Perifoneo-TopMarket.png" alt="Conductor profesional">
+            <img src="https://publicidadencalle.com.mx/wp-content/uploads/Evita-estos-errores-en-el-perifoneo.webp" alt="Sistema de sonido">
+  
+        </section>
+
+        <!-- Sección de tarjetas para servicios -->
+      
+      
+      
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </main>
+
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+
+    <script>
+        // Espera a que el documento esté completamente cargado
+        document.addEventListener('DOMContentLoaded', () => {
+            // Selecciona todos los enlaces en la sección de enlaces
+            const links = document.querySelectorAll('.links a');
+
+            // Añade un evento de clic a cada enlace
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // Muestra un mensaje al hacer clic en un enlace
+                    alert(`Redirigiendo a: ${link.href}`);
+                });
+            });
+
+            // Suaviza el desplazamiento al hacer clic en enlaces
+            const smoothScrollLinks = document.querySelectorAll('a[href^="#"]');
+
+            smoothScrollLinks.forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    const headerOffset = 60; // Ajusta según la altura de tu encabezado
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+<script>
+  // Script de rotación de servicios cada 8 segundos
+  let indice = 0;
+  const items = document.querySelectorAll('#lista-incluye li');
+  function mostrarSiguiente() {
+    items.forEach((item, i) => {
+      item.classList.remove('mostrar');
+    });
+    items[indice].classList.add('mostrar');
+    indice = (indice + 1) % items.length;
+  }
+  setInterval(mostrarSiguiente, 8000);
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".service-card");
+    let currentIndex = 0;
+
+    function mostrarCard(index) {
+      cards.forEach((card, i) => {
+        card.classList.remove("activo", "atras");
+        if (i === index) {
+          card.classList.add("activo");
+        } else {
+          card.classList.add("atras");
+        }
+      });
+    }
+
+    mostrarCard(currentIndex); // Mostrar la primera
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % cards.length;
+      mostrarCard(currentIndex);
+    }, 8000); // 8 segundos
+  });
+</script>

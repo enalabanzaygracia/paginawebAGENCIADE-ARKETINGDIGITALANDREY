@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicio de Diseño de Páginas Web</title>
+  <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Krub', sans-serif;
+      background: radial-gradient(ellipse at bottom, #04324d 0%, #000000 100%);
+      color: white;
+      background-attachment: fixed;
+      animation: fondoEstrellas 30s linear infinite;
+      overflow-x: hidden;
+    }
+
+    @keyframes fondoEstrellas {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 1000px; }
+    }
+
+    header {
+      background-color: #39a900;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .service-details {
+      background-color: rgba(255, 255, 255, 0.1);
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 1rem;
+      max-width: 900px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 1s ease, transform 1s ease;
+      position: relative;
+      z-index: 10;
+    }
+
+    .service-details.mostrar {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .service-details h2, .service-details h3 {
+      color: #98fe58;
+    }
+
+    .service-details ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+    }
+
+    .service-details li {
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+
+    .service-details strong {
+      color: #d0ffd0;
+    }
+
+    .contact-button {
+      display: block;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      background-color: #29690b;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .contact-button:hover {
+      background-color: #2c7d08;
+    }
+#lista-servicios {
+  position: relative;
+  height: 100px; /* Ajusta según tu diseño */
+  overflow: hidden;
+  padding: 0;
+  list-style: none;
+}
+
+#lista-servicios li {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease;
+  width: 100%;
+  text-align: left;
+}
+
+#lista-servicios li.mostrar {
+  opacity: 1;
+  z-index: 1;
+}
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #04324d;
+      color: white;
+    }
+.precio-enfasis {
+  display: inline-block;
+  background-color: #39a900;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  margin-top: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: resaltaPrecio 1.5s infinite alternate;
+  box-shadow: 0 0 10px rgba(57, 169, 0, 0.6);
+}
+
+@keyframes resaltaPrecio {
+  0% { transform: scale(1); box-shadow: 0 0 10px rgba(57, 169, 0, 0.6); }
+  100% { transform: scale(1.05); box-shadow: 0 0 20px rgba(57, 169, 0, 1); }
+}
+:root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+  </style>
+</head>
+<body>
+    <div class="nav-bg">
+    <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+    </div>
+  <header>
+    <h1>¿Estás buscando una página web que  atraiga a tus clientes? 🚀</h1>
+  </header>
+
+  <main>
+    <section class="service-details">
+      <h2></h2>
+      <h3>⚠️ Descubre nuestro servicio de Diseño de Páginas Web:</h3>
+      <ul>
+        <li><strong>💥 Diseño Personalizado de Páginas Web:</strong> Crea una presencia en línea profesional y efectiva con un sitio web adaptado a las necesidades únicas de tu negocio.</li>
+        <li><strong>✅ servicios:</strong>
+ 
+ <ul id="lista-servicios">
+  <li><strong>Diseño Personalizado:</strong> Una página web a medida que refleja la identidad de tu marca. <em>Desde $700,000 COP</em></li>
+  <li><strong>HTML y CSS (Bootstrap 5):</strong> Diseño moderno, responsivo y accesible. <em>Incluido en paquetes básicos</em></li>
+  <li><strong>Soporte y Mantenimiento Básico:</strong> Asegura el funcionamiento continuo del sitio. <em>Desde $100,000 COP/mes</em></li>
+  <li><strong>Diseño Responsive:</strong> Adaptación a móviles y tablets con experiencia fluida. <em>Desde $300,000 COP</em></li>
+  <li><strong>Creación de Tienda en Línea:</strong> E-commerce con pasarela de pagos integrada. <em>Desde $1,200,000 COP</em></li>
+  <li><strong>Diseño de Landing Pages:</strong> Perfectas para campañas y conversiones. <em>Desde $500,000 COP</em></li>
+  <li><strong>Optimización SEO Básico:</strong> Mejora tu visibilidad en Google. <em>Desde $350,000 COP</em></li>
+  <li><strong>Certificado SSL e instalación:</strong> Seguridad para tu sitio y confianza del usuario. <em>Desde $90,000 COP</em></li>
+  <li><strong>Hosting + Dominio (1 año):</strong> Alojamiento confiable y dominio personalizado. <em>Desde $220,000 COP</em></li>
+  <li><strong>Integración con Redes Sociales:</strong> Vincula Instagram, Facebook, WhatsApp, etc. <em>Desde $150,000 COP</em></li>
+  <li><strong>Diseño UI/UX:</strong> Experiencia de usuario superior con diseño centrado en el cliente. <em>Desde $400,000 COP</em></li>
+  <li><strong>Formularios de Contacto + Captcha:</strong> Comunicación directa con protección antispam. <em>Desde $180,000 COP</em></li>
+  <li><strong>Blog o sección de noticias:</strong> Comparte contenido y mejora tu SEO. <em>Desde $300,000 COP</em></li>
+  <li><strong>Integración con Google Maps:</strong> Muestra tu ubicación fácilmente. <em>Desde $120,000 COP</em></li>
+  <li><strong>Capacitación básica:</strong> Enseñamos a usar y administrar tu sitio. <em>Desde $200,000 COP</em></li>
+  <li><strong>Instalación de CMS (WordPress):</strong> Control total sin conocimientos técnicos. <em>Desde $350,000 COP</em></li>
+  <li><strong>Migración de sitio web:</strong> Traslada tu sitio sin perder datos ni SEO. <em>Desde $280,000 COP</em></li>
+  <li><strong>Integración con WhatsApp Business:</strong> Canal de contacto rápido y efectivo. <em>Desde $100,000 COP</em></li>
+  <li><strong>Chatbot Básico:</strong> Automatiza respuestas y mejora la atención al cliente. <em>Desde $400,000 COP</em></li>
+  <li><strong>Diseño de Logo Profesional:</strong> Refuerza tu identidad visual. <em>Desde $300,000 COP</em></li>
+</ul>
+
+
+
+
+        </li>
+      
+
+      <li>
+  💥 
+  <span class="precio-enfasis">Desde: $700,000</span>
+</li>
+
+<section class="servicios-web">
+  <h2>🧩 Calcula tu Proyecto Web Ideal</h2>
+  <p>Selecciona los servicios que necesitas y obtén el total estimado de inversión:</p>
+
+  <form id="formServicios">
+    <div class="lista-servicios">
+      <label><input type="checkbox" value="700000"> Diseño Personalizado – $700,000</label><br>
+      <label><input type="checkbox" value="100000"> Soporte y Mantenimiento Básico – $100,000/mes</label><br>
+      <label><input type="checkbox" value="300000"> Diseño Responsive – $300,000</label><br>
+      <label><input type="checkbox" value="1200000"> Tienda en Línea – $1,200,000</label><br>
+      <label><input type="checkbox" value="500000"> Landing Pages – $500,000</label><br>
+      <label><input type="checkbox" value="350000"> Optimización SEO – $350,000</label><br>
+      <label><input type="checkbox" value="90000"> Certificado SSL – $90,000</label><br>
+      <label><input type="checkbox" value="220000"> Hosting + Dominio (1 año) – $220,000</label><br>
+      <label><input type="checkbox" value="150000"> Redes Sociales – $150,000</label><br>
+      <label><input type="checkbox" value="400000"> Diseño UI/UX – $400,000</label><br>
+      <label><input type="checkbox" value="180000"> Formularios + Captcha – $180,000</label><br>
+      <label><input type="checkbox" value="300000"> Blog o Noticias – $300,000</label><br>
+      <label><input type="checkbox" value="120000"> Google Maps – $120,000</label><br>
+      <label><input type="checkbox" value="200000"> Capacitación Básica – $200,000</label><br>
+      <label><input type="checkbox" value="350000"> WordPress CMS – $350,000</label><br>
+      <label><input type="checkbox" value="280000"> Migración Web – $280,000</label><br>
+      <label><input type="checkbox" value="100000"> WhatsApp Business – $100,000</label><br>
+      <label><input type="checkbox" value="400000"> Chatbot Básico – $400,000</label><br>
+      <label><input type="checkbox" value="300000"> Logo Profesional – $300,000</label>
+    </div>
+
+    <button type="button" onclick="calcularTotalServicios()">💰 Calcular Total</button>
+  </form>
+
+  <div id="resultadoServicios" class="resultado">
+    <h3>🧾 Total Estimado</h3>
+    <p>Selecciona al menos un servicio para ver el resumen.</p>
+  </div>
+</section>
+
+
+
+
+
+
+
+      </ul>
+      <h3>🚀 No te quedes atrás en el mundo digital. ¡Haz que tu negocio destaque con una página web profesional y eficaz!</h3>
+    </section>
+
+    <a href="https://tmt44a.mimo.run/index.html" class="contact-button">Contáctenos</a>
+  </main>
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const seccion = document.querySelector(".service-details");
+      setTimeout(() => {
+        seccion.classList.add("mostrar");
+      }, 300);
+    });
+  </script>
+
+</body>
+</html>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const servicios = document.querySelectorAll("#lista-servicios li");
+    let indice = 0;
+
+    function mostrarServicio() {
+      servicios.forEach((item, i) => {
+        item.classList.remove("mostrar");
+        if (i === indice) {
+          item.classList.add("mostrar");
+        }
+      });
+      indice = (indice + 1) % servicios.length;
+    }
+
+    mostrarServicio(); // Mostrar el primero
+    setInterval(mostrarServicio, 10000); // Cambiar cada 10 segundos
+  });
+</script>
+
+<script>
+  function calcularTotalServicios() {
+    const checkboxes = document.querySelectorAll('#formServicios input[type="checkbox"]');
+    let total = 0;
+    let detalles = "";
+
+    checkboxes.forEach(cb => {
+      if (cb.checked) {
+        total += parseInt(cb.value);
+        detalles += `✅ ${cb.parentElement.textContent.trim()}<br>`;
+      }
+    });
+
+    if (total === 0) {
+      detalles = "⚠️ No has seleccionado ningún servicio.";
+    } else {
+      detalles += `<br><strong>💰 Total estimado:</strong> $${total.toLocaleString()} COP`;
+    }
+
+    document.getElementById("resultadoServicios").innerHTML = `
+      <h3>🧾 Detalle del Proyecto</h3>
+      <p>${detalles}</p>`;
+  }
+</script>

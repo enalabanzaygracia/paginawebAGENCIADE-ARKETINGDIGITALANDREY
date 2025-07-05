@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impulsa Tu Negocio - Diseños que Destacan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+ 
+<style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+body {
+  background-color: #f4f8fb; /* Color de respaldo */
+  background-image: url('https://img.freepik.com/fotos-premium/explosion-pinturas-colores-brillantes-ia-generativa-ia-generativa_170984-12321.jpg');
+  background-size: cover;        /* Que cubra todo el fondo */
+  background-position: center;   /* Centrada */
+  background-repeat: no-repeat;  /* Que no se repita */
+  font-family: 'Work Sans', sans-serif;
+  color: #333;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.3); /* Capa clara, tipo “nube luminosa” */
+  z-index: -1;
+}:root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+    header {
+      background: linear-gradient(135deg, #00aaff, #6a0dad);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 8px solid #39a900;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.3em;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .services-section, .cta, .call-to-action, .image-section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .services-section h2 {
+      text-align: center;
+      font-size: 2.4em;
+      color: #39a900;
+      margin-bottom: 30px;
+    }
+
+    .service-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 30px;
+      text-align: center;
+      transition: all 0.6s ease;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .service-card h3 {
+      font-size: 1.8em;
+      color: #6a0dad;
+      margin-bottom: 15px;
+    }
+
+    .service-card p {
+      font-size: 1.1em;
+      color: #444;
+    }
+
+    .image-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+    }
+
+    .image-container, .text-container {
+      flex: 1;
+      min-width: 280px;
+      padding: 20px;
+    }
+
+    .image-container img {
+      width: 100%;
+      border-radius: 12px;
+      max-height: 400px;
+      object-fit: cover;
+      transition: opacity 0.6s ease-in-out;
+    }
+
+    .text-container h2 {
+      color: #4B9F35;
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .text-container p {
+      font-size: 1.1em;
+    }
+
+    .cta, .call-to-action {
+      background-color: #f2ffe5;
+      border-left: 6px solid #39a900;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 40px;
+    }
+
+    a.button {
+      display: inline-block;
+      background-color: #6a0dad;
+      font-size: 1.2em;
+      border-radius: 10px;
+      padding: 14px 28px;
+      text-decoration: none;
+      color: white;
+      margin-top: 20px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    a.button:hover {
+      background-color: #39a900;
+      transform: translateY(-3px);
+    }
+
+
+
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+  </style>
+
+</head>
+<body>
+  <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+  <header>
+    <h1>✨ ¡IMPULSA TU NEGOCIO con DISEÑOS que DESTACAN! 🎨💥</h1>
+    <p>Transforma tu marca con servicios gráficos profesionales, creativos y con alma.</p>
+  </header>
+
+  <section class="services-section">
+    <h2>Servicios Personalizados</h2>
+    <div id="service-display" class="service-card">
+      <h3 id="service-title"></h3>
+      <p id="service-description"></p>
+    </div>
+  </section>
+
+  <section class="image-section">
+    <div class="image-container">
+      <img id="service-image" src="" alt="Servicio" />
+    </div>
+    <div class="text-container">
+      <h2 id="image-title"></h2>
+      <p id="image-text"></p>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>¿Listo para destacar?</h2>
+    <p>📲 Llámanos o escríbenos para cotizar. ¡Estamos listos para crear juntos!</p>
+    <p><strong>Teléfono:</strong> +57 322 7190210</p>
+    <p>
+      <a href="https://wa.me/573227190210" id="whatsapp-link" class="button" target="_blank" rel="noopener noreferrer">
+        Enviar un mensaje a Jesús Andrés Salazar por WhatsApp
+      </a>
+    </p>
+  </section>
+
+  <section class="call-to-action">
+    <h3>No pierdas más oportunidades</h3>
+    <p>Te invito a revisar mi portafolio digital mediante el siguiente enlace:</p>
+    <h3>SI TÚ PUEDES SOÑARLO, YO PUEDO CREARLO.</h3>
+    <p>
+      <a href="https://vjb7fw.mimo.run/index.html" class="button">Ver Portafolio</a>
+    </p>
+  </section>
+
+  <section class="footer__copy container" data-aos="fade-up" data-aos-delay="300">
+    <div class="footer__social">
+      <a href="https://www.facebook.com/jesusandres.salazar2">
+        <img src="./images/facebook.svg" class="footer__img" width="32" height="32" alt="Facebook">
+      </a>
+      <a href="#">
+        <img src="./images/twitter.svg" class="footer__img" width="32" height="32" alt="Twitter">
+      </a>
+      <a href="https://www.youtube.com/@JesusAndresSalazar">
+        <img src="./images/youtube.svg" class="footer__img" width="32" height="32" alt="YouTube">
+      </a>
+    </div>
+    <h3 class="text-center">Derechos reservados &copy; Jesus Andrés Salazar</h3>
+  </section>
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+
+
+  <script>
+    const services = [
+
+  {
+    title: "🎨 Diseño de Logotipos",
+    description: "Diseñamos logotipos que capturan la esencia de tu marca, combinando psicología del color, tipografía adecuada y símbolos memorables. Un logo bien pensado es tu carta de presentación visual ante el mundo.",
+    image: "https://http2.mlstatic.com/diseno-de-logotipos-portadas-plantillas-tarjetas-logos-D_NQ_NP_632079-MEC26485602828_122017-F.jpg",
+    price: "$120,000 COP"
+  },
+  {
+    title: "📝 Tarjetas de Presentación",
+    description: "Diseñamos tarjetas únicas que comunican profesionalismo y confianza. Usamos formatos modernos, detalles visuales llamativos y una correcta jerarquía de información para causar impacto desde el primer apretón de manos.",
+    image: "https://static.vecteezy.com/system/resources/previews/000/702/744/non_2x/red-and-black-shape-business-card-design-template-vector.jpg",
+    price: "$75,000 COP"
+  },
+  {
+    title: "📣 Branding Corporativo",
+    description: "Desarrollamos tu identidad visual completa: manual de marca, paletas cromáticas, tipografía, papelería corporativa, y más. Ideal para empresas que desean un lenguaje visual unificado y coherente.",
+    image: "https://2.bp.blogspot.com/-2mFHFRHmR-E/WfS9sG5yMcI/AAAAAAAAR6A/PN1YSRclRuw_Nn0zLS46xpKmZ5reSH7CQCLcBGAs/s1600/identidad-corporativa4.jpg",
+    price: "$350,000 COP"
+  },
+  {
+    title: "🌐 Diseño Web",
+    description: "Diseñamos sitios web responsivos, rápidos y con identidad de marca. Incluye diseño visual, arquitectura UX y optimización básica SEO para destacar en buscadores. Ideal para empresas y emprendedores.",
+    image: "https://cursosnascor.com/storage/app/uploads/public/663/0d3/ea8/6630d3ea8af55186771224.png",
+    price: "$450,000 COP"
+  },
+  {
+    title: "📘 Catálogos Digitales",
+    description: "Diseñamos catálogos visuales, navegables y llamativos para mostrar tus productos o servicios online. Ideal para ferias, campañas digitales o distribuidores.",
+    image: "https://cdn.douradosnews.com.br/img/c/1280/960/dn_noticia/2020/05/catalogo.jpg",
+    price: "$180,000 COP"
+  },
+  {
+    title: "📊 Infografías Profesionales",
+    description: "Convertimos datos complejos en piezas gráficas fáciles de entender, ideales para presentaciones, informes y redes sociales. Comunicación visual clara, estética y potente.",
+    image: "https://img.freepik.com/vector-gratis/infografia-pasos-profesionales_52683-26908.jpg",
+    price: "$95,000 COP"
+  },
+  {
+    title: "🎁 Diseño de Empaques y Etiquetas",
+    description: "Creamos empaques que venden por sí solos. Diseño estructural y gráfico con impacto visual, atractivo en anaquel y coherencia con tu marca.",
+    image: "https://i.ytimg.com/vi/HZpV6F7NuIo/maxresdefault.jpg",
+    price: "$160,000 COP"
+  },
+  {
+    title: "🎞️ Motion Graphics Publicitarios",
+    description: "Animaciones cortas que cautivan y venden. Perfectas para redes sociales, reels, YouTube o campañas publicitarias. Ideal para aumentar retención e interacción visual.",
+    image: "https://mir-s3-cdn-cf.behance.net/project_modules/1400/4520f2150681447.62fe58b5eab07.png",
+    price: "$220,000 COP"
+  },
+  {
+    title: "📱 Interfaces UI/UX para Apps",
+    description: "Diseño de pantallas intuitivas, modernas y funcionales para aplicaciones móviles. Nos centramos en la experiencia del usuario, jerarquía visual y navegabilidad.",
+    image: "https://www.somoswaka.com/wp-content/uploads/2017/12/UX-8.jpg",
+    price: "$320,000 COP"
+  },
+  {
+    title: "📄 Brochures y Trípticos",
+    description: "Diseños plegables informativos que combinan contenido, imágenes y estética comercial. Ideales para ofrecer servicios o productos de forma impresa y clara.",
+    image: "https://trazoweb.co/wp-content/uploads/2023/03/BRP013.jpg",
+    price: "$110,000 COP"
+  },
+  {
+    title: "🖥️ Diseño de Interfaz Web (UI Web)",
+    description: "Desarrollamos interfaces modernas y eficientes para sitios web o plataformas. Diseño adaptable, enfocado en navegación fluida y accesibilidad visual.",
+    image: "https://th.bing.com/th/id/R.d9b94360bcabbed21547a2513eade319?rik=lJ%2b6R073UtnUKA&riu=http%3a%2f%2fwww.bambu-mobile.com%2fwp-content%2fuploads%2f2021%2f01%2fConoce-la-importancia-del-diseno-UI-o-interfaz-de-usuario.jpg&ehk=04Ed7QL%2bhmRzlO%2bJQhDA8%2fpVTK6yFypLW0ruHiun4HQ%3d&risl=&pid=ImgRaw&r=0",
+    price: "$270,000 COP"
+  },
+  {
+    title: "🧑‍🏫 Diseño Académico y Educativo",
+    description: "Diseñamos certificados, portadas, guías visuales, presentaciones y piezas educativas atractivas. Ideal para cursos online, instituciones o academias.",
+    image: "https://geekteacher.net/wp-content/uploads/2021/02/Importancia-de-la-educacion-en-diseno-scaled.jpeg",
+    price: "$120,000 COP"
+  },
+  {
+    title: "📐 Diseño Mecánico CAD 2D/3D",
+    description: "Realizamos modelado 2D y 3D de piezas, mecanismos y estructuras mecánicas usando software profesional como AutoCAD, SolidWorks o Fusion 360. Ideal para ingeniería, manufactura y prototipos.",
+    image: "https://site.elearning-total.com/wp-content/uploads/2018/03/Dise%C3%B1o-y-modelado-mec%C3%A1nico-3D-con-Solidworks-V2.jpg",
+    price: "$400,000 COP"
+  },
+  {
+    title: "🏗️ Renderizado Arquitectónico",
+    description: "Visualización fotorrealista de interiores y exteriores arquitectónicos. Mostramos tu proyecto con luz, textura y ángulos realistas. Perfecto para licitaciones, presentaciones o ventas.",
+    image: "https://img.jamesedition.com/listing_images/2023/01/24/16/58/06/d417fcb7-ad5f-48c6-8ad2-997190e9b9b7/je/1040x620xc.jpg",
+    price: "$500,000 COP"
+  },
+  {
+    title: "🔧 Planos Técnicos y Diagramas",
+    description: "Diseño detallado de planos eléctricos, hidráulicos, estructurales o industriales con normas técnicas. Entregamos en formatos profesionales y listos para impresión o ejecución.",
+    image: "https://c8.alamy.com/compes/j8635d/ingenieria-y-dibujos-tecnicos-planos-de-planta-rollos-de-planos-arquitectonicos-j8635d.jpg",
+    price: "$280,000 COP"
+  },
+  {
+    title: "🧾 Plantillas Empresariales",
+    description: "Diseño de hojas membretadas, cotizaciones, facturas, manuales y documentos corporativos listos para editar. Refuerza tu marca en cada interacción.",
+    image: "https://th.bing.com/th/id/OIP.SBcKiwzt4MqfhjUyQpTA4AHaEM?rs=1&pid=ImgDetMain",
+    price: "$90,000 COP"
+  }
+];
+
+
+    let index = 0;
+
+    function updateService() {
+      const service = services[index];
+      document.getElementById('service-title').textContent = service.title;
+      document.getElementById('service-description').textContent = `${service.description}\nPrecio: ${service.price}`;
+      document.getElementById('service-image').src = service.image;
+      document.getElementById('service-image').alt = service.title;
+      document.getElementById('image-title').textContent = service.title;
+      document.getElementById('image-text').textContent = service.description;
+      index = (index + 1) % services.length;
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      AOS.init({ duration: 1200, once: true });
+      updateService();
+      setInterval(updateService, 10000);
+
+      document.getElementById("whatsapp-link").addEventListener("click", function (event) {
+        event.preventDefault();
+        const phoneNumber = '573227190210';
+        const message = 'Hola Jesús Andrés, estoy interesado en tus servicios gráficos. ¡Cuéntame más!';
+        const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>

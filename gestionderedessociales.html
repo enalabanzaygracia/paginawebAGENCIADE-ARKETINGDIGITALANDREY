@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Responsive Design -->
+    <title>Servicio de Gestión de Redes Sociales</title>
+
+    <style>
+      /* Reset y base */
+      * {
+        box-sizing: border-box;
+      }
+
+      /* Fondo con imagen de universo + estilo para body */
+      body {
+        margin: 0;
+        padding: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        color: #eee;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: url("https://www.linfodurable.fr/sites/linfodurable/files/styles/share/public/2017-12/shutterstock_770739895.jpg?itok=cgvUqFQK")
+          no-repeat center center fixed;
+        background-size: cover;
+        position: relative;
+        overflow-x: hidden;
+        z-index: 0;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.5
+        ); /* Ajusta opacidad si lo deseas más claro u oscuro */
+        z-index: -1;
+      }
+      :root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+      /* El canvas de partículas (estrellas) */
+      #starfield {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: none; /* Para que no interfiera con clicks */
+        background: transparent;
+        display: block;
+      }
+
+      /* Contenedor del contenido, arriba del fondo y canvas */
+      #content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 600px;
+        padding: 20px;
+        background: rgba(
+          18,
+          18,
+          18,
+          0.75
+        ); /* fondo semitransparente para mejorar lectura */
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+      }
+
+      header h1 {
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      .service-details h2,
+      .service-details h3 {
+        margin: 10px 0;
+        line-height: 1.3;
+      }
+
+      ul.main-list {
+        padding-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      ul.main-list > li {
+        margin-bottom: 12px;
+      }
+      ul.main-list li.price-hover {
+        transition:
+          transform 0.3s ease,
+          color 0.3s ease,
+          box-shadow 0.3s ease;
+        display: inline-block;
+        font-weight: bold;
+        padding: 10px;
+        border-radius: 10px;
+      }
+
+      ul.main-list li.price-hover:hover {
+        transform: scale(1.05);
+        color: #00ff99;
+        box-shadow: 0 0 15px rgba(0, 255, 153, 0.5);
+        background-color: rgba(0, 255, 153, 0.1);
+        cursor: pointer;
+      }
+      .card-container {
+        width: 100%;
+        max-width: 320px;
+        height: 180px; /* altura fija */
+        background: linear-gradient(145deg, #1e3c72, #2a5298);
+        border-radius: 20px;
+        box-shadow:
+          0 15px 25px rgba(0, 0, 0, 0.6),
+          inset 0 0 30px rgba(255, 255, 255, 0.1);
+        padding: 25px 30px;
+        box-sizing: border-box;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: left;
+        color: #a0e9fd;
+        font-size: 1.05rem;
+        position: relative;
+        overflow: hidden;
+        min-height: 180px;
+      }
+
+      .service-text {
+        position: absolute;
+        width: 100%;
+        opacity: 0;
+        transition: opacity 1s ease;
+        line-height: 1.4;
+        padding-right: 10px;
+        box-sizing: border-box;
+      }
+      .service-text.active {
+        opacity: 1;
+        position: relative;
+      }
+
+      .service-text::before {
+        content: "✅ ";
+        color: #00ff99;
+        font-weight: bold;
+      }
+
+      .contact-button {
+        display: inline-block;
+        background-color: #56ccf2;
+        color: #121212;
+        padding: 12px 25px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        margin-top: 15px;
+        text-align: center;
+      }
+      .contact-button:hover {
+        background-color: #1e3c72;
+        color: white;
+      }
+
+      footer {
+        margin-top: 40px;
+        font-size: 0.9rem;
+        color: #888;
+        text-align: center;
+        width: 100%;
+        max-width: 600px;
+        position: relative;
+        z-index: 10;
+      }
+
+      @media (max-width: 400px) {
+        .card-container {
+          max-width: 100%;
+          height: auto;
+          padding: 15px 20px;
+        }
+        .service-text {
+          position: relative;
+          opacity: 1 !important;
+          transition: none !important;
+        }
+      }
+      .hero {
+        width: 100%;
+        height: 100vh;
+        min-height: 600px;
+        max-height: 800px;
+        position: relative;
+        display: grid;
+        grid-template-rows: 100px 1fr;
+        color: white;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      /* Imagen de fondo estilizada */
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(
+            180deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.3)
+          ),
+          url("https://th.bing.com/th/id/OIP.X8wwnX9Lylj1D3snXKmIDQHaEK?rs=1&pid=ImgDetMain");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter: brightness(0.85) blur(1px);
+        opacity: 0.65;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 95%, 0 80%);
+        z-index: 0;
+        pointer-events: none;
+      }
+      
+
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+  <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+    <!-- Canvas para estrellas -->
+    <canvas id="starfield"></canvas>
+
+    <div id="content">
+      <header class="hero">
+        <!-- Fondo ya se genera desde .hero::before -->
+
+        <nav class="nav container">
+          <div class="nav__logo">
+            <h2 class="nav__title">Gestión de Redes Sociales</h2>
+          </div>
+
+          <ul class="nav__link nav__link--menu">
+            <li class="nav__items active">
+              <a href="#servicios" class="https://rtvu2i.mimo.run/index.html"
+                >Servicios</a
+              >
+            </li>
+            <li class="nav__items active">
+              <a href="#precios" class="nav__links">Precios</a>
+            </li>
+            <li class="nav__items active">
+              <a href="#contacto" class="nav__links">Contáctanos</a>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="hero__container container">
+          <h1 class="hero__title">
+            Impulsa tu marca con nuestra Gestión de Redes Sociales 🚀
+          </h1>
+          <p class="hero__paragraph">
+            Crecimiento real, contenidos irresistibles y estrategias que
+            convierten seguidores en clientes.
+          </p>
+          <a href="#contacto" class="cta">Solicita tu asesoría gratuita</a>
+        </section>
+      </header>
+
+      <main>
+        <section class="service-details">
+          <h2>
+            ¿Quieres llevar tu presencia en redes sociales al siguiente nivel y
+            conectar más efectivamente con tu audiencia? 🚀
+          </h2>
+          <h3>⚠️ Descubre nuestro servicio de Gestión de Redes Sociales:</h3>
+          <ul class="main-list">
+            <li>
+              <strong>💥 Gestión Integral de Redes Sociales:</strong>
+              Administramos y optimizamos tus perfiles sociales para aumentar tu
+              visibilidad, engagement y conversión de seguidores en clientes.
+            </li>
+            <li><strong>✅ Incluye:</strong></li>
+          </ul>
+
+          <div
+            class="card-container"
+            aria-live="polite"
+            aria-atomic="true"
+          ></div>
+
+          <ul class="main-list">
+            <li class="price-hover">💥 Desde: $1,300,000 (por un mes)</li>
+          </ul>
+
+          <h3>
+            🚀 Potencia tu marca y mejora tu presencia en redes sociales.
+            ¡Contáctanos para una estrategia personalizada que impulse tu
+            negocio!
+          </h3>
+
+          <a href="https://vjb7fw.mimo.run/index.html" class="contact-button"
+            >Contáctenos</a
+          >
+        </section>
+      </main>
+
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+
+    </div>
+
+    <script>
+      // Estrellas en canvas animadas
+
+      const canvas = document.getElementById("starfield");
+      const ctx = canvas.getContext("2d");
+      let width, height;
+
+      function resize() {
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width;
+        canvas.height = height;
+      }
+      resize();
+      window.addEventListener("resize", resize);
+
+      // Crear estrellas
+      const starsCount = 200;
+      const stars = [];
+
+      class Star {
+        constructor() {
+          this.reset();
+        }
+        reset() {
+          this.x = Math.random() * width;
+          this.y = Math.random() * height;
+          this.z = Math.random() * width; // profundidad
+          this.size = 1 + Math.random() * 1.5;
+          this.speed = 0.02 + Math.random() * 0.05;
+        }
+        update() {
+          this.z -= this.speed * width * 0.01;
+          if (this.z <= 0) this.reset();
+        }
+        draw() {
+          const sx = (this.x - width / 2) * (width / this.z) + width / 2;
+          const sy = (this.y - height / 2) * (width / this.z) + height / 2;
+          const radius = this.size * (width / this.z);
+
+          if (sx < 0 || sx >= width || sy < 0 || sy >= height) return;
+
+          ctx.beginPath();
+          ctx.arc(sx, sy, radius, 0, Math.PI * 2);
+          ctx.fillStyle = "white";
+          ctx.shadowColor = "white";
+          ctx.shadowBlur = 4;
+          ctx.fill();
+        }
+      }
+
+      for (let i = 0; i < starsCount; i++) {
+        stars.push(new Star());
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        stars.forEach((star) => {
+          star.update();
+          star.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+      animate();
+
+      // Texto rotativo dentro del card-container
+
+      const features = [
+        "📅 Planificación Estratégica de Contenidos: Creamos un calendario editorial personalizado, alineado con tus objetivos de negocio, temporadas y tendencias.",
+
+        "🎯 Publicidad Digital de Alto Impacto: Diseñamos campañas en Meta Ads, Google Ads y TikTok Ads para maximizar conversiones y alcance segmentado.",
+
+        "📈 Análisis Profesional de Métricas: Evaluamos estadísticas clave con herramientas como Meta Business Suite, Google Analytics y Hotjar para decisiones inteligentes.",
+
+        "✍️ Copywriting Persuasivo para Redes: Redactamos mensajes que conectan emocionalmente con tu audiencia y fortalecen la identidad de tu marca.",
+
+        "🧠 Desarrollo de Marca Personal y Corporativa: Creamos un tono de comunicación, estilo visual y storytelling únicos que te diferencien del resto.",
+
+        "💬 Atención al Cliente 24/7 en Redes: Respondemos mensajes, comentarios y consultas con empatía, rapidez y profesionalismo, reforzando tu reputación digital.",
+
+        "📹 Producción de Contenido Multimedia: Desarrollamos reels, vídeos verticales, tutoriales y microvideos adaptados a Instagram, TikTok y YouTube Shorts.",
+
+        "🎨 Diseño Gráfico Premium: Elaboramos piezas visuales atractivas, coherentes y optimizadas para cada plataforma (portadas, carruseles, stories, etc).",
+
+        "🚀 Gestión de Campañas con Influencers: Seleccionamos, negociamos y gestionamos colaboraciones con influencers afines a tu nicho para generar credibilidad y viralización.",
+
+        "🔒 Gestión de Reputación Online y Crisis: Monitoreamos menciones y opiniones para actuar rápidamente ante posibles situaciones negativas.",
+
+        "📢 Estrategias de Lanzamientos y Promociones: Organizamos campañas estratégicas para eventos, nuevos productos o promociones especiales.",
+
+        "🔄 Automatización Inteligente de Publicaciones: Usamos herramientas como Buffer, Metricool o Later para garantizar constancia sin esfuerzo.",
+
+        "🌍 Social Listening & Tendencias Globales: Detectamos en tiempo real temas virales, hashtags estratégicos y oportunidades de contenido.",
+
+        "📚 Capacitación & Asesoría Personalizada: Ofrecemos entrenamientos y consultorías para equipos internos de marketing o emprendedores.",
+
+        "🧩 Integración con CRM y Funnels de Venta: Sincronizamos redes sociales con tu embudo de ventas para generar leads y cerrar ventas.",
+
+        "🌐 Gestión Multicanal: Administramos tu presencia en varias plataformas (Instagram, Facebook, TikTok, X, LinkedIn, YouTube) con coherencia y eficiencia.",
+
+        "⚙️ Integración con Chatbots y Automatizaciones: Implementamos bots para mejorar la atención y generar conversiones en automático.",
+
+        "🗓️ Informes de Resultados Interactivos: Recibirás dashboards mensuales o semanales para visualizar el rendimiento con claridad.",
+
+        "🛒 Soporte para Social Commerce: Configuramos catálogos, etiquetas de producto y links de compra directa desde redes sociales.",
+
+        "🌱 Escalabilidad y Adaptación Continua: Adaptamos nuestros servicios a medida que tu negocio crece o cambia de estrategia.",
+      ];
+
+      const container = document.querySelector(".card-container");
+      let currentIndex = 0;
+      let texts = [];
+
+      features.forEach((text) => {
+        const div = document.createElement("div");
+        div.classList.add("service-text");
+        div.textContent = text;
+        container.appendChild(div);
+        texts.push(div);
+      });
+
+      texts[0].classList.add("active");
+
+      function showNextFeature() {
+        texts[currentIndex].classList.remove("active");
+        currentIndex = (currentIndex + 1) % texts.length;
+        texts[currentIndex].classList.add("active");
+      }
+
+      setInterval(showNextFeature, 10000);
+    </script>
+  </body>
+</html>

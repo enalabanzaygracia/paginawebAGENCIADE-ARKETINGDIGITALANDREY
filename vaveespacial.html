@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Naves</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        #canvas {
+            display: block;
+            background-color: #000;
+        }
+        #score, #life {
+            position: absolute;
+            color: #fff;
+            font-size: 15px;
+        }
+        #score {
+            top: 10px;
+            left: 10px;
+        }
+        #life {
+            top: 10px;
+            right: 10px;
+        }
+        #loader {
+            height: 5vh;
+            width: 50vw;
+            background-color: #aeacac;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            font-size: 20px;
+            color: #fff;
+            border: 1px solid #0ff;
+        }
+        .innerLoader {
+            height: 100%;
+            width: 0;
+            background-color: #8cff6c;
+            animation: move 6s forwards;
+        }
+        @keyframes move {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        #start {
+            height: 40px;
+            width: 180px;
+            background-color: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid #0ff;
+            box-shadow: 0px 0px 10px #0ff;
+            border-radius: 50px;
+            font-size: 18px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div id="loader">
+    <div class="innerLoader"></div>
+    <div class="loaderText">Cargando...</div>
+</div>
+<div id="start">Start</div>
+<script>
+    window.onload = () => {
+        const start = document.getElementById("start");
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        let x = window.innerWidth / 2;
+        let y = window.innerHeight - 100;
+        let score = 0;
+        let hearts = 20;
+        let enemySpeed = 1;
+        let bullets = [];
+        let enemy = [];
+        let stars = [];
+        let gameOver = false;
+        let moving = false;
+        let startTime = 0;
+        let countdown = 60;
+        let leftPressed = false, rightPressed = false;
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        setTimeout(() => {
+            document.getElementById("loader").remove();
+            start.style.visibility = "visible";
+        }, 6000);
+
+        start.onclick = () => {
+            start.textContent = "Re-start";
+            start.style.visibility = "hidden";
+            hearts = 20;
+            score = 0;
+            countdown = 60;
+            gameOver = false;
+            startTime = Date.now();
+            if (!moving) {
+                moving = true;
+                animate();
+            }
+            bullets = [];
+            enemy = [];
+            stars = [];
+        };
+
+        canvas.addEventListener("touchmove", (e) => {
+            x = e.changedTouches[0].clientX;
+        });
+
+        // Mover con teclado
+        document.addEventListener("keydown", (e) => {
+            if (e.code === "ArrowLeft") leftPressed = true;
+            if (e.code === "ArrowRight") rightPressed = true;
+            if (e.code === "Space") shoot();
+        });
+
+        document.addEventListener("keyup", (e) => {
+            if (e.code === "ArrowLeft") leftPressed = false;
+            if (e.code === "ArrowRight") rightPressed = false;
+        });
+
+        // Disparo al tocar pantalla
+        canvas.addEventListener("click", shoot);
+
+        function shoot() {
+            bullets.push({ bx: x, by: y - 40 });
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            if (!gameOver) {
+                ctx.fillStyle = "#fff";
+                ctx.font = "15px sans-serif";
+                ctx.fillText("Score: " + score, 10, 10);
+                ctx.fillText("Life: " + hearts + "❤️", canvas.width - 100, 10);
+                ctx.textAlign = "center";
+                ctx.fillText("Time Left: " + countdown, canvas.width / 2, 10);
+
+                if (leftPressed) x -= 5;
+                if (rightPressed) x += 5;
+
+                x = Math.max(50, Math.min(canvas.width - 50, x));
+
+                const userPlane = new Image();
+                userPlane.src = 'https://i.imgur.com/2My8BFX.png';
+                ctx.drawImage(userPlane, x - 40, y - 40, 80, 80);
+
+                bullets.forEach((b, i) => {
+                    ctx.fillStyle = "#0ff";
+                    ctx.fillRect(b.bx - 2, b.by, 4, 10);
+                    b.by -= 10;
+                    if (b.by < 0) bullets.splice(i, 1);
+                });
+
+                enemy.forEach((e, j) => {
+                    const enemyPlane = new Image();
+                    enemyPlane.src = 'https://i.imgur.com/RZ2zPfW.png';
+                    ctx.drawImage(enemyPlane, e.ex, e.ey, 50, 50);
+                    e.ey += enemySpeed;
+
+                    bullets.forEach((b, i) => {
+                        if (b.bx > e.ex && b.bx < e.ex + 50 && b.by < e.ey + 50 && b.by > e.ey) {
+                            enemy.splice(j, 1);
+                            bullets.splice(i, 1);
+                            score += 10;
+                        }
+                    });
+
+                    if (e.ey > canvas.height) enemy.splice(j, 1);
+
+                    if (x + 40 > e.ex && x - 40 < e.ex + 50 && y + 40 > e.ey && y - 40 < e.ey + 50) {
+                        hearts--;
+                        enemy.splice(j, 1);
+                    }
+                });
+
+                if (hearts <= 0) {
+                    alert("Game Over\nScore: " + score);
+                    gameOver = true;
+                }
+
+                if (Date.now() - startTime >= 1000 && countdown > 0) {
+                    countdown--;
+                    startTime = Date.now();
+                }
+
+                if (countdown <= 0 && !gameOver) {
+                    alert("You Win!\nScore: " + score);
+                    gameOver = true;
+                }
+            }
+        }
+
+        function animate() {
+            if (!gameOver) {
+                draw();
+                spawnEnemy();
+                requestAnimationFrame(animate);
+            }
+        }
+
+        function spawnEnemy() {
+            if (Math.random() < 0.01) {
+                enemy.push({ ex: Math.random() * (canvas.width - 60), ey: -60 });
+            }
+        }
+    };
+</script>
+</body>
+</html>

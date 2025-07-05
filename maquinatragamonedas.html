@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina Traga monedas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+:root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .tragamonedas {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .rodillos {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .rodillo {
+            width: 100px;
+            height: 150px;
+            border: 2px solid #bbb;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            background: #f0f0f0;
+        }
+
+        .contenedor-simbolos {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            transition: transform 1s ease-in-out;
+        }
+
+        .simbolo {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: center;
+            color: #333;
+            height: 50px;
+            line-height: 50px;
+        }
+
+        .boton-girar {
+            background-color: #28a745;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .boton-girar:hover {
+            background-color: #218838;
+        }
+
+        .boton-girar:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .info {
+            margin-top: 15px;
+        }
+
+        .info div {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        #montoApuesta {
+            width: 60px;
+            padding: 5px;
+            font-size: 16px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        #mensaje {
+            font-weight: bold;
+            margin-top: 10px;
+            color: #e74c3c;
+        }
+
+        .reglas {
+            margin-top: 20px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .reglas h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .reglas ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+
+
+
+
+        
+ 
+
+
+
+        
+
+
+
+
+
+
+
+<body>
+    <div class="tragamonedas">
+        <div class="rodillos">
+            <div class="rodillo" data-index="0">
+                <div class="contenedor-simbolos"></div>
+            </div>
+            <div class="rodillo" data-index="1">
+                <div class="contenedor-simbolos"></div>
+            </div>
+            <div class="rodillo" data-index="2">
+                <div class="contenedor-simbolos"></div>
+            </div>
+        </div>
+        <button class="boton-girar">Girar</button>
+        <div class="info">
+            <div>Saldo: <span id="saldo">1000</span></div>
+            <div>
+                Monto de Apuesta: 
+                <input type="number" id="montoApuesta" min="1" max="100" value="10">
+            </div>
+            <div id="mensaje"></div>
+        </div>
+        <div class="reglas">
+            <h3>Reglas del Juego:</h3>
+            <ul>
+                <li>Apuesta un monto entre $1 y $100.</li>
+                <li>Si obtienes 2 símbolos iguales: ganas 1.1x tu apuesta.</li>
+                <li>Si obtienes 3 símbolos iguales: ganas 5.5x tu apuesta.</li>
+                
+                <li>Juegan solo con las casillas iniciales o superiores </li>
+            </ul>
+        </div>
+        
+        <br>
+        <br>
+        
+        <div class="nav-bg">
+      <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+        </div>
+
+    </div>
+    
+    
+    
+    
+    <script>
+        const botonGirar = document.querySelector('.boton-girar');
+        const rodillos = document.querySelectorAll('.rodillo');
+        const simbolos = ['🍒', '🍋', '🍊', '🍉', '⭐', '💎', '🍇', '🍍', '🥝', '🍓'];
+        let saldo = 1000;
+
+        function inicializarRodillos() {
+            rodillos.forEach(rodillo => {
+                const contenedor = rodillo.querySelector('.contenedor-simbolos');
+                contenedor.innerHTML = '';
+                for (let i = 0; i < 10; i++) {
+                    const simboloDiv = document.createElement('div');
+                    simboloDiv.classList.add('simbolo');
+                    simboloDiv.innerText = simbolos[Math.floor(Math.random() * simbolos.length)];
+                    contenedor.appendChild(simboloDiv);
+                }
+            });
+        }
+
+        function girarRodillos() {
+            rodillos.forEach(rodillo => {
+                const contenedor = rodillo.querySelector('.contenedor-simbolos');
+                const desplazamiento = Math.floor(Math.random() * 10) * 50;
+                contenedor.style.transform = `translateY(-${desplazamiento}px)`;
+
+                setTimeout(() => {
+                    contenedor.style.transition = 'none';
+                    contenedor.style.transform = `translateY(0)`;
+                    reorganizarSimbolos(contenedor, desplazamiento / 50);
+                }, 1000);
+
+                contenedor.style.transition = 'transform 1s ease-in-out';
+            });
+        }
+
+        function reorganizarSimbolos(contenedor, desplazamiento) {
+            const simbolos = Array.from(contenedor.children);
+            for (let i = 0; i < desplazamiento; i++) {
+                contenedor.appendChild(simbolos[i]);
+            }
+        }
+
+        function verificarResultado() {
+            const montoApuesta = parseInt(document.getElementById('montoApuesta').value);
+
+            if (montoApuesta > saldo) {
+                mostrarMensaje('Saldo insuficiente');
+                return;
+            }
+
+            saldo -= montoApuesta;
+            document.getElementById('saldo').innerText = saldo;
+
+            const resultados = Array.from(rodillos).map(rodillo => {
+                return rodillo.querySelector('.simbolo').innerText;
+            });
+
+            const contador = resultados.reduce((acc, simbolo) => {
+                acc[simbolo] = (acc[simbolo] || 0) + 1;
+                return acc;
+            }, {});
+
+            const maxRepetidos = Math.max(...Object.values(contador));
+
+            let premio = 0;
+
+            if (maxRepetidos === 2) premio = montoApuesta * 1.1;
+            else if (maxRepetidos === 3) premio = montoApuesta * 5.5;
+            else if (maxRepetidos === 4) premio = montoApuesta * 0.75;
+            else if (maxRepetidos === 5) premio = montoApuesta;
+
+            saldo += premio;
+            document.getElementById('saldo').innerText = saldo;
+
+            if (maxRepetidos >= 2) {
+                mostrarMensaje(`¡Ganaste! Premio: $${premio.toFixed(2)}`);
+            } else {
+                mostrarMensaje('Perdiste. ¡Intenta de nuevo!');
+            }
+
+            if (saldo <= 0) {
+                mostrarMensaje('¡Juego terminado! No puedes seguir apostando.');
+                botonGirar.disabled = true;
+            }
+        }
+
+        function mostrarMensaje(mensaje) {
+            const mensajeDiv = document.getElementById('mensaje');
+            mensajeDiv.innerText = mensaje;
+        }
+
+        botonGirar.addEventListener('click', () => {
+            girarRodillos();
+            setTimeout(verificarResultado, 1200);
+        });
+
+        inicializarRodillos();
+    </script>
+    
+</body>
+</html>
+
+
+
+
+    

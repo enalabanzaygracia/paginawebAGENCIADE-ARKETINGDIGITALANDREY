@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño de Fan Page - Andrey MUNDO PUBLICIDAD</title>
+  <style>
+    :root {
+      --primary: #39a900;
+      --secondary: #98fe58;
+      --tertiary: #f2ffe5;
+      --alternate: #29690b;
+      --text: #000;
+    }
+
+   body {
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5fff5; /* Color de respaldo si no carga la imagen */
+  background-image: url('https://i.ytimg.com/vi/0wTM037uN0A/maxresdefault.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--text);
+  position: relative;
+  min-height: 100vh;
+  z-index: 0;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.4); /* o usa rgba(0, 0, 0, 0.4) si prefieres tono oscuro */
+  z-index: -1;
+}
+    header, footer {
+      background-color: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 1.5rem 1rem;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .service-info h2 {
+      color: var(--alternate);
+      margin-bottom: 1rem;
+    }
+
+    .service-info ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    .service-info ul li {
+      opacity: 0;
+      transform: translateX(-20px);
+      margin-bottom: 1rem;
+      transition: all 0.8s ease;
+      background-color: #fff;
+      padding: 1rem;
+      border-left: 5px solid var(--primary);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .service-info ul li.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    #precio {
+      font-weight: bold;
+      display: inline-block;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    #precio:hover {
+      color: var(--primary);
+      font-size: 1.4rem;
+      transform: scale(1.1);
+      background: var(--tertiary);
+      padding: 0.2rem 0.5rem;
+      border-radius: 8px;
+    }
+
+    #contactBtn {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      margin-top: 2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    #contactBtn:hover {
+      background-color: var(--alternate);
+    }
+      .features-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+  }
+
+  .features-list li {
+    opacity: 0;
+    transform: translateY(20px);
+    margin-bottom: 1.2rem;
+    padding: 1rem 1.5rem;
+    border-left: 5px solid var(--primary);
+    background-color: var(--tertiary);
+    border-radius: 8px;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+    transition: all 0.6s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .features-list li.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .features-list .icon {
+    font-size: 1.4rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    
+  }
+  .servicios-avanzados {
+    margin: 3rem auto;
+    padding: 2rem;
+    background-color: var(--tertiary, #f2ffe5);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    max-width: 850px;
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  .servicios-avanzados h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--alternate, #29690b);
+  }
+
+  #servicio-dinamico p {
+    font-size: 1.2rem;
+    color: var(--primary-text, #000);
+    transition: all 0.4s ease;
+    background-color: #ffffff;
+    padding: 1.2rem;
+    border-radius: 15px;
+    border-left: 6px solid var(--primary, #39a900);
+    margin-bottom: 1rem;
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .nota {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 1rem;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .boton-contacto {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #39a900;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.boton-contacto:hover {
+  background-color: #2e7c00;
+  transform: scale(1.05);
+}
+:root {
+  --color-primario: #6a0dad;
+  --color-secundario: #caa8f5;
+  --color-hover: #e6d4f5;
+  --color-texto-hover: #1a1a1a;
+  --color-borde: #4b0082;
+}
+
+/* Contenedor del menú */
+.menu-principal {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: linear-gradient(
+    270deg,
+    var(--color-primario),
+    var(--color-secundario),
+    var(--color-primario)
+  );
+  background-size: 600% 600%;
+  animation: olaMorada 14s ease-in-out infinite;
+  padding: 0.7rem 1rem;
+  border-bottom: 3px solid var(--color-borde);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  overflow-x: auto;
+}
+
+/* Contenedor de los enlaces */
+.menu-links {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* Estilos base de los enlaces */
+.menu-principal a {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  white-space: nowrap;
+  transition:
+    background-color 0.4s ease,
+    transform 0.3s ease,
+    color 0.3s ease,
+    font-size 0.3s ease;
+}
+
+/* Hover */
+.menu-principal a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: var(--color-texto-hover);
+  transform: scale(1.1);
+  font-size: 1.05rem;
+}
+
+/* Animación de fondo */
+@keyframes olaMorada {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+:root {
+  --footer-base: #04324d;
+  --footer-verde: #39a900;
+  --footer-verde-claro: #98fe58;
+  --footer-blanco: #ffffff;
+}
+
+/* --- FOOTER GENERAL --- */
+.footer {
+  background: linear-gradient(270deg, var(--footer-base), #0c4b2a, var(--footer-base));
+  background-size: 400% 400%;
+  animation: footerOndaVerde 18s ease-in-out infinite;
+  color: var(--footer-blanco);
+  text-align: center;
+  padding: 2.5rem 1rem;
+  font-size: 0.95rem;
+  margin-top: 4rem;
+  border-top: 4px solid var(--footer-verde);
+  box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* --- CONTENEDOR INTERIOR --- */
+.footer__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* --- TEXTOS --- */
+.footer__text {
+  margin: 0.5rem 0;
+}
+
+.footer__text.no-link-style {
+  color: var(--footer-blanco);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+/* --- CRÉDITOS --- */
+.footer__credits {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--footer-blanco);
+}
+
+/* --- ENLACES DE CRÉDITOS --- */
+.footer__credits a {
+  color: var(--footer-verde-claro);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer__credits a:hover {
+  color: #52d726;
+}
+
+/* --- REDES SOCIALES --- */
+.footer__social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+}
+
+/* Botones redondeados con nombre */
+.footer__icon-link-named {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--footer-blanco);
+  text-decoration: none;
+  padding: 0.3rem 0.6rem;
+  border-radius: 2rem;
+  font-size: 0.78rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer__icon-link-named:hover {
+  background-color: var(--footer-verde);
+  transform: scale(1.05);
+}
+
+/* Tamaño reducido de íconos */
+.footer__icon-svg-named {
+  width: 14px;
+  height: 14px;
+  fill: var(--footer-blanco);
+}
+
+/* --- ANIMACIÓN DE FONDO ONDULANTE --- */
+@keyframes footerOndaVerde {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+  </style>
+</head>
+<body>
+    <div class="nav-bg">
+    <nav class="menu-principal">
+  <a href="https://t0hq25.mimo.run/index.html">Inicio</a>
+  <a href="https://bxzip2.mimo.run/index.html">Desarrollo Web</a>
+  <a href="https://da77xv.mimo.run/index.html">Diseño de Sistemas Mecánicos</a>
+  <a href="https://rtvu2i.mimo.run/index.html">Marketing Digital</a>
+  <a href="https://1wp6zn.mimo.run/index.html">Capacitaciones</a>
+  <a href="https://p7yqrr.mimo.run/index.html">Asesores Comerciales</a>
+  <a href="https://vjb7fw.mimo.run/index.html">Quiénes Somos</a>
+</nav>
+    </div>
+
+  <header>
+    <h1>🚀 ¡Destaca tu Negocio en Facebook! 🚀</h1>
+  </header>
+
+  <main>
+    <section class="service-info">
+      <h2>🎉 Diseño de Fan Page Profesional a partir de $200,000 🎉</h2>
+      <p>¿Quieres que tu negocio brille en las redes sociales? Nuestro servicio se encarga de la configuración inicial de tu Fan Page en Facebook para que puedas comenzar a atraer clientes de inmediato.</p>
+
+      <h3>🔥 ¿Por qué tener una Fan Page?</h3>
+      <ul id="benefits-list">
+        <li><strong>Diseño Atractivo:</strong> Una página que refleje tu marca y cautive a tus visitantes.</li>
+        <li><strong>Optimización Inicial:</strong> Aseguramos que tu Fan Page esté lista para atraer a tu público objetivo.</li>
+        <li><strong>Interacción con Clientes:</strong> Facilita el contacto y la comunicación con tus seguidores.</li>
+      </ul>
+
+      <h3>✨ Incluye:</h3>
+      <ul id="features-list" class="features-list">
+  <li><span class="icon">✔️</span> Creación y configuración de tu Fan Page</li>
+  <li><span class="icon">🧭</span> Asesoría básica en el manejo de la página</li>
+</ul>
+
+<section class="servicios-avanzados">
+  <h2>🌟 Servicios Profesionales que Potencian tu Fan Page 🌟</h2>
+  <div id="servicio-dinamico" class="servicio-activo"></div>
+  <p class="nota">Todos los precios están en pesos colombianos (COP).</p>
+</section>
+
+<script>
+  const servicios = [
+    "🔧 <strong>Optimización SEO para Facebook:</strong> configuración de nombre, descripción y hashtags. <strong>$60,000</strong>",
+    "🔧 <strong>Botón de Acción (WhatsApp, Llamar, Reservar):</strong> configuración estratégica. <strong>$50,000</strong>",
+    "🔧 <strong>Instalación de Facebook Pixel:</strong> para seguimiento de conversiones. <strong>$80,000</strong>",
+    "🔧 <strong>WhatsApp Business Integrado:</strong> contacto directo y automatización. <strong>$70,000</strong>",
+    "🎨 <strong>Diseño de Portada Profesional:</strong> imagen impactante y adaptada. <strong>$100,000</strong>",
+    "🎨 <strong>Diseño de Foto de Perfil Profesional:</strong> versión optimizada para dispositivos. <strong>$50,000</strong>",
+    "🎨 <strong>5 Plantillas para Publicaciones:</strong> entregadas en Canva editables. <strong>$120,000</strong>",
+    "📲 <strong>3 Publicaciones de Lanzamiento:</strong> presentación, servicios y contacto. <strong>$90,000</strong>",
+    "📲 <strong>Calendario de Contenidos (1 semana):</strong> ideas con horarios óptimos. <strong>$60,000</strong>",
+    "📲 <strong>Redacción Profesional de Bio:</strong> con CTA, emojis y palabras clave. <strong>$45,000</strong>",
+    "📢 <strong>Campaña Publicitaria Inicial:</strong> diseño + segmentación para atraer seguidores. <strong>$180,000</strong>",
+    "📢 <strong>Asesoría de Crecimiento:</strong> tips de posicionamiento y visibilidad. <strong>$50,000</strong>",
+    "📢 <strong>Activación de Tienda y Catálogo:</strong> si vendes productos. <strong>$120,000</strong>",
+    "📢 <strong>Reseñas y Servicios:</strong> configuración para negocios locales. <strong>$50,000</strong>",
+    "🧠 <strong>Guía en PDF o Video:</strong> administración de tu Fan Page. <strong>$40,000</strong>",
+    "🧠 <strong>Soporte por 7 días:</strong> ajustes y asistencia inicial. <strong>$30,000</strong>",
+    "🧠 <strong>Creación de Cuentas (Facebook, Business, Meta):</strong> si no tienes. <strong>$60,000</strong>"
+  ];
+
+  let index = 0;
+  const servicioContainer = document.getElementById('servicio-dinamico');
+
+  function mostrarServicio() {
+    servicioContainer.innerHTML = `<p>${servicios[index]}</p>`;
+    index = (index + 1) % servicios.length;
+  }
+
+  mostrarServicio();
+  setInterval(mostrarServicio, 3000); // cambia cada 3 segundos
+</script>
+
+
+
+      <p>📞 ¡Contáctanos y comienza a brillar en Facebook!</p>
+      <p>Por solo <span id="precio">$200,000</span>, transforma tu presencia digital.</p>
+    </section>
+
+<a href="https://tmt44a.mimo.run/index.html" class="boton-contacto" target="_blank">¡Contáctanos!</a>
+
+  </main>
+<footer class="footer footer-profesional">
+  <div class="footer__container">
+
+    <p class="footer__text">
+      <strong>Jesús Andrés Salazar</strong> — Analista y Desarrollador de Software | Diseño Mecánico Profesional
+    </p>
+
+    <p class="footer__text no-link-style">
+      Contacto: plataformaandrey@gmail.com | Tel: 322 719 0210
+    </p>
+
+    <div class="footer__social">
+      <!-- Facebook -->
+      <a href="https://www.facebook.com/jesusandres.salazar2" class="footer__icon-link-named" target="_blank" title="Facebook" aria-label="Facebook">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22 12a10 10 0 1 0-11.63 9.87v-6.99H7.9v-2.88h2.47V9.41c0-2.44 1.45-3.79 3.67-3.79 1.06 0 2.17.19 2.17.19v2.39h-1.22c-1.2 0-1.57.75-1.57 1.52v1.82h2.67l-.43 2.88h-2.24v6.99A10 10 0 0 0 22 12z" fill="white"/>
+        </svg>
+        <span>Facebook</span>
+      </a>
+
+      <!-- Twitter -->
+      <a href="#" class="footer__icon-link-named" target="_blank" title="Twitter" aria-label="Twitter">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.25 4.25 0 0 0 1.88-2.34 8.5 8.5 0 0 1-2.69 1.03 4.23 4.23 0 0 0-7.2 3.86A12 12 0 0 1 3.15 4.7a4.23 4.23 0 0 0 1.31 5.65 4.18 4.18 0 0 1-1.91-.53v.05a4.24 4.24 0 0 0 3.4 4.14 4.22 4.22 0 0 1-1.9.07 4.24 4.24 0 0 0 3.95 2.93A8.5 8.5 0 0 1 2 19.54 12 12 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.68l-.01-.53A8.36 8.36 0 0 0 22.46 6z" fill="white"/>
+        </svg>
+        <span>Twitter</span>
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://www.youtube.com/@JesusAndresSalazar" class="footer__icon-link-named" target="_blank" title="YouTube" aria-label="YouTube">
+        <svg class="footer__icon-svg-named" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <path d="M549.655 124.083c-6.281-23.65-24.815-42.293-48.477-48.589C456.772 64 288 64 288 64s-168.772 0-213.178 11.494c-23.661 6.296-42.196 24.938-48.477 48.589C16 168.804 16 256.004 16 256.004s0 87.199 10.345 131.92c6.281 23.65 24.815 42.293 48.477 48.589C119.228 448 288 448 288 448s168.772 0 213.178-11.494c23.661-6.296 42.196-24.938 48.477-48.589C560 343.203 560 256.004 560 256.004s0-87.199-10.345-131.921zM232 336.004V176.004l142.857 80L232 336.004z" fill="white"/>
+        </svg>
+        <span>YouTube</span>
+      </a>
+    </div>
+
+    <p class="footer__credits">
+      © 2024 Agencia De Marketing Digital Andrey - MUNDO PUBLICIDAD<br>
+      Todos los derechos reservados. Diseñado por <strong>Jesús Andrés Salazar</strong>.
+    </p>
+
+  </div>
+</footer>
+
+
+
+  <script>
+    // Mostrar los beneficios uno por uno con delay
+    document.addEventListener("DOMContentLoaded", () => {
+      const items = document.querySelectorAll('#benefits-list li');
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('visible');
+        }, index * 800); // 800ms de diferencia entre cada uno
+      });
+    });
+  </script>
+</body>
+</html>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const features = document.querySelectorAll('#features-list li');
+    features.forEach((item, i) => {
+      setTimeout(() => {
+        item.classList.add('visible');
+      }, i * 500); // Espaciado de 500ms entre ítems
+    });
+  });
+</script>
+
